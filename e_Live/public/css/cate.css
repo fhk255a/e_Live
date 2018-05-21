@@ -1,0 +1,252 @@
+@charset "UTF-8";
+@font-face {
+    font-family: SketchRockwell; /*这里是说明调用来的字体名字*/
+    src: url('../../fonts/glyphicons-halflings-regular.svg'); /*这里是字体文件路径*/
+}
+html{
+    font-size: 100px;
+}
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+a{
+    outline:none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+body{
+    background: #f0f0f0;
+}
+[v-cloak]{display:none}
+#cate_header{
+    width: 100%;
+    height: 1.45rem;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+.c_head{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.c_h_left,.c_h_right{
+    width: 15%;
+    height: 100%;
+}
+.c_h_center{
+    width: 70%;
+    height: 100%;
+    padding: 0.2rem 0;
+}
+/*返回上一页,定位*/
+.c_h_left>p,.c_h_right>p{
+    display: block;
+    width: 55%;
+    height: 80%;
+    /*background: #fff;*/
+    margin: 0.3rem auto;
+    border-radius: 50%;
+
+}
+.c_h_left>p>span,.c_h_right>p>span{
+    font-size: 0.6rem;
+    color: #666;
+    line-height: 130%;
+}
+/*顶部搜索框*/
+.h_search{
+    width: 100%;
+    height: 100%;
+    border-radius: 80px;
+    background: #e6e7e8;
+    text-align: center;
+
+}
+.h_search>span{
+    font-size: 0.35rem;
+    color: #7b7b7b;
+    line-height: 1rem;
+}
+/*轮播*/
+#panner_lunbo{
+    margin-top: 1.45rem;
+    width: 100%;
+    height: 300px;
+}
+#carousel-example-generic img{
+    display: inline-block;
+    width: 100%;
+    height: 300px;
+}
+/*列表*/
+#cate_list{
+    width: 100%;
+    height: 560px;
+    padding: 50px 0 30px;
+    background: #fff;
+}
+.c_list_ul{
+    width: 100%;
+    height: 50%;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+}
+.c_list_ul li{
+    width: 25%;
+    height: 100%;
+    list-style: none;
+    text-align: center;
+}
+.c_list_ul li p{
+    font-size: 0.4rem;
+    color: #666;
+}
+/*<!--推荐-->*/
+#recommend{
+    width: 100%;
+    height: 800px;
+    margin-top: 30px;
+    padding: 30px 3%    ;
+    background: #fff;
+}
+.recommend_ul{
+    width: 100%;
+    height: 450px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.recommend_ul li{
+    width: 32%;
+    background: #f8f8f8;
+    list-style: none;
+}
+.recommend_ul li img{
+    width: 100%;
+    height: 210px;
+}
+.recommend_ul li>div{
+    width: 100%;
+    height: 240px;
+    padding: 0 15px ;
+}
+.recommend_ul li div h2{
+    font-size: 0.45rem;
+}
+.recommend_ul li div p{
+    font-size: 0.3rem;
+    margin: 15px 0;
+    color: #333;
+}
+.sale{
+    display: inline-block;
+    height: 45px;
+    line-height: 45px;
+    font-size: 0.26rem;
+    border-radius: 10px;
+}
+.sale span{
+    display: inline-block;
+    max-width: 2.1rem;
+    padding: 0 .05rem;
+    color: #ff6868;
+    border-radius: .1rem;
+    border: 1px solid #ff6868;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.sale .sale_1{
+    padding: 0;
+}
+.sale_1:before{
+    display: inline-block;
+    content: "4.8折";
+    background: #ff6868;
+    padding: 0 .05rem;
+    margin-right: 5px;
+    color: #fff;
+}
+.color_1{
+    color: #ff7b41;
+}
+.color_2{
+    color: #cc865a;
+}
+.color_3{
+    color: #55aeff  ;
+}
+.recommend_panner{
+    width: 100%;
+    height: 270px;
+    display: flex;
+}
+
+.r_p_left{
+    width: 35%;
+    height: 270px;
+}
+.r_p_right{
+    width: 65%;
+    height: 270px;
+    padding: 25px 30px 0 17px;
+    background-color: #ff6666;
+    position: relative;
+}
+.r_p_right h2{
+    margin-top: 0;
+    font-size: 0.4rem;
+    font-weight: bold;
+    color: #fff;
+}
+.r_p_right>p{
+    font-size: 0.48rem;
+    color: #fff;
+}
+.r_p_right .sale{
+    border: 2px solid #fff;
+    float: left;
+
+}
+.r_p_right .sale span{
+    font-size: 0.3rem;
+    color: #fff;
+}
+.r_p_right>div>p{
+    float: right;
+    font-size: 0.3rem;
+    color: #fff;
+}
+.dizhi{
+    display: block;
+    float: left;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+/*倒计时*/
+.t_time{
+    width: 180px;
+    height: 45px;
+    font-size: .27rem;
+    color: #000;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+}
+.t_time span{
+    margin: 0 .05rem;
+    padding: 0 .05rem;
+    background-color: #000;
+    color: #fff;
+}

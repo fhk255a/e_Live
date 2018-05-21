@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <title>详情页面</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--加载bootstrap-->
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <!--加载css样式-->
+    <link rel="stylesheet" href="../../public/css/details.css">
+    <!--加载图标-->
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_508930_38wqfwajfptzw7b9.css">
+    <!--加载vuejs-->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!--加载js-->
+    <script src="../../public/js/details.js"></script>
+</head>
+<body>
+<!--头部-->
+<div id="myDetails" v-cloak>
+    <header>
+        <div class="container">
+            <div id="navbar" class=" nav_top row">
+                <nav >
+                    <div class="col-xs-9 col-md-9 nav_left1">
+                        <i class="iconfont icon-zuojiantou" onclick="window.history.go(-1)"></i>
+                    </div>
+                    <div class="col-xs-1 col-md-1 nav_left2">
+                        <i class="iconfont icon-tubiaozhizuomoban"></i>
+                    </div>
+                    <div class="col-xs-1 col-md-1 nav_right1">
+                        <i class="iconfont icon-wujiaoxing_kong"></i>
+                    </div>
+                    <div class="col-xs-1 col-md-1 nav_right2"  @click="showBox = !showBox" >
+                        <i class="iconfont icon-daohang"></i>
+                    </div>
+
+                </nav>
+            </div>
+        </div>
+        <div class="container top">
+
+            <navigation  v-if="showBox"></navigation>
+            <!--<div class=" top_navigation">-->
+                <!--<p><i class="iconfont icon-shouye2"></i>首页</p>-->
+                <!--<p><i class="iconfont icon-yysousuo1"></i>搜索</p>-->
+                <!--<p><i class="iconfont icon-dindan"></i>我的订单</p>-->
+                <!--<p><i class="iconfont "></i>我的收藏</p>-->
+                <!--<p><i class="iconfont "></i>报错</p>-->
+            <!--</div>-->
+        </div>
+    </header>
+    <nav>
+        <div class="container">
+            <div class="row">
+            <span class="col-xs-12 col-md-12">
+                <i class="iconfont icon-bianlidian"></i>
+                易生活
+            </span>
+                <h3 class="col-xs-12 col-md-12">超值单人豪华套餐</h3>
+            </div>
+            <div class="row nav_top">
+                <ul class="nav1 col-xs-8 col-md-8">
+                    <li>免预约</li>
+                    <li>随时退</li>
+                    <li>过期自动退</li>
+                    <li><i class="iconfont icon-msnui-help-bubble"></i></li>
+                </ul>
+                <span class="nav1 col-xs-4 col-md-4">已售2.5w+</span>
+            </div>
+            <div class="row">
+                <img class="col-xs-12 col-md-12" src="../../public/images/商品详情/1_02.png" alt="">
+            </div>
+            <!--主食-->
+            <div class="row nav2">
+                <p class="col-xs-12 col-md-12">主食</p>
+                <food v-for="x in food_list" :name="x.name" :number="x.number" :money="x.money"></food>
+                <p class="col-xs-12 col-md-12">备注</p>
+                <ul>
+                    <li class="col-xs-10 col-md-10">没费提供餐巾</li>
+                </ul>
+            </div>
+
+            <!--查看更多-->
+            <div class=" row nav3 col-xs-12 col-md-12" style="padding: 0;">
+                <h3 class="col-xs-12 col-md-12" style="margin-top: .30rem">温馨提示</h3>
+                <prompt v-for="x in prompt_list" :title="x.title" :content="x.content"></prompt>
+                <ul class="col-xs-10 col-md-10">
+                    使用规则：
+                    <li v-for="key in main">{{key.title}}</li>
+                    <p class="col-xs-12 col-md-12"  @click="loadMore" v-if="show" style="margin-top: .15rem;">查看更多</p>
+                </ul>
+
+            </div>
+            <div class="row nav4">
+                <div class="col-xs-12 col-md-12" style="line-height: .5rem ;padding: 0;">
+                    <span class="col-xs-6 col-md-6">餐厅介绍</span>
+                    <span class="col-xs-6 col-md-6">32家门店适用</span>
+                </div>
+            </div>
+            <div class="nav5">
+                <img class="col-xs-3 col-md-3" src="../../public/images/商品详情/1_03.png" alt="">
+                <ul class="col-xs-9 col-md-9">
+                    <li>易生活（天河店）</li>
+                    <li>
+                        <i class="iconfont icon--wujiaoxing"></i>
+                        <i class="iconfont icon--wujiaoxing"></i>
+                        <i class="iconfont icon--wujiaoxing"></i>
+                        <i class="iconfont icon--wujiaoxing"></i>
+                        <i class="iconfont icon--wujiaoxing"></i>
+                        5.0分
+                    </li>
+                    <li class="col-xs-9 col-md-9">
+                        <i class="iconfont icon-dizhi1"></i>
+                        4.2km
+                        <span>海珠区华清路21号...</span>
+
+                    </li>
+                    <li class="col-xs-3 col-md-3">
+                        <i class="iconfont icon-dianhua1"></i>
+                    </li>
+                    <li class="col-xs-7 col-md-7">东晓路环城西餐厅5号</li>
+                </ul>
+            </div>
+            <div class="nav6" >
+                <ul class="col-xs-12 col-md-12">
+                    <li class="col-xs-6 col-md-6">用户评论</li>
+                    <li class="col-xs-6 col-md-6"><a href="/comment.html">更多评论(2018 <span>条</span> )</a></li>
+                </ul>
+                <ul class="col-xs-12 col-md-12">
+                    <li>味道好 299</li>
+                    <li>回头客 199</li>
+                    <li>干净卫生 299</li>
+                    <li>上菜快 399</li>
+                    <li>肉类好 499</li>
+                    <li>分量足 599</li>
+                    <li> 不推荐 0</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+    <hr>
+    <!--评论-->
+    <div class="container" style="padding: 0;">
+        <comment v-for="x in comment_list" :name="x.name" :time="x.time" :title="x.title" :imgurl1="x.imgurl1" :imgurl2="x.imgurl2" :imgurl3="x.imgurl3" :imgurl4="x.imgurl4" :imgurl5="x.imgurl5"></comment>
+    </div>
+
+    <!--相关推荐-->
+    <div class="container" style="padding: 0;margin-bottom: .80rem">
+        <h3 class="col-xs-12 col-md-12">相关推荐</h3>
+        <recommend v-for="x in recommend_list" :imgurl2="x.imgurl2" :name="x.name" :c_name="x.c_name" :address="x.address" :address="x.address" :k_money="x.k_money" :old_money="x.old_money" :number="x.number"></recommend>
+    </div>
+    <!--底部-->
+    <div class="container navbar-fixed-bottom">
+        <a href="#" id="back-to-top"><i class="iconfont icon-xiangshang1"></i></a>
+        <div class="row float2">
+            <div class="col-xs-6 col-md-6">
+                <span>￥15.3</span>
+                <span>6.3折</span>
+                <p>最高市价￥24.5</p>
+            </div>
+            <div class="col-xs-6 col-md-6"><a href="/order.html">立即抢购</a></div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

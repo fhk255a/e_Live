@@ -1,0 +1,243 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+[v-cloak]{display:none}
+#bot_find{
+    top: 0;
+    width: 100%;
+    height: 1.4rem;
+    border-bottom: 1px solid #d6d6d6;
+    position: fixed;
+    background: #fff;
+    z-index: 999;
+}
+.find_tit{
+    margin-top: .5rem;
+    margin-left: .35rem;
+    font-size: .5rem;
+    color: #565656;
+    /*font-weight: bold;*/
+}
+
+
+.find_check{
+    top: 1.4rem;
+    background: #fff;
+    width: 100%;
+    border-top: 1px solid #b3b3b3;
+    position: fixed;
+    font-size: .4rem;
+    z-index: 999;
+}
+.find_check ul{
+    list-style: none;
+    line-height: 1rem;
+    /*height: 1.2rem;*/
+    background: #fff;
+}
+.find_check ul li{
+    background: #fff;
+    border-bottom: 1px solid #d6d6d6;
+    float: left;
+    padding: .2rem .3rem 0;
+    box-sizing: padding-box;
+}
+.find_check a{
+    text-decoration: none;
+    padding-bottom: .2rem;
+}
+.find_check a{
+    color: #666;
+}
+.find_check .bot_solid{
+    color: #333;
+    border-bottom: 5px solid #25d2c0;
+    /*color: #25d2c0;*/
+}
+
+
+/*各标签内容*/
+.find_check_content{
+    position: relative;
+    background: #fff;
+    width: 100%;
+    border-top: 1px solid #b3b3b3;
+    font-size: .4rem;
+    overflow: hidden;
+    box-sizing:border-box;
+}
+.find_check_content ul{
+    position: absolute;
+    width: 700%;
+    /*margin-top: 1rem;*/
+}
+.find_check_content_li{
+    width: 14.28%;
+    list-style: none;
+    float: left;
+    background: #fff;
+}
+
+
+/*内容大概*/
+.mgl_bar_recommend{
+    margin: 0 auto 0;
+    padding: .3rem .15rem;
+    border-bottom: 1px solid #ccc;
+    background: #fff;
+}
+.mgl_bar_recommend_tit{
+    padding-left: .15rem;
+    font-size: .45rem;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.mgl_bar_recommend_img{
+    display: flex;
+}
+.mgl_bar_recommend_img>div{
+    width: 100%;
+    border: 1px solid #ccc;
+    margin: .15rem;
+    background: gainsboro;
+    overflow: hidden;
+}
+.mgl_bar_recommend_img>div img{
+    width: 100%;
+}
+.mgl_bar_recommend_rep{
+    padding-left: .15rem;
+    font-size: .36rem;
+    color: #6b6b6b;
+}
+.mgl_bar_recommend_rep>.look_people{
+    margin-left: .4rem;
+}
+
+
+.mgl_bar_author{
+    font-size: .4rem;
+    display: flex;
+    position: relative;
+}
+.mgl_bar_author_img{
+    margin-left: .15rem;
+    border-radius: 50%;
+    width: .8rem;
+    height: .8rem;
+    border: 1px solid #ccc;
+    background: gainsboro;
+    overflow: hidden;
+}
+.mgl_bar_author_img img{
+    width: 100%;
+    height: 100%;
+}
+.mgl_bar_author_name{
+    line-height: .7rem;
+    margin-left: .27rem;
+}
+.mgl_bar_author_fol{
+    background: #25d2c0;
+    color: #fff;
+    position: absolute;
+    right: .3rem;
+    padding: 9px .3rem;
+    border-radius: .5rem;
+    font-size: .37rem;
+}
+.mgl_bar_find_rec{
+    display: flex;
+    padding: .3rem .15rem;
+    border-bottom: 1px solid #ccc;
+}
+.mgl_bar_find_rec_con{
+    width: 68%;
+}
+.mgl_bar_find_rec_tit{
+    padding: 0 .15rem;
+    font-size: .45rem;
+}
+.mgl_bar_find_rec_author{
+    padding-left: .15rem;
+    font-size: .36rem;
+    color: #6b6b6b;
+    margin-top: .12rem;
+}
+.mgl_bar_find_rec_author>span{
+    margin-left: .4rem;
+}
+.mgl_bar_find_rec_img{
+    margin-left: 1%;
+    height: 2rem;
+    width: 30%;
+    overflow: hidden;
+    background: gainsboro;
+}
+.mgl_bar_find_rec_img img{
+    width: 100%;
+    height: 100%;
+}
+
+/*返回顶部*/
+.m-back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 2.2rem;
+    right: .7rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    /*color: #ccc;*/
+    font-size: 1rem;
+    line-height: 1rem;
+    background-image: url(../images/Top-0.png);
+    background-size: 1rem 1rem;
+    z-index: 666;
+    cursor: pointer;
+}
+a:link,a:hover{
+    text-decoration: none;
+}
+a:active,a:visited{
+    text-decoration: none;
+    color: #ccc;
+}
+/*底部五个按钮部*/
+.fooder{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    height: 1.4rem;
+    background: #fff;
+}
+.fooder a{
+    display: block;
+    height: .46rem;
+    padding-top: 10px;
+    width:20%;
+    float: left;
+    color: rgba(9,9,9,.8);
+    text-align: center;
+    background: #fff;
+    border-top: 0.01rem solid rgba(222,222,222,.9);
+}
+.fooder a i{
+    display: block;
+    font-size: .5rem;
+    text-align: center;
+}
+.fooder a span{
+    display: block;
+    padding-top: 3px;
+    font-size: .36rem;
+    text-align: center;
+}
+.fooder .foodercolor{
+    color: #3fe0cf;
+}

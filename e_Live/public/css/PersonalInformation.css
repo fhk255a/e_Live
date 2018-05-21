@@ -1,0 +1,163 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 微软雅黑;
+}
+a:link,a:visited,a:hover,a:active{
+    text-decoration:none;
+}
+body{
+    background: rgba(220,220,220,.3);
+}
+html{
+    font-size:100px;
+}
+[v-cloak]{display:none}
+@media screen and (min-width:768px) {
+    html {
+        font-size: 200px;
+    }
+}
+@media screen and (min-width:992px) {
+    html {
+        font-size: 300px;
+    }
+    .float2{
+        height: 0.4rem;
+    }
+    #myDetails .float2>div{
+        height: 0.4rem;
+        line-height: 0.4rem;
+    }
+
+}
+/*个人信息页面*/
+.Personalheader{
+    width: 100%;
+    background: #fff;
+    border-bottom: 0.01rem solid #ccc;
+    position: relative;
+    margin-bottom: .10rem;
+}
+.Personalheader i{
+    padding-left: 0.12rem;
+    font-size: 0.24rem;
+    font-weight: bolder;
+    color: rgba(9,9,9,.5);
+    line-height: 0.50rem;
+}
+
+.Personal_Information{
+    display: inline-block;
+    font-size: 0.16rem;
+    color: rgba(9,9,9,.5);
+    position: fixed;
+    top: 0.15rem;
+    left: 0.5rem;
+}
+.Informationheader{
+    background: #fff;
+    line-height: .50rem;
+    padding-left: .15rem;
+}
+.head_sculpture {
+    line-height: .68rem;
+}
+.Informationheader a{
+    display: block;
+    width: 100%;
+    border-bottom: 0.01rem solid rgb(220,220,220);
+}
+.Informationheader .minhead{
+    font-size: 0.13rem;
+    color: rgba(9,9,9,1);
+    font-weight: bolder;
+}
+.Informationcontent{
+    margin-right: .10rem;
+    float: right;
+}
+.Informationcontent img{
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+}
+.Informationcontent span{
+    font-size: .13rem;
+    color: #3c3c3c;
+}
+.Informationcontent i{
+    font-size: .13rem;
+    color: #3c3c3c;
+    margin-left: .10rem;
+}
+
+/*修改生日*/
+.birthday_input{
+
+    /*margin-left: 10%;*/
+    position: relative;
+    top: 1rem;
+    /*transform: rotate(-10deg);*/
+    width: 100%;
+    left: 0;
+    /*border: 1px solid rgba(102, 175, 233, 0.5);*/
+    /*box-shadow: 0 0 20px 1px rgba(102, 175, 233, 0.3);*/
+    /*background: rgba(255,255,255,0.8);*/
+    background: url("../../public/images/my/birthday_tip.png") -0.1rem center/98% no-repeat;
+    padding: 1rem 0;
+    overflow: hidden;
+}
+.birthday_input input{
+    width: 60%;
+    margin-left: 0.3rem;
+    border-radius: 10px;
+    border: 1px solid #c9e2b3;
+}
+.birthday_input_box{
+    margin-top: 0.3rem;
+}
+.birthday_input_head{
+    color: #fff;
+    margin: -0.2rem -0.2rem -0.1rem;
+    padding: 0.05rem 0.2rem;
+    background:  rgba(3,192,173,1);
+}
+.birthday_input_box .birthday_btn {
+    position: absolute;
+    right: 0.3rem;
+    top: 1.2rem;
+    font-size: 0.3rem;
+    width: 20%;
+    /*margin: 10px 25% 0 25%;*/
+    border: none;
+    border-radius: 5px;
+    background: transparent;
+    text-align: center;
+    color: #333;
+}
+
+/*birthday 动画*/
+.birthday-enter-active{
+    transition: 3s;
+}
+.birthday-enter-to{
+    opacity: 1;
+}
+.birthday_mark{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    left: 0;
+    height: 4rem;
+    background: rgba(255,255,255,0.5);
+}
+
+/*底部*/
+#my_footer{
+    position: absolute;
+    bottom: 0.1rem;
+    left: 0.1rem;
+    right: 0.1rem;
+}

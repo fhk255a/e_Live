@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size:100px">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <title>发现</title>
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/bot_find1.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_611794_atzdvu19sixp3nmi.css">
+    <script src="../../public/js/jquery.min.js"></script>
+    <script src="../../public/js/bootstrap.min.js"></script>
+    <script src="../../public/js/vue.js"></script>
+    <script src="../../public/js/bot_find1.js"></script>
+</head>
+<body>
+<div id="bot_find_app" v-cloak>
+    <!--顶部发现-->
+    <header id="bot_find">
+        <div class="find_tit">发现</div>
+    </header>
+
+
+    <main id="find_page">
+        <div class="find_check">
+            <ul>
+                <li class="find_check_li"><a  class="bot_solid">精选</a> </li>
+                <li class="find_check_li"><a >关注</a> </li>
+                <li class="find_check_li"><a >爱美食</a> </li>
+                <li class="find_check_li"><a >出去浪</a> </li>
+                <li class="find_check_li"><a >生活控</a> </li>
+                <li class="find_check_li"><a >变漂亮</a> </li>
+                <li class="find_check_li"><a >约电影</a> </li>
+            </ul>
+        </div>
+        <div style="margin-top: 2.6rem"></div>
+
+        <div  class="find_check_content">
+            <ul  id="find_check_content_ul">
+                <!--精选-->
+                <li class="find_check_content_li" >
+                    <!--模板1-->
+                    <bot-find-template1
+                            v-for="(find, index) in find_list"
+                            :find="find"
+                            :key="index"
+                    ></bot-find-template1>
+                    <!--模板2-->
+                    <bot-find-template2
+                            v-for="(find, index) in find_list"
+                            :find="find"
+                            :key="'a'+index"
+                    ></bot-find-template2>
+                </li>
+
+                <!--关注-->
+                <li class="find_check_content_li">
+                    <!--关注专属模板 只需要显示10个-->
+                    <bot-find-template3
+                            v-for="(find, index) in find_list"
+                            :find="find"
+                            :key="index"
+                    ></bot-find-template3>
+                </li>
+
+                <!--爱美食-->
+                <li class="find_check_content_li">
+                    <bot-find-template1
+                            v-for="(find, index) in find_list"
+                            :find="find"
+                            :key="index"
+                    ></bot-find-template1>
+                </li>
+
+                <!--出去浪-->
+                <li class="find_check_content_li">
+                    <bot-find-template1
+                            v-for="(find, index) in find_list"
+                            :find="find"
+                            :key="index"
+                    ></bot-find-template1>
+                </li>
+
+                <!--生活控-->
+                <li class="find_check_content_li">
+                    <bot-find-template1
+                            v-for="(find, index) in find_list"
+                            :find="find"
+                            :key="index"
+                    ></bot-find-template1>
+                </li>
+
+                <!--变漂亮-->
+                <li class="find_check_content_li">
+                    <bot-find-template1
+                            v-for="(find, index) in find_list"
+                            :find="find"
+                            :key="index"
+                    ></bot-find-template1>
+                </li>
+
+                <!--约电影-->
+                <li class="find_check_content_li">
+                    <bot-find-template1
+                            v-for="(find, index) in find_list"
+                            :find="find"
+                            :key="index"
+                    ></bot-find-template1>
+                </li>
+            </ul>
+        </div>
+
+    </main>
+
+
+    <span class="m-back-to-top"> </span>
+    <div style="margin-top: 1.6rem"></div>
+<!--底部个人信息-->
+<fooderqianbaonei></fooderqianbaonei>
+
+</div>
+<script>
+    function formatterDateTime() {
+        var date=new Date()
+        var month=date.getMonth() + 1
+        var datetime = date.getFullYear()
+            + ""// "年"
+            + (month >= 10 ? month : "0"+ month)
+            + ""// "月"
+            + (date.getDate() < 10 ? "0" + date.getDate() : date
+                .getDate())
+            + ""
+            + (date.getHours() < 10 ? "0" + date.getHours() : date
+                .getHours())
+            + ""
+            + (date.getMinutes() < 10 ? "0" + date.getMinutes() : date
+                .getMinutes())
+            + ""
+            + (date.getSeconds() < 10 ? "0" + date.getSeconds() : date
+                .getSeconds());
+        return datetime;
+    }
+
+    $.ajax({
+        type: 'post',
+        url: 'http://route.showapi.com/52-26',
+        dataType: 'json',
+        data: {
+            "showapi_appid": '64744', //这里需要改成自己的appid
+            "showapi_sign": '4814b85c344848408044c6bf81ef221a',  //这里需要改成自己的应用的密钥secret
+            "q":"银行",
+            "region":"广州",
+            "scope":"1",
+            "page_size":"10",
+            "page_num":"0"
+
+        },
+
+        error: function(XmlHttpRequest, textStatus, errorThrown) {
+            // alert("操作失败!");
+        },
+        success: function(result) {
+            console.log(result['showapi_res_body'].results) //console变量在ie低版本下不能用
+        }
+    });
+
+</script>
+
+</body>
+</html>

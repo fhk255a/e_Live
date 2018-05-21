@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <title>充值</title>
+    <!--引入bootstrapCSS文件-->
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <!--页面主要CSS文件-->
+    <link rel="stylesheet" href="../../public/css/Recharge.css">
+    <!--阿里图标库-->
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_661300_yqsmr6lh1is02j4i.css">
+    <!--引入Jquery文件-->
+    <script type="text/javascript" src="../../public/js/jquery-3.2.1.min.js"></script>
+    <!--引入bootstrapJS文件-->
+    <script type="text/javascript" src="../../public/js/bootstrap.min.js"></script>
+    <!--引入VUE.JS文件-->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="../../public/js/reccharge.js"></script>
+</head>
+<body>
+<div id="Recharge" v-cloak>
+    <my-header
+        :h_title="h_title='余额'"
+        :h_title_right="h_title_right='余额明细'"
+    ></my-header>
+    <section>
+        <h1>账户余额</h1>
+        <p>{{user_info.balance}}.00</p>
+    </section>
+    <div class="R_btn">
+        <div id="cz" class="R_btn_1" @click="top_up">
+            <span>充值</span>
+        </div>
+        <div id="tixian" class="R_btn_1">
+            <span>提现</span>
+        </div>
+    </div>
+    <footer>
+        <span>常见问题</span>
+    </footer>
+</div>
+</body>
+</html>

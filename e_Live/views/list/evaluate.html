@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <title>评价</title>
+    <!--引入bootstrapCSS文件-->
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <!--页面主要CSS文件-->
+    <link rel="stylesheet" href="../../public/css/evaluate.css">
+    <!--阿里图标库-->
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_661300_jhq7wbpk1013v7vi.css">
+    <!--引入Jquery文件-->
+    <script type="text/javascript" src="../../public/js/jquery-3.2.1.min.js"></script>
+    <!--引入bootstrapJS文件-->
+    <script type="text/javascript" src="../../public/js/bootstrap.min.js"></script>
+    <!--引入VUE.JS文件-->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="../../public/js/evaluate.js"></script>
+
+</head>
+<body>
+<div id="app" v-cloak>
+    <my-header
+            :h_title="h_title"
+            :h_title_right="h_right='发布'"
+            :xin_ji="xinji"
+            :text_num="text_main"
+            :xin_ji1="xinji_1"
+            :id="id"
+    ></my-header>
+    <div class="advertisement">
+        <p>评价得易生活购物现在抵扣卷以及100积分</p>
+    </div>
+    <div class="e_main">
+        <div class="level">
+            <div class="level_1" v-for="(x,index) in e_list"  @click="change_level(index,x.text)">
+                <p :class="{active:index==isActive}">{{x.text}}</p>
+                <img :src="x.img"/>
+            </div>
+        </div>
+        <div class="level_text" v-if="level_text_show">
+            <div class="level_text_btn text-center" v-for="(x,index ) in e_level" :class="{c_active:x.active}" @click="changeBack(index)">
+                <span>{{x.text}}</span>
+            </div>
+        </div>
+        <div class="level_main">
+            <textarea @keyup="changeVal(15)"  v-model="text_main" name="content" placeholder="设施如何，服务是否周到，环境怎么样？（写够15字才是好同志~）">{{text_main}}</textarea>
+            <p v-model="textNum" v-if="textNum>0">加油，还差{{textNum}}个字即可发布</p>
+            <p v-else>尊敬的客服,你的评价是我们进步的动力！</p>
+            <div class="upload">
+                <div class="upload_v ">
+                    <i class="iconfont icon-shipin"></i>
+                    <p>上传视频</p>
+                </div>
+                <div class="upload_i">
+                    <i class="iconfont icon-zhaopian"></i>
+                    <p>上传照片</p>
+                </div>
+                <p>传图≥3张有机会赢<span style="color: red">100</span>积分！</p>
+            </div>
+        </div>
+        <div>
+            <div class="anonymous">
+                <div class="check text-center" :class="{c_active:isActive2}" @click="checkcolor"><i class="iconfont icon-duihao"></i></div>
+                <span>匿名评价</span>
+            </div>
+            <div v-if="isActive2" class="anonymous_hide">
+                <ul>
+                    <li>评价将被隐去名字和头像后对外展示</li>
+                    <li>好友将无法查看本动态的任何动态</li>
+                    <li>您将无法获得本评价的积分或荣誉奖励</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+</body>
+</html>

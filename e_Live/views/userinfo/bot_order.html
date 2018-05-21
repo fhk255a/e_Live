@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100px">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <title>{{order}}</title>
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/MyOrder.css">
+    <link rel="stylesheet" href="../../public/css/bot_order.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_611794_atzdvu19sixp3nmi.css">
+    <script src="../../public/js/jquery.min.js"></script>
+    <script src="../../public/js/bootstrap.min.js"></script>
+    <script src="../../public/js/vue.js"></script>
+    <!--<script src="../../public/js/myorder.js"></script>-->
+
+</head>
+<body>
+
+<div id="bot_order" v-cloak>
+    <!--订单标题-->
+    <header class="bot_order">
+        <div class="order_tit">订单</div>
+    </header>
+
+    <div id="mark_login_well" v-if="isNotLogin" @click="to_login()">
+        <div class="please_login_page">
+            <img src="../../public/images/login1.png" alt="">
+            <p>登陆后可查看订单、收藏记录</p>
+            <a href="/login_register.html">
+                <div class="btn to_login_btn">登录</div>
+            </a>
+        </div>
+    </div>
+    <main v-else>
+        <!--最近订单-->
+        <div class="our_order">
+            <div class="our_order_tit" onclick="window.location.href='/user/MyOrder.html'">
+                <div class="our_order_tit1">我的订单</div>
+                <div class="our_order_tit2" >全部订单 ></div>
+            </div>
+            <div class="order_check">
+                <div class="order_check_box">
+                    <span><img src="../../public/images/order_page/daifukuang.png" alt=""></span>
+                    <span>待付款</span>
+                </div>
+                <div class="order_check_box">
+                    <span><img src="../../public/images/order_page/daishiyong.png" alt=""></span>
+                    <span>待使用</span>
+                </div>
+                <div class="order_check_box">
+                    <span><img src="../../public/images/order_page/daipingjia.png" alt=""></span>
+                    <span>待评价</span>
+                </div>
+                <div class="order_check_box">
+                    <span><img src="../../public/images/order_page/daituikuang.png" alt=""></span>
+                    <span>退款/售后</span>
+                </div>
+            </div>
+            <div class="near_order_tit">最近订单</div>
+            <div class="near_order_list">
+
+                <!--我的订单——组件-->
+                <div class="near_order_con">
+                    <my_main_box v-if="all_list != ''" :data_list="all_list"></my_main_box>
+                </div>
+            </div>
+            <!--<div class="not_more">没有更多订单了~</div>-->
+            <div class="look_more">更多\/</div>
+        </div>
+        <!--我的收藏-->
+        <div class="our_collection">
+            <div class="our_order_tit">
+                <div class="our_order_tit1">我的收藏</div>
+                <div class="our_order_tit2">查看全部 ></div>
+            </div>
+
+            <div class="near_order_list">
+
+                <!--我的收藏——组件-->
+                <div class="collection_order_con">
+                    <my_main_box v-if="all_list != ''" :data_list="all_list"></my_main_box>
+                </div>
+            </div>
+
+            <!--<div class="not_more">没有更多收藏了~</div>-->
+            <div class="look_more">更多\/</div>
+        </div>
+        <!--最近浏览-->
+        <div class="our_collection">
+            <div class="our_order_tit">
+                <div class="our_order_tit1">最近浏览</div>
+                <div class="our_order_tit2">查看全部 ></div>
+            </div>
+
+            <div class="near_order_list">
+
+                <!--我的收藏——组件-->
+                <div class="collection_order_con">
+                    <my_main_box v-if="all_list != ''" :data_list="all_list"></my_main_box>
+                </div>
+            </div>
+
+            <!--<div class="not_more">没有更多浏览了~</div>-->
+            <div class="look_more">更多\/</div>
+        </div>
+    </main>
+    <!--底部个人信息-->
+    <fooderqianbaonei></fooderqianbaonei>
+</div>
+</body>
+</html>
+<script>
+    $(function () {
+        Vue.component('fooderqianbaonei', {
+            props: ['x', 'index'],
+            template: `<nav class="fooder">
+                      <a :href="x.href" :class="{foodercolor:index==3}" v-for="(x,index) in fooder_list" >
+                          <i :class="x.images"></i>
+                          <span v-html="x.title"></span>
+                      </a>
+                  </nav>
+                `,
+            data: function () {
+                return {
+                    fooder_list: [
+                        {href: '/bot_home.html', images: 'iconfont icon-shouye', title: '首页'},
+                        {href: '/near.html', images: 'iconfont icon-fujinjihuo', title: '附近'},
+                        {href: '/bot_find.html', images: 'iconfont icon-faxian', title: '发现'},
+                        {href: '/user/bot_order.html', images: 'iconfont icon-weibiaoti-', title: '订单'},
+                        {href: '/user/my.html', images: 'iconfont icon-wode', title: '我的'},
+                    ],
+                }
+            },
+        });
+        Vue.component('my_main_box', {
+            props: ['data_list'],
+            template: `
+            <div>
+                <div class="o_main_box" v-for="(x,index) in data_list">
+                    <div class="o_main_box_img">
+                        <img :src="x.img"/>
+                    </div>
+                    <div class="o_main_box_text">
+                        <div class="o_main_box_text_1">
+                            <h1>{{x.name}}</h1>
+                            <span>{{x.state}}</span>
+                        </div>
+                        <p>{{x.type}}</p>
+                        <p>使用时间：{{x.time}}</p>
+                        <p>总价：￥{{x.total}}</p>
+                        <div class="o_main_box_btn text-center">
+                            <div class="o_main_box_btn1" v-if="stateif(index)" @click="deep_href">
+                                <span>评价</span>
+                            </div>
+                            <div class="o_main_box_btn1" v-if="stateif2(index)">
+                                <span>退款成功</span>
+                            </div>
+                            <div class="o_main_box_btn1" v-if="stateif3(index)">
+                                <span>支付</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        `,
+            methods: {
+                stateif: function (index) {
+                    if (this.data_list[index].state == '待评价') {
+                        return true;
+                    }
+                },
+                stateif2: function (index) {
+                    if (this.data_list[index].state == '退款成功') {
+                        return true;
+                    }
+                },
+                stateif3: function (index) {
+                    if (this.data_list[index].state == '待付款') {
+                        return true;
+                    }
+                },
+                deep_href: function () {
+                    window.location.href = 'evaluate.html';
+                }
+            },
+
+            data: function () {
+                return {}
+            }
+        });
+        new Vue({
+            el: '#bot_order',
+            data: {
+                isNotLogin:false,
+                all_list: [
+                    {
+                        img: '../../public/images/myOreder/img1.jpg',
+                        name: '景湾公寓',
+                        state: '待评价',
+                        type: '1间，豪华套房',
+                        time: '2017-10-21 至 22',
+                        total: '108.00',
+                    },
+                    {
+                        img: '../../public/images/myOreder/order1.png',
+                        name: '景湾公寓',
+                        state: '待付款',
+                        type: '1间，豪华套房',
+                        time: '2017-10-21 至 22',
+                        total: '108.00',
+                    },
+
+
+                ],
+            },
+            methods: {
+                to_login: function () {
+                    let me = this;
+                    $.ajax({
+                        type: 'post',
+                        url: '/isLogin_code',
+                        data: {},
+                        success: function (data) {
+                            me.isNotLogin = false;
+                        }
+                    })
+                }
+            },
+            beforeCreate:function(){
+                let me = this;
+                $.ajax({
+                    type: 'post',
+                    url: '/isLogin_code',
+                    data: {},
+                    success: function (data) {
+                        if(data.code==0)
+                        {
+                            me.isNotLogin = true;
+                            // window.location.href = 'bot_order.html';
+                        }
+
+                    }
+                })
+            }
+        })
+    })
+
+</script>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100px">
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta charset="UTF-8">
+    <title>我的</title>
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../../public/css/my.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_611794_atzdvu19sixp3nmi.css">
+    <script src="../../public/js/vue.js"></script>
+    <script src="../../public/js/jquery-3.2.1.min.js"></script>
+    <script src="../../public/js/bootstrap.min.js"></script>
+    <script src="../../public/js/my.js"></script>
+</head>
+<body>
+<div id="myApp" v-cloak>
+    <!--头部-->
+    <header class="header">
+        <div class="minheader">
+            <div class="header_left">
+                <i class="iconfont icon-shezhi1"></i>
+            </div>
+            <div class="header_right">
+                <i class="iconfont icon-huanfu tt"></i>
+                <i class="iconfont icon-duanxin"></i>
+            </div>
+        </div>
+    </header>
+    <!--中部-->
+    <div class="main">
+        <div class="mainhead">
+            <a href="/user/PersonalInformation.html">
+                <img :src="user_info.head_img" alt="">
+            </a>
+            <p :class="admin_style">{{user_info.adminType}}</p>
+            <span class="username">{{user_info.name}}</span>
+        </div>
+        <div class="container">
+            <div class="personal">
+                <personal v-for="x in personal_list" :images="x.images" :title="x.title"></personal>
+            </div>
+            <div class="qianbao">
+                <span class="minqianbao">美团钱包</span>
+                <div class="qianbaonei">
+                    <qianbaonei v-for="x in qianbaonei_list" :images="x.images" :title="x.title"></qianbaonei>
+                </div>
+            </div>
+            <div class="fuwu">
+                <span class="minfuwu">美团服务</span>
+                <div class="fuwunei">
+                    <qianbaonei v-for="x in fuwu_list" :images="x.images" :title="x.title"></qianbaonei>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--尾部-->
+    <fooderqianbaonei></fooderqianbaonei>
+    <!--<nav class="fooder">-->
+    <!--<fooderqianbaonei v-for="(x,index) in fooder_list" :x="x" :index="index"></fooderqianbaonei>-->
+    <!--</nav>-->
+</div>
+</body>
+</html>

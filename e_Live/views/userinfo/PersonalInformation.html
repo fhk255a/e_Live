@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100px">
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta charset="UTF-8">
+    <title>个人信息</title>
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../../public/css/PersonalInformation.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_611794_n0plzg1109all3di.css">
+    <script src="../../public/js/vue.js"></script>
+    <script src="../../public/js/jquery-3.2.1.min.js"></script>
+    <script src="../../public/js/bootstrap.min.js"></script>
+    <script src="../../public/js/PersonalInformation.js"></script>
+</head>
+<body>
+<div class="Personal" id="myApp"  style="overflow: hidden;" >
+    <!--头部-->
+    <div class="total_box">
+        <div class="Personalheader">
+            <i class="iconfont icon-dayuhao"></i>
+            <span class="Personal_Information">个人信息</span>
+        </div>
+        <div  class="Informationheader">
+            <a href="" class="head_sculpture">
+                <span class="minhead">头像</span>
+                <div class="Informationcontent">
+                    <img :src="user_info.head_img" alt="">
+                    <span></span>
+                    <i class="iconfont icon-dayuhao-copy-copy "></i>
+                </div>
+            </a>
+            <a href="/user/revise.html" >
+                <span class="minhead">昵称</span>
+                <div class="Informationcontent">
+                    <span>{{user_info.name}}</span>
+                    <i class="iconfont icon-dayuhao-copy-copy"></i>
+                </div>
+            </a>
+            <a href="#" @click="toggletel_click()">
+                <span class="minhead">手机</span>
+                <div class="Informationcontent">
+                    <span>{{user_info.telphone}}</span>
+                    <i class="iconfont icon-dayuhao-copy-copy"></i>
+                </div>
+            </a>
+            <a href="#" @click="togglebir_click()">
+                <span class="minhead">生日</span>
+                <div class="Informationcontent">
+                    <span>{{user_info.birthday}}</span>
+                    <i class="iconfont icon-dayuhao-copy-copy"></i>
+                </div>
+            </a>
+            <a href="#" >
+                <span class="minhead">用户等级</span>
+                <div class="Informationcontent">
+                    <span>{{user_info.adminType}}</span>
+                    <i class="iconfont icon-dayuhao-copy-copy"></i>
+                </div>
+            </a>
+            <a href="/user/address.html" >
+                <span class="minhead">收货地址</span>
+                <div class="Informationcontent">
+                    <span>修改/添加</span>
+                    <i class="iconfont icon-dayuhao-copy-copy"></i>
+                </div>
+            </a>
+            <!--<Informationheader v-for="x in list_list" :href="x.href" :title1="x.title1" :images1="x.images1" :title2="x.title2" :images2="x.images2"></Informationheader>-->
+        </div>
+        <transition name="birthday">
+            <div class="birthday_mark" v-if="update_isShow">
+                <div class="birthday_input" >
+                    <div class="birthday_input_box" v-if="telphone_isShow">
+                        <div class="form-group" >
+                            <input type="number" class="form-control birthday" v-model="user_info.telphone">
+                        </div>
+                        <div class="form-group">
+                            <input type="button" class="birthday_btn" value="确定" @click="telphone_click()">
+                        </div>
+                    </div>
+                    <div class="birthday_input_box"  v-if="birthday_isShow">
+                        <div class="form-group">
+                            <input type="date" class="form-control birthday" v-model="user_info.birthday">
+                        </div>
+                        <div class="form-group">
+                            <input type="button" class="birthday_btn" value="确定" @click="birthday_click()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </div>
+    <div id="my_footer">
+        <div class="btn btn-danger form-control" @click="out_login_click()">退出登录</div>
+    </div>
+</div>
+</body>
+</html>

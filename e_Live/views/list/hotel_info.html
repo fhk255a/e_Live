@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <title>E生活酒店</title>
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/iconfont.css">
+    <link rel="stylesheet" href="../../public/css/hotel_info.css">
+    <script src="../../public/js/jquery.min.js"></script>
+    <script src="../../public/js/vue.js"></script>
+    <script src="../../public/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--hotel_info 酒店列表-->
+<div id="hotel_info" class="container-fluid" v-cloak>
+    <!--hotel_info_head 头部-->
+    <div class="hotel_info_head row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="hotel_info_head_left">
+                <a href="/hotel_page.html"><p class="iconfont icon-zuobian" style="padding-right: 40px;"></p></a>
+                <p> E生活酒店</p>
+            </div>
+            <div class="hotel_info_head_right">
+                <p class="iconfont icon-hongbao1" style="color: #42cec0;padding-right: 40px"></p>
+                <p>帮助</p>
+            </div>
+        </div>
+    </div>
+    <!--hotel_info_main 主题内容-->
+    <div class="hotel_info_main row">
+        <div class="hotel_info_main_title col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            猜你喜欢
+        </div>
+        <div class="hotel_info_list col-lg-12 col-md-12 col-sm-12 col-xs-12" v-for="x in hotel_list">
+            <div class="hotel_info_list_left">
+                <img :src="x.hotel_img" alt="">
+            </div>
+            <ul class="hotel_info_list_right">
+                <li>
+                    <h3 class="hotel_info_list_title">
+                        {{x.hotel_name}}
+                    </h3>
+                </li>
+                <li>
+                    <h3 class="scroe">{{x.hotel_scroe}}
+                        <i style="font-size: 0.3rem">分</i>
+                        <i>好</i>
+                        <span>500+人消费</span>
+                    </h3>
+                </li>
+                <li>
+                    <span>据我467m,</span>
+                    <span>{{x.hotel_address}}</span>
+                </li>
+                <li style="margin-top: 0">
+                    <h2 class="orange_price"><span style="color: #ff6230">￥</span> {{x.hotel_price}}
+                        <span>起</span>
+                        <span>128减13</span>
+                    </h2>
+                </li>
+                <li>
+                    <ul class="hotel_info_list_tip">
+                        <li>新客立减</li>
+                        <li>新客立减</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <ul class="hotel_list_page ">
+        <nav aria-label="...">
+            <ul class="pager">
+                <li><a @click="prev_page_click()" class='hotel_prev_btn'>Previous</a></li>
+                <li><a @click="next_page_click()" class="hotel_next_btn">Next</a></li>
+            </ul>
+        </nav>
+    </ul>
+</div>
+</body>
+<script>
+    $(function () {
+        let hotel_page = new Vue({
+                el: '#hotel_info',
+                data: {
+                    hotel_list: [],
+                    now_index: 0,
+                    page_length: 0,
+                    page_list_id: '',
+                },
+                beforeCreate: function () {
+                    let me = this;
+                    this.page_list_id = '';
+                    $.ajax({
+                        type: 'get',
+                        url: '/api/hotel_info/0',
+                        dataType: 'json',
+                        success: function (result) {
+                            me.hotel_list = result.data;
+                            me.page_length = me.hotel_list.length;
+                        }
+                    })
+                },
+                methods:
+                    {
+                        //上一页事件
+                        prev_page_click: function () {
+                            if (this.now_index < 1) {
+                                return;
+                            }
+                            else {
+                                this.now_index--;
+                                this.ajax_get();
+                            }
+                        }
+                        ,
+                        //下一页事件
+                        next_page_click: function () {
+                            if (this.now_index >= this.page_length) {
+                                return;
+                            }
+                            this.now_index++;
+                            this.ajax_get();
+                        }
+                        ,
+                        ajax_get: function () {
+                            let me = this;
+                            $.ajax({
+                                type: 'get',
+                                url: '/api/hotel_info/' + me.now_index,
+                                success: function (result) {
+                                    me.hotel_list = result.data;
+                                    me.page_length = result.length;
+                                }
+                            })
+                        }
+                    }
+            })
+        ;
+    })
+    ;
+
+    function ajax_get(url) {
+        $.ajax({
+            type: 'get',
+            url: url,
+            success: function (result) {
+                console.log(result);
+            }
+        })
+    };
+
+    function ajax_post(url, data) {
+        $.ajax({
+            type: 'post',
+            url: url,
+            data: data,
+            success: function (result) {
+                console.log(result);
+            }
+        })
+    }
+</script>
+</html>

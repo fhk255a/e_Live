@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <title>银行列表</title>
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/iconfont.css">
+    <link rel="stylesheet" href="../../public/css/bank_page.css">
+    <script src="../../public/js/jquery.min.js"></script>
+    <script src="../../public/js/vue.js"></script>
+    <script src="../../public/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid" id="bank_" v-cloak>
+    <!--头部-->
+    <div class="bank_head_fixed">
+        <div id="foot_head" class="row ">
+            <div class="col-lg-2 col-sm-2 col-md-2 col-xs-2 foot_head-left">
+                <span class="iconfont icon-zuobian" @click="change_isBankShow"></span>
+            </div>
+            <div class="col-lg-8 col-sm-8 col-md-8 col-xs-8 foot_head_content">
+                <input type="text" class="form-control" placeholder="输入商家、分类或商圈">
+            </div>
+            <div class="col-lg-2 col-sm-2 col-md-2 col-xs-2 foot_head-right">
+                <span class="iconfont icon-xiazai18"></span>
+            </div>
+        </div>
+        <!--导航-->
+        <div id="foot_nav" class="row ">
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">全部分类<span class="iconfont icon-xiala"></span></div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">附近<span class="iconfont icon-xiala"></span></div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">智能排序<span class="iconfont icon-xiala"></span></div>
+        </div>
+    </div>
+    <div id="bank_index" v-if="isBankShow">
+        <div class="bank_search row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="font-size: 0.36rem">
+                请选择你要查找的银行
+            </div>
+            <!--<div class="form-control">-->
+            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <select name="" id="bank_type_value" @change="change_add()">
+                    <option v-for="(item,index) in bank_type" :value="index">{{item}}</option>
+                </select>
+            </div>
+            <input type="button" class="bank_search_btn btn col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                   @click="bank_show()" value="搜索">
+        </div>
+    </div>
+    <div id="bank_info" v-else>
+        <!--银行内容-->
+        <div class="bank_list row">
+            <div class="bank_list_main col-lg-12 col-md-12 col-sm-12 col-xs-12" v-for="(item,index) in bank_list">
+                <div class="bank_list_content">
+                    <div class="bank_list_left">
+                        <img :src="bank_img[now_index]" alt="">
+                    </div>
+                    <div class="bank_list_right">
+                        <p class="iconfont icon-yinhang"><span class="bank_list_title">{{item.name}}</span></p>
+                        <p class="iconfont icon-ICONbiaozhun_fuzhi-">:<span class="bank_list_addpro">{{item.city}} / {{item.area}}</span>
+                        </p>
+                        <p class="iconfont icon-dizhi-01">:<span class="bank_list_address">{{item.address}}</span></p>
+                        <p class="iconfont icon-dianhua1">:<span class="bank_list_phone">{{item.telephone}}</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    let bank = new Vue({
+        el: '#bank_',
+        data: {
+            now_index:0,
+            bank_list: [],
+            index_page: 0,
+            isBankShow: true,
+            bank_desult_type:'中国银行',
+            bank_type: ['中国银行','建设银行','农业银行','工商银行','招商银行','浦发银行'],
+            bank_img: ['../../public/images/bank/bank_1.png','../../public/images/bank/bank_2.png','../../public/images/bank/bank_3.png','../../public/images/bank/bank_4.png.png','../../public/images/bank/bank_5.png','../../public/images/bank/bank_6.png'],
+            add_pro : ["北京市","天津市","上海市","重庆市","河北省","山西省","内蒙古","辽宁省","吉林省","黑龙江省","江苏省","浙江省","安徽省","福建省","江西省","山东省","河南省","湖北省","湖南省","广东省","广西","海南省","四川省","贵州省","云南省","西藏","陕西省","甘肃省","青海省","宁夏","新疆","香港","澳门","台湾省"],
+        },
+        beforeCreate: function () {
+            let me = this;
+            // 获取全部详情
+            // type: 'post',
+            // url: 'http://route.showapi.com/52-28',
+            // dataType: 'json',
+            // data: {
+            //     "showapi_timestamp": formatterDateTime(),
+            //     "showapi_appid": 'just_test_app', //这里需要改成自己的appid
+            //     "showapi_sign": 'just_test_sign',  //这里需要改成自己的应用的密钥secret
+            //     "uids":"8ee4560cf91d160e6cc02cd7,5ffb1816cf771a226f476058",
+            //     "scope":"2"
+            //
+            // },
+            $.ajax({
+                type: 'post',
+                url: 'http://route.showapi.com/52-26',
+                dataType: 'json',
+                data: {
+                    "showapi_appid": '64744', //这里需要改成自己的appid
+                    "showapi_sign": '4814b85c344848408044c6bf81ef221a',  //这里需要改成自己的应用的密钥secret
+                    "q": me.bank_desult_type,
+                    "region":'广州',
+                    "scope": "1",
+                    "page_size": "10",
+                    "page_num": '0',
+                },
+                error: function (XmlHttpRequest, textStatus, errorThrown) {
+                    console.log("获取失败!");
+                },
+                success: function (result) {
+                    console.log(result);
+                    me.bank_list = result['showapi_res_body'].results;
+                    console.log(me.bank_list);
+                }
+            })
+        },
+        methods: {
+            bank_show: function () {
+                this.isBankShow = false;
+                let me = this;
+                $.ajax({
+                    type: 'post',
+                    url: 'http://route.showapi.com/52-26',
+                    dataType: 'json',
+                    data: {
+                        "showapi_appid": '64744', //这里需要改成自己的appid
+                        "showapi_sign": '4814b85c344848408044c6bf81ef221a',  //这里需要改成自己的应用的密钥secret
+                        "q": me.bank_desult_type,
+                        "region":'广州',
+                        "scope": "1",
+                        "page_size": "10",
+                        "page_num": '0',
+                    },
+                    error: function (XmlHttpRequest, textStatus, errorThrown) {
+                        console.log("获取失败!");
+                    },
+                    success: function (result) {
+                        me.bank_list = result['showapi_res_body'].results;
+
+                    }
+                })
+            },
+            change_add:function(){
+                this.now_index = $('#bank_type_value').val();
+                this.bank_desult_type = $('#bank_type_value').find("option:selected").text();
+                console.log(this.bank_desult_type)
+            },
+            change_isBankShow:function () {
+                if(this.isBankShow){
+                    window.history.go(-1)
+                }else{
+                    this.isBankShow=!this.isBankShow
+                }
+            }
+        }
+    });
+
+</script>
+</html>

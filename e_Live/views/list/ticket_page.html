@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <title>票系统</title>
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/iconfont.css">
+    <link rel="stylesheet" href="../../public/css/ticket_page.css">
+    <script src="../../public/js/jquery.min.js"></script>
+    <script src="../../public/js/vue.js"></script>
+    <script src="../../public/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid" id="ticket_page" v-cloak>
+    <!-- tk=>ticket的缩写 -->
+    <!--头部banner-->
+    <div id="tk_banner">
+
+    </div>
+    <div id="tk_total">
+        <!--火车票-->
+        <div :id="item.id" class="row" v-for="(item,index) in list">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tk_common">
+                <div :class="item.class">
+                    <div class="tk_head_icon">
+                        <span class="iconfont icon-train2huoche"></span>
+                    </div>
+                    <div class="tk_head_title ">
+                        <h1>{{item.title}}</h1>
+                        <p>抢票/在线选票/学生票</p>
+                        <span class="iconfont icon-xiangshang1 tk_toggle_btn" @click="show(index)"></span>
+                    </div>
+                </div>
+                <div class="tk_main" v-show="item.isShow">
+                    <div class="tk_address">
+                        <div class="tk_start_address" @click="isRead_left=true"><input type="text"
+                                                                                       v-model="item.start_add"
+                                                                                       @focus="isRead_left=true"
+                                                                                       @blur="isRead_left=false"
+                                                                                       v-if="isRead_left">
+                            <span v-else @click="isRead_left=true">{{item.start_add}}</span>
+                        </div>
+                        <div class="iconfont icon-shuaxin"></div>
+                        <div class="tk_end_address text-right" @click="isRead_right=true"><input type="text"
+                                                                                                 v-model="item.end_add"
+                                                                                                 @focus="isRead_right=true"
+                                                                                                 @blur="isRead_right=false"
+                                                                                                 v-if="isRead_right">
+                            <span v-else @click="isRead_right=true">{{item.end_add}}</span></div>
+                    </div>
+                    <div class="tk_time" @click="isRead_date=true" ><input type="date" v-model="item.date"
+                                                            @focus="isRead_date=true"
+                                                            @blur="isRead_date=false"
+                                                            v-if="isRead_date"
+                    @change="change_date(index)">
+                        <span style="font-size: 0.5rem" v-else @click="isRead_date=true">{{time}}</span>
+                        <span>明天</span>
+                    </div>
+                    <div class="tk_radio">
+                        <div>
+                            <input type="radio" class="form-control" name="tk_train">
+                        </div>
+                        <div>
+                            <input type="radio" class="form-control" name="tk_train">
+                        </div>
+                    </div>
+
+                    <div class="tk_btn btn form-control" @click="set_address(index)">
+                        <a href="list/ticket_info.html">
+                            查询
+                        </a>
+                    </div>
+
+                    <div class="tk_select_end">
+                        <div>
+                            <span class="iconfont icon-qianggou1"></span>
+                            <span>抢票</span>
+                        </div>
+                        <div>
+                            <span class="iconfont icon-shafa"></span>
+                            <span>在线选票</span>
+                        </div>
+                        <div>
+                            <span class="iconfont icon-xingcheng2"></span>
+                            <span>在线选票</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $(function () {
+        let ticket = new Vue({
+            el: '#tk_total',
+            data: {
+                isRead_left: false,
+                isRead_right: false,
+                isRead_date:false,
+                time: new Date().getFullYear()+'-'+p(new Date().getMonth()+1)+'-'+new Date().getDate(),
+                list: [
+                    {
+                        id: 'tk_train',
+                        class: 'tk_head tk_train_bg',
+                        title: '火车票',
+                        start_add: '广州',
+                        end_add: '深圳',
+                        date:new Date().getFullYear()+'-'+p(new Date().getMonth()+1)+'-'+new Date().getDate(),
+                        isShow: false,
+                    },
+                    {
+                        id: 'tk_chinese',
+                        class: 'tk_head tk_chinese_bg',
+                        title: '国内机票',
+                        start_add: '广州',
+                        end_add: '深圳',
+                        date:new Date().getFullYear()+'-'+p(new Date().getMonth()+1)+'-'+new Date().getDate(),
+                        isShow: false,
+                    },
+                    {
+                        id: 'tk_inter',
+                        class: 'tk_head tk_inter_bg',
+                        title: '国际机票',
+                        start_add: '广州',
+                        end_add: '深圳',
+                        date:new Date().getFullYear()+'-'+p(new Date().getMonth()+1)+'-'+new Date().getDate(),
+                        isShow: false,
+                    },
+                    {
+                        id: 'tk_bus',
+                        class: 'tk_head tk_bus_bg',
+                        title: '汽车票',
+                        start_add: '广州',
+                        end_add: '深圳',
+                        date:new Date().getFullYear()+'-'+p(new Date().getMonth()+1)+'-'+new Date().getDate(),
+                        isShow: false,
+                    },
+                    {
+                        id: 'tk_ship',
+                        class: 'tk_head tk_ship_bg',
+                        title: '船票',
+                        start_add: '广州',
+                        end_add: '深圳',
+                        date:new Date().getFullYear()+'-'+p(new Date().getMonth()+1)+'-'+new Date().getDate(),
+                        isShow: false,
+                    }
+                ]
+            },
+            methods: {
+                change_date:function(index){
+                    this.time = this.list[index].date;
+                },
+                set_address: function (index) {
+                    let me = this;
+                    $.ajax({
+                        type: 'post',
+                        data: me.list[index],
+                        url: '/api/set_address',
+                        success: function (data) {
+                            console.log(data);
+                        }
+                    })
+                },
+                show: function (index) {
+                    for (i in this.list) {
+                        this.list[i].isShow = false;
+                    }
+                    this.list[index].isShow = !this.list[index].isShow;
+                    let $this = $('#' + this.list[index].id);
+                    let $this_bother = $this.find('.tk_main').parent().parent().siblings();
+                    $this.animate({
+                        top: '1rem',
+                        'z-index': 99
+                    }, 500);
+                    for (let i = 0; i < $this_bother.length; i++) {
+                        $this_bother.eq(i).animate({
+                            top: (10 + i * 1.5) + 'rem',
+                            'z-index': -99
+                        }, 100)
+                    }
+
+                }
+            },
+            computed:{
+                gomove:function(){
+                    // return this.time.substr(1,11);
+                    return this.time.getFullYear()+'-'+(this.time.getMonth()+1)+'-'+this.time.getDate();
+                }
+            }
+        });
+        $('.tk_head').click(function () {
+            let index = $(this).parent().parent().index();
+        })
+        function p(s) {
+            return s < 10 ? '0' + s : s;
+        }
+    })
+</script>
+</html>

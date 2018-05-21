@@ -1,0 +1,254 @@
+@charset "UTF-8";
+@font-face {
+    font-family: SketchRockwell; /*这里是说明调用来的字体名字*/
+    src: url('../fonts/glyphicons-halflings-regular.svg'); /*这里是字体文件路径*/
+}
+html{
+    font-size: 100px;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #f0f0f0;
+    color: #666;
+}
+header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+.order{
+    width: 100%;
+    height: 1.45rem;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #b3b3b3;
+}
+.Return{
+    float: left;
+    width: 1.4rem;
+    height: 100%;
+    text-align: center;
+}
+.Return>i{
+    font-size: 1rem;
+    line-height: 1.44rem;
+}
+.order_cen{
+    float: left;
+    height: 100%;
+}
+.order_cen span,.order_right span{
+    font-size: 0.5rem;
+    line-height: 1.44rem;
+}
+.order_right{
+    float: right;
+    padding-right: 0.3rem;
+}
+/*广告*/
+.advertisement{
+    margin-top: 1.45rem;
+    width: 100%;
+    height: 1.3rem;
+    padding: .35rem;
+    background-color: #fff4d9;
+}
+.advertisement>p{
+    font-size: .4rem;
+    color: #a37758;
+}
+.advertisement>p:before{
+    content: "奖";
+    display: inline-block;
+    width: .5rem;
+    height: .6rem;
+    border-radius: 5px;
+    text-align: center;
+    line-height: .6rem;
+    color: #fff;
+    background-color: #ff8000;
+}
+
+.e_main{
+    height: 22rem;
+}
+.e_main>div{
+    margin-bottom: .3rem;
+}
+/*评价等级*/
+.level{
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    text-align: center;
+}
+.level_1{
+    width: 20%;
+    height: 100%;
+    border-right: 1px solid #dfdfdf;
+    background-color: #fff;
+}
+.level_1 p{
+    font-size: .35rem;
+    color: #414141;
+    padding: .5rem 0 .35rem;
+}
+.level_1 img{
+    width: 1.1rem;
+    height: 1.1rem;
+}
+.level_text{
+    width: 100%;
+    height: 3.45rem;
+    padding: .6rem 1rem;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.level_text_btn{
+    float: left;
+    width: 2.2rem;
+    height: .9rem;
+    margin: 0 .20rem;
+    border: 1px solid #cfcfcf;
+    border-radius: 1rem;
+    line-height: .9rem;
+    font-size: .4rem;
+    color: #999;
+}
+/*评价输入区*/
+.level_main{
+    width: 100%;
+    height: 8.2rem;
+    padding: .4rem;
+    background-color: #fff;
+}
+.level_main textarea{
+    width: 100%;
+    height: 4rem;
+    padding: 0;
+    border: none;
+    font-size: .43rem;
+    color: #333;
+    outline:none
+}
+:-moz-placeholder {
+    color: #ccc; opacity:1;
+}
+
+::-moz-placeholder {
+    color: #ccc;opacity:1;
+}
+textarea:-ms-input-placeholder{
+    color: #ccc;opacity:1;
+}
+textarea::-webkit-input-placeholder{
+    color: #ccc;opacity:1;
+}
+.level_main>p{
+    font-size: .3rem;
+    color: #ccc;
+    text-align: right;
+}
+.upload{
+    width: 100%;
+    height: 2.28rem;
+    display: flex;
+    justify-content: start;
+}
+.upload>div{
+    width: 2.28rem;
+    height: 2.28rem;
+    margin-right: 0.22rem;
+    background-color: #f5f5f5;
+    border: 2px dashed #d9d9d9;
+    text-align: center;
+}
+.upload>div>i{
+    font-size: 1rem;
+    color: #7c7c7c;
+}
+.upload>div>p{
+    font-size: .35rem;
+    color: #c8c8c8;
+}
+.upload>p{
+    font-size: .26rem;
+    color: #ccc;
+    padding-left: .6rem;
+    align-self: flex-end;
+}
+/*匿名评价*/
+.anonymous{
+    width: 100%;
+    height: 1rem;
+    padding: .3rem;
+    background-color: #fff;
+    display: flex;
+
+}
+.check{
+    width: .4rem;
+    height: .4rem;
+    margin-right: .4rem;
+    border: 1px solid #999;
+}
+.check i{
+    font-size: .3rem;
+    color: #fff;
+}
+.anonymous span{
+    font-size: .3rem;
+}
+.c_active{
+    color: #fff;
+    background-color: #66afe9;
+}
+.anonymous_hide{
+    width: 100%;
+    height: 1.8rem;
+    background: #fbfbfb;
+}
+.anonymous_hide ul{
+    width: 100%;
+    height: 100%;
+    padding: 0.3rem 0.6rem;
+}
+.anonymous_hide ul li{
+    font-size: .3rem;
+    color: #999 ;
+}
+/*发布评论失败蒙版*/
+.tx_menban{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 888;
+    width: 100%;
+    padding-top: 8rem;
+    text-align: center;
+
+}
+.tx_menban>span{
+    display: inline-block;
+    height: 1rem;
+    padding: 0 .2rem;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: .1rem;
+    font-size: 0.5rem;
+    line-height: 1rem;
+    color: #fff;
+}
+
+
+
+
+
+.active{
+    color:#66afe9 !important;
+}
+[v-cloak]{display:none}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="user-scalable=no">
+    <title>movie_film</title>
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/movie_film.css">
+    <script src="../../public/js/jquery.min.js"></script>
+    <script src="../../public/js/bootstrap.min.js"></script>
+    <script src="../../public/js/vue.js"></script>
+</head>
+<body>
+<div id="film_movie" v-cloak>
+    <div class="film_top">
+        <div class="film_top_back" onclick="window.history.go(-1)"><</div>
+        <div class="film_top_list">
+            <div class="film_top_list_change" >正在热映</div>
+            <div >点播</div>
+        </div>
+        <div class="film_top_search">
+            O1
+        </div>
+    </div>
+
+    <div class="hot_film">
+        <div class="hot_film_tit">
+            <div>热门影片</div>
+            <div>查看更多 ></div>
+        </div>
+        <div class="hot_film_recommend">
+            <ul>
+                <li v-for="(item,index) in move_list">
+                    <div>
+                        <img :src="item.img"  alt="{{item.commonSpecial}}">
+                    </div>
+                    <p>{{item.titleCn}}</p>
+                </li>
+            </ul>
+        </div>
+        <div class="cat_eye_movie">
+            <div class="cat_eye_movie_logo">
+                猫眼电影
+            </div>
+            <div class="cat_eye_movie_tit">
+                报告老板，这里有好多明星
+            </div>
+        </div>
+    </div>
+
+    <div class="bank_list row">
+        <div class="bank_list_main col-lg-12 col-md-12 col-sm-12 col-xs-12" v-for="(item,index) in move_list">
+            <div class="bank_list_content">
+                <div class="bank_list_left">
+                    <img :src="item.img" width="100%" alt="item.commonSpecial">
+                </div>
+                <div class="bank_list_right">
+                    <p ><span class="bank_list_title">【{{item.titleCn}}】</span></p>
+                    <p >上映时间:<span class="bank_list_address">{{item.rYear}}-{{item.rMonth}}-{{item.rDay}}</span></p>
+                    <p >主角:<span class="bank_list_addpro">{{item.actorName1}} / {{item.actorName2}}</span></p>
+                    <p >类型:<span class="bank_list_phone">{{item.type}}</span></p>
+                    <p >时长: <span>{{item.length}}分钟</span></p>
+                    <a :href="'list/movie_info/'+item.movieId" @click="look_move_info(index)"><p class="btn btn-info watch_btn" >查看详情</p></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--下面为组件模块-->
+    <div style="margin-top: .3rem;height: 1rem;background: #fff"></div>
+</div>
+</body>
+<script>
+    // var script = document.createElement('script');
+    // script.src = 'http://api-m.mtime.cn/PageSubArea/HotPlayMovies.api?locationId=365&callback=jQuery3210603211413495859_1526442357390&_=1526442357391';
+    // document.body.appendChild(script);
+    let move_pape = new Vue({
+        el:'#film_movie',
+        data:{
+            move_list:[],
+            now_move_list:[],
+            isDianBo:false,
+        },
+        beforeCreate:function(){
+            let me = this;
+            $.ajax({
+                type:'post',
+                data:{},
+                url:'/api/get_move_list/hot',
+                dataType:'json',
+                // jsonp:"callback",
+                success:function(data){
+                    me.now_move_list = data.movies;
+                    me.move_list = me.now_move_list;
+                }
+            })
+        },
+        methods:{
+            look_move_info:function(index){
+                let me = this;
+                $.ajax({
+                    type:'post',
+                    url:'/list/get_move_info/'+me.now_move_list[index].movieId,
+                    data:{},
+                    success:function(data){
+                        console.log(data);
+                    }
+                })
+            },
+            // dian_bo_click:function(){
+            //     this.isDianBo =
+            // }
+        }
+    })
+</script>
+</html>

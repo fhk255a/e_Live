@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100px">
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta charset="UTF-8">
+    <title>我的收货地址</title>
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../../public/css/iconfont.css">
+    <link rel="stylesheet" href="../../public/css/address.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_611794_n0plzg1109all3di.css">
+    <script src="../../public/js/vue.js"></script>
+    <script src="../../public/js/jquery-3.2.1.min.js"></script>
+    <script src="../../public/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="address " id="address">
+    <!--头部-->
+    <div class="addressheader ">
+        <i class="iconfont icon-dayuhao"></i>
+        <span class="address_user">我的收货地址</span>
+    </div>
+    <div class="total_address">
+            <ul class="address_list" v-for="(item,index) in address_list">
+                <li><span class="iconfont icon-unie64d"></span> <span>{{item.name}}</span></li>
+                <li><span class="iconfont icon-dianhua"></span> <span>{{item.phone}}</span></li>
+                <li><span class="iconfont icon-dizhi3"></span> <span>{{item.pmd}}/{{item.address}}</span></li>
+            </ul>
+    </div>
+
+    <div class="okaddress">新建收货地址</div>
+</div>
+</body>
+</html>
+<script>
+    $(function(){
+        new Vue({
+            el:'#address',
+            data:{address_list:[]},
+            methods:{},
+            beforeCreate:function(){
+                let me = this;
+                $.ajax({
+                    type:'get',
+                    url:'/api/my/set_address',
+                    dataType:'json',
+                    success:function(result){
+                        me.address_list = result;
+                    }
+                })
+            }
+
+        })
+    })
+    $('.addressheader i').click(function () {
+        window.location.href = '/user/PersonalInformation.html'
+    })
+    $('.okaddress').click(function () {
+        window.location.href = '/user/new_address.html'
+    })
+</script>

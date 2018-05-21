@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 微软雅黑;
+}
+
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+}
+
+html {
+    font-size: 100px;
+}
+
+[v-cloak] {
+    display: none
+}
+
+@media screen and (min-width: 768px) {
+    html {
+        font-size: 200px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    html {
+        font-size: 300px;
+    }
+
+    .float2 {
+        height: 0.4rem;
+    }
+
+    #myDetails .float2 > div {
+        height: 0.4rem;
+        line-height: 0.4rem;
+    }
+
+}
+
+.addressheader {
+    width: 100%;
+    background: #faf8f8;
+    position: relative;
+    margin-bottom: .10rem;
+}
+
+.addressheader i {
+    padding-left: 0.15rem;
+    font-size: 0.24rem;
+    font-weight: bolder;
+    color: rgba(9, 9, 9, .5);
+    line-height: 0.50rem;
+}
+
+.address_user {
+    display: inline-block;
+    font-size: 0.16rem;
+    color: rgba(9, 9, 9, .8);
+    position: fixed;
+    top: 0.15rem;
+    left: 0.60rem;
+}
+
+.okaddress {
+    width: 100%;
+    font-size: 0.18rem;
+    color: #fff;
+    line-height: 0.50rem;
+    text-align: center;
+    background: rgba(3, 192, 173, 1);
+    position: fixed;
+    bottom: 0;
+}
+
+/*address地址列表*/
+.total_address{
+    margin:0 15px;
+}
+.address_list {
+    margin-bottom: 0.1rem;
+    box-shadow: 0 1px 10px 2px  rgba(0,0,0,0.2);
+    padding: 0.1rem 0.2rem;
+    border-radius: 20px;
+    background: rgba(3, 192, 173, 0.2);
+}
+.address_list li{
+    list-style: none;
+    margin: 0.05rem 0;
+}
+.address_list li>span:nth-child(2){
+    text-indent: 1em;
+    display: inline-block;
+}

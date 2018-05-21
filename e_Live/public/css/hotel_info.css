@@ -1,0 +1,151 @@
+*, ul, ol {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+i {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.34rem;
+}
+[v-cloak]{display:none}
+/*hotel_info_head 头部*/
+.hotel_info_head {
+    height: 1.3rem;
+    font-size: 0.38rem;
+    color: #333;
+    background: #f9f9f9;
+    padding: 0 0.3rem;
+}
+
+.hotel_info_head p {
+    float: left;
+    font-size: 0.36rem;
+    line-height: 1.3rem;
+}
+
+.hotel_info_head .iconfont {
+    font-size: 0.6rem;
+}
+
+.hotel_info_head_left {
+    float: left;
+}
+
+.hotel_info_head_right {
+    float: right;
+}
+
+/*评分scroe*/
+.scroe {
+    font-size: 0.4rem;
+    color: #49adff;
+}
+
+/*现价*/
+.orange_price {
+    color: #ff6230;
+    font-size: 0.5rem;
+    margin-bottom: 0.05rem;
+}
+
+/*hotel_info_main 主体部分*/
+.hotel_info_main {
+    background: #fff;
+}
+
+/*hotel_info_main_title 主体标题*/
+.hotel_info_main_title {
+    height: 1.1rem;
+    line-height: 1.1rem;
+    font-size: 0.36rem;
+    text-align: center;
+    border-bottom: 1px solid #dedede;
+    background: url("../images/hotel_rm_title.png") no-repeat center/25%;
+}
+
+/*hotel_info_list 酒店列表*/
+.hotel_info_list {
+    margin-bottom: 10px;
+    height: 3.34rem;
+}
+
+.hotel_info_list_left {
+    width: 30%;
+    float: left;
+    overflow: hidden;
+    padding-right: 0.3rem;
+}
+.hotel_info_list_left img{
+    height: 2.6rem;
+    margin-left: -30%;
+}
+.hotel_info_list_title {
+    font-weight: 400;
+    font-size: 0.45rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.hotel_info_list_right {
+    width: 70%;
+    float: left;
+    padding: 0.3rem;
+    /*margin: ;*/
+    height: 3.3rem;
+    border-bottom: 1px solid #dedede;
+}
+
+.hotel_info_list_right > li {
+    margin-top: 12px;
+}
+
+.hotel_info_list_right > li:nth-child(1) {
+    margin-top: 0;
+}
+
+.hotel_info_list_right span {
+    color: #c2c2c2;
+    font-weight: normal;
+    font-size: 0.26rem;
+}
+
+.hotel_info_list_title {
+    color: #202020;
+}
+
+.hotel_info_list_right h3, .hotel_info_list_right h2 {
+    margin-top: 0;
+}
+
+/*hotel_info_list_tip 酒店列表的优惠提示*/
+.hotel_info_list_tip {
+    height: 0.45rem;
+}
+
+.hotel_info_list_tip li {
+    float: left;
+    padding: 0 10px;
+    border-radius: 5px;
+    color: #ff9900;
+    margin-right: 8px;
+    border: 1px solid #ff9900;
+    font-size: 0.2rem;
+    line-height: 0.4rem;
+}
+
+/*分页*/
+.hotel_list_page .pager li{
+    margin: 0.1rem;
+}
+.hotel_list_page .pager a{
+    font-size: 0.4rem;
+    border-radius: 0.3rem;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100px">
+<head>
+    <meta charset="UTF-8">
+    <title>用户评论</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--加载css样式-->
+    <link rel="stylesheet" href="../../public/css/comment.css">
+    <!--加载bootstrap-->
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <!--加载图标-->
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_508930_3nqh62w5283yp66r.css">
+    <script src="../../public/js/jquery-3.2.1.min.js"></script>
+    <!--加载vuejs-->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!--加载当前页面的js-->
+    <script src="../../public/js/comment.js"></script>
+
+</head>
+<body>
+<div class="container navbar-fixed-top">
+    <div class="row top">
+         <i class="col-xs-1 col-md-1 iconfont icon-fanhui2" onclick="window.history.go(-1)"></i>
+         <span class="col-xs-7 col-md-7">用户评价</span>
+         <span class="col-xs-4 col-md-4">选择分店</span>
+    </div>
+</div>
+<div class=" top2 container navbar-fixed-top" style="padding: 0;">
+    <div id="comment">
+        <!--头部-->
+        <div class="container">
+            <menu_top></menu_top>
+        </div>
+
+        <my_main></my_main>
+    </div>
+
+</div>
+</body>
+</html>

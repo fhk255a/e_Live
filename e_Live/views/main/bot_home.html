@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size:100px">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*"/>
+    <meta name="viewport" content="user-scalable=no">
+    <title>首页</title>
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/bot_home.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_611794_atzdvu19sixp3nmi.css">
+    <link rel="stylesheet" href="../../public/css/iconfont.css">
+    <script src="../../public/js/jquery.min.js"></script>
+    <script src="../../public/js/bootstrap.min.js"></script>
+    <script src="../../public/js/vue.js"></script>
+</head>
+<body>
+<div id="home" v-cloak>
+    <!--顶部搜索框-->
+    <!--后台model写一个完整的文件，次文件继承完整文件的一部分功能-->
+    <div class="up_search">
+        <a class="top_weather_seat" href="#">
+            <% if(address.add_m.length <=2) {%>
+            <div class="top_weather">23`C</div>
+            <% }%>
+            <% if(address.add_m =='') {%>
+            <div class="top_seat"><%= address.add_p%></div>
+            <% } %>
+            <div class="top_seat"><%= address.add_m%></div>
+            <span class="iconfont icon-xiala1" style="font-size: 0.26rem;text-indent: 10px"> </span>
+        </a>
+
+        <div class="top_search">
+            <a href="search_page.html" class="input_box">
+                <span class="iconfont icon-search"></span>
+                <input type="text" v-model="111" placeholder="广州长隆欢乐世界">
+            </a>
+        </div>
+        <div class="top_more"><a href="">+</a></div>
+    </div>
+    <!--内容-->
+    <div id="home_main" class="home_main">
+        <div class="carousel">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="../../public/images/cate_img/panner1.jpg" alt="...">
+                    </div>
+                    <div class="item">
+                        <img src="../../public/images/cate_img/panner2.jpg" alt="...">
+                    </div>
+                    <div class="item">
+                        <img src="../../public/images/cate_img/panner3.jpg" alt="...">
+                    </div>
+                    <div class="item">
+                        <img src="../../public/images/cate_img/panner4.jpg" alt="...">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_menu">
+            <ul>
+                <li>
+                    <a href="Cate.html">
+                    <span class="main_menu_img" style="background: #ff842f">
+                        <img src="../../public/images/hone_page/meishi.png" alt="">
+                    </span>
+                        <span class="main_menu_tit">美食</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="movie_page.html">
+                    <span class="main_menu_img" style="background: #e5362d">
+                        <img src="../../public/images/hone_page/dianying.png" alt="">
+                    </span>
+                        <span class="main_menu_tit">猫眼电影</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="hotel_page.html">
+                    <span class="main_menu_img" style="background: #7a5346">
+                        <img src="../../public/images/hone_page/jiudian.png" alt="">
+                    </span>
+                        <span class="main_menu_tit">酒店</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="foot_page.html">
+                    <span class="main_menu_img" style="background: #02baa2">
+                        <img src="../../public/images/hone_page/xiuxian.png" alt="">
+                    </span>
+                        <span class="main_menu_tit">休闲娱乐</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                    <span class="main_menu_img" style="background: #ffb005">
+                        <img src="../../public/images/hone_page/waimai.png" alt="">
+                    </span>
+                        <span class="main_menu_tit">外卖</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="ktv_page.html">
+                    <span class="main_menu_img" style="background: #12c4ae">
+                        <img src="../../public/images/hone_page/KTV.png" alt="">
+                    </span>
+                        <span class="main_menu_tit">KTV</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="list/bank_info.html">
+                    <span class="main_menu_img" style="background: #4ba9fd">
+                        <img src="../../public/images/hone_page/zhoubianyou.png" alt="">
+                    </span>
+                        <span class="main_menu_tit">银行</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                    <span class="main_menu_img" style="background: #ff7a8f">
+                        <img src="../../public/images/hone_page/liren.png" alt="">
+                    </span>
+                        <span class="main_menu_tit">丽人</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="ticket_page.html">
+                    <span class="main_menu_img" style="background: #3ea3fe">
+                        <img src="../../public/images/hone_page/lvyou.png" alt="">
+                    </span>
+                        <span class="main_menu_tit">火车票/机票</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                    <span class="main_menu_img" style="background: #fff;border: 1px solid #ccc">
+                        <img src="../../public/images/hone_page/quanbufenlei.png" alt="">
+                    </span>
+                        <span class="main_menu_tit">全部分类</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--优惠推荐 -->
+        <div class="main_recommend">
+            <div style=" background: url('../../public/images/hone_page/bag2.png') no-repeat ;">
+
+                <div class="left_mark"
+                     style="background-image: linear-gradient(to right, rgb(255, 89, 131), rgb(255, 75, 75));">狠优惠
+                </div>
+                <div class="main_recommend_tit">广州长隆水上乐园全天成人票,入园前均可购买</div>
+                <div class="main_recommend_type">周边游</div>
+                <div class="main_recommend_img">
+                    <img src="../../public/images/hone_page/361game.jpg" alt="">
+                </div>
+            </div>
+            <div style=" background: url('../../public/images/hone_page/bag3.png') no-repeat ;">
+                <div class="left_mark"
+                     style="background-image: linear-gradient(to right, rgb(217, 187, 135), rgb(184, 160, 113));">有格调
+                </div>
+                <div class="main_recommend_tit">维也纳酒店</div>
+                <!--<div class="main_recommend_type">周边游</div>-->
+                <div class="main_recommend_img">
+                    <img src="../../public/images/hone_page/361game.jpg" alt="">
+                </div>
+            </div>
+            <div style=" background: url('../../public/images/hone_page/bag1.png') no-repeat ;">
+                <div class="left_mark"
+                     style=" background-image: linear-gradient(to right, rgb(255, 164, 17), rgb(251, 120, 0));">夜生活
+                </div>
+                <div class="main_recommend_tit">堂会（海印店）</div>
+                <div class="main_recommend_type">KTV</div>
+                <div class="main_recommend_img">
+                    <img src="../../public/images/hone_page/361game.jpg" alt="">
+                </div>
+            </div>
+            <div style=" background: url('../../public/images/hone_page/bag4.png') no-repeat ;">
+                <div class="left_mark"
+                     style=" background-image: linear-gradient(to right, rgb(99, 172, 254), rgb(58, 120, 229));">周末去哪儿
+                </div>
+                <div class="main_recommend_tit">海珠湿地公园(成人票),入园前均可购买</div>
+                <div class="main_recommend_type">周边游</div>
+                <div class="main_recommend_img">
+                    <img src="../../public/images/hone_page/361game.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <!--广告位-->
+        <div class="advertisement text-center" style="line-height: 1.5rem; font-size: 0.66rem; color: #fff">
+            为您推荐
+         </div>
+        <!--猜你喜欢-->
+        <div class="main_like">
+            <div class="guess_like">
+                - 猜你喜欢 -
+            </div>
+
+            <!--模板1-->
+            <a href="list/details.html">
+                <div class="mgl_bar">
+                    <div class="mgl_bar_img">
+                        <img src="../../public/images/hone_page/hualaishi.png" alt="">
+                    </div>
+                    <div class="mgl_bar_content">
+                        <div class="mgl_bar_content_tit">
+                            <div class="mgl_bar_content_tit_b">华莱士</div>
+                            <div class="mgl_bar_content_tit_ran"><500m</div>
+                        </div>
+                        <div class="mgl_bar_content_type">
+                            [多城市]超值单人豪华套餐
+                        </div>
+                        <div class="mgl_bar_content_price">
+                            <div class="mgl_bar_content_pay">
+                                ￥<span class="mgl_bar_content_money">15.3</span>
+                            </div>
+                            <div class="mgl_bar_content_payNum">
+                                已售<span>25001</span>
+                                <span class="del_button">×</span>
+                            </div>
+                        </div>
+
+                        <div class="mgl_bar_content_discount">
+                            <span class="discount_mark">新客减11.6</span>
+                            <span class="discount_mark">6.3折</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+
+            <!--模板2-->
+            <div class="mgl_bar">
+                <div class="mgl_bar_img">
+                    <div class="mgl_bar_img_mark">随买随用</div>
+                    <img src="../../public/images/hone_page/zhujiang.png" alt="">
+                </div>
+                <div class="mgl_bar_content">
+                    <div class="mgl_bar_content_tit">
+                        <div class="mgl_bar_content_tit_b">广州塔</div>
+                        <div class="mgl_bar_content_tit_ran"><500m</div>
+                    </div>
+                    <div class="mgl_bar_content_type">
+                        <span>4.1分</span>
+                        |
+                        <span>20333</span>
+                        人评价
+                    </div>
+                    <div class="mgl_bar_content_type">
+                        <span>门票、套餐、线路游</span>
+                        等优惠
+                    </div>
+                    <div class="mgl_bar_content_price">
+                        <div class="mgl_bar_content_pay">
+                            ￥<span class="mgl_bar_content_money">15.3</span>
+                        </div>
+                        <div class="mgl_bar_content_payNum">
+                            已售<span>25001</span>
+                            <span class="del_button">×</span>
+                        </div>
+                    </div>
+                    <!--<div class="mgl_bar_content_discount">-->
+                    <!--<span class="discount_mark">新客减11.6</span>-->
+                    <!--<span class="discount_mark">6.3折</span>-->
+                    <!--</div>-->
+                </div>
+            </div>
+
+            <!--模板3-->
+            <div class="mgl_bar_recommend">
+                <div class="mgl_bar_recommend_tit">
+                    广州的这几家店，地点偏僻人却超多！
+                </div>
+                <div class="mgl_bar_recommend_img">
+                    <div>
+                        <img src="../../public/images/hone_page/pianpi1.png" alt="">
+                    </div>
+                    <div>
+                        <img src="../../public/images/hone_page/pianpi2.png" alt="">
+                    </div>
+                    <div>
+                        <img src="../../public/images/hone_page/pianpi3.png" alt="">
+                    </div>
+                </div>
+                <div class="mgl_bar_recommend_rep">
+                    广州微世界
+                    <span class="del_button">×</span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="check_all">
+            查看全部
+        </div>
+
+    </div>
+
+
+    <footer>
+        <span class="m-back-to-top"></span>
+        <!--底部五个选项-->
+        <div id="bot_check" class="bot_check">
+            <ul>
+                <li>
+                    <a href="bot_home.html">
+                        <span class="bot_btn" style="display: block">
+                            <i class="iconfont icon-shouye"></i>
+                        </span>
+                        <span>首页</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="near.html">
+                        <span class="bot_btn" style="display: block">
+                            <i class="iconfont icon-fujinjihuo"></i>
+                        </span>
+                        <span>附近</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="bot_find.html">
+                        <span class="bot_btn" style="display: block">
+                            <i class="iconfont icon-faxian"></i>
+                        </span>
+                        <span>发现</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="user/bot_order.html">
+                        <span class="bot_btn" style="display: block">
+                            <i class="iconfont icon-weibiaoti-"></i>
+                        </span>
+                        <span>订单</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="user/my.html">
+                        <span class="bot_btn" style="display: block">
+                            <i class="iconfont icon-wode"></i>
+                        </span>
+                        <span>我的</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

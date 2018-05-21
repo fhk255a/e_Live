@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <title>银行页</title>
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/iconfont.css">
+    <link rel="stylesheet" href="../../public/css/bank_page.css">
+    <script src="../../public/js/jquery.min.js"></script>
+    <script src="../../public/js/vue.js"></script>
+    <script src="../../public/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid" id="bank_page" v-cloak>
+
+</div>
+</body>
+<script>
+    $('.bank_search_btn').click(function(){
+        $.ajax({
+            type:'post',
+            url:'/api/bank_page',
+            success:function(data){
+                   console.log('ssss');
+            },
+        })
+    })
+</script>
+</html>

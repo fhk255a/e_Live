@@ -1,0 +1,221 @@
+*, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #f0f0f0;
+}
+
+.hotel_banner {
+    position: relative;
+    height: 3rem;
+}
+
+.hotel_banner .carousel-indicators {
+    margin-bottom: 1.5rem;
+}
+
+.hotel_banner .carousel-indicators li {
+    width: 0.2rem;
+    height: 0.2rem;
+    border-radius: 50%;
+}
+
+.hotel_main {
+    position: relative;
+    /*margin-bottom: 3rem;*/
+    top: 1rem;
+}
+
+.hotel_head {
+    border-radius: 30px 30px 0 0;
+    /*height: 13rem;*/
+    margin-bottom: 0.27rem;
+    margin: 0;
+    background: #fff;
+}
+
+.hotel_head_nav {
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.4rem;
+    list-style: none;
+    line-height: 1.16rem;
+}
+
+.nav-active-li {
+    border-bottom: 0.05rem solid #06c1ae;
+}
+
+/*酒店搜索具体*/
+.hotel_head_main {
+    padding: 0 0.4rem;
+    height: 4rem;
+}
+
+.hotel_head_main span {
+    font-size: 0.3rem;
+}
+
+.hotel_head_main > div {
+    background: #f2f2f2;
+    color: #999;
+    border-radius: 10px;
+    margin: 0.1rem 0;
+
+}
+
+.hotel_head_address {
+    line-height: 1.25rem;
+    height: 1.25rem;
+}
+
+.hotel_head_left {
+    /*width: 25%;*/
+    float: left;
+    width: 25%;
+    line-height: 1.25rem;
+}
+
+.hotel_head_right {
+    float: left;
+    line-height: 1.25rem;
+    width: 75%;
+    position: relative;
+}
+
+.hotel_head_right h3 {
+    line-height: 1.25rem;
+    margin: 0;
+    font-size: 0.4rem;
+    /*width: 75%;*/
+    font-weight: 400;
+    color: #333;
+}
+
+/*hotel_head_time 酒店时间*/
+.hotel_head_time .hotel_head_right h3, .hotel_head_time .hotel_head_left {
+    height: 1.8rem;
+    line-height: 1.8rem;
+}
+
+.hotel_head_right .iconfont {
+    position: absolute;
+    right: 0.1rem;
+    bottom: 0;
+}
+
+/*hotel_head_btn查询按钮*/
+.hotel_head_main .hotel_head_btn {
+    background: #ff6230;
+    font-size: 0.4rem;
+    color: #fff;
+    line-height: 1.1rem;
+    height: 1.2rem;
+    border-radius: 200px;
+    margin: 0.1rem 0 0.2rem;
+}
+
+/*hotel_head_type 酒店类型*/
+.hotel_head_type {
+    padding: 0.28rem 0 0;
+    background: #f5f5f5;
+    height: 2.2rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.hotel_head_type li {
+    list-style: none;
+    float: left;
+    text-align: center;
+    font-size: 0.3rem;
+}
+
+.hotel_head_type p {
+    padding: 0.15rem 0;
+}
+
+.hotel_head_userlist {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    background: #fff;
+    height: 1.2rem;
+    margin-bottom: 0.2rem;
+    line-height: 1.2rem;
+}
+
+.hotel_head_userlist span {
+    color: #333;
+    font-weight: 500;
+    font-size: 0.36rem;
+}
+
+/*酒店为你推荐*/
+.hotel_recommend {
+    background: #fff;
+    margin-bottom: 0.3rem;
+}
+
+.hotel_rm_title {
+    line-height: 1.2rem;
+    height: 1.2rem;
+    font-size: 0.36rem;
+    text-align: center;
+    background: url("../images/hotel_rm_title.png") no-repeat center/25%;
+}
+
+/*酒店为你推荐类型*/
+.hotel_re_type_list {
+    width: 3rem;
+    height: 3.6rem;
+    border-radius: 10px;
+    float: left;
+    margin: 0 8px;
+}
+
+.hotel_re_type_title {
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+    line-height: 0.84rem;
+    height: 0.84rem;
+    font-size: 0.36rem;
+    color: #fff;
+    border-radius: 0 0 20px 20px;
+}
+
+.hotel_re_type_list img {
+    margin-top: 0.2rem;
+    width: 100%;
+    text-align: center;
+}
+
+/*民宿专区*/
+.mszq {
+    box-shadow: 0px 0px 2px #5a79fc, 0px 0px 5px #5ac8fc;
+    background: -webkit-linear-gradient(90deg, #5a79fc, #5ac8fc); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #5a79fc, #5ac8fc); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #5a79fc, #5ac8fc); /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #5a79fc, #5ac8fc); /* 标准的语法 */
+}
+
+/*钟点小憩*/
+.zdxq {
+    background: -webkit-linear-gradient(90deg, #f22447, #ff8749); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #f22447, #ff8749); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #f22447, #ff8749); /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #f22447, #ff8749); /* 标准的语法 */
+    box-shadow: 0px 0px 2px 0px #f22447, 0px 0px 5px 0px #ff8749;
+}
+
+/*情侣专享*/
+.qlzx {
+    background: -webkit-linear-gradient(90deg, #ff2a4b, #ff894b); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #ff2a4b, #ff894b); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #ff2a4b, #ff894b); /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #ff2a4b, #ff894b); /* 标准的语法 */
+    box-shadow: 0px 0px 2px 0px #ff2a4b, 0px 0px 5px 0px #ff894b;
+}

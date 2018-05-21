@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100px">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/search_page.css">
+    <link rel="stylesheet" href="../public/css/iconfont.css">
+    <script src="../public/js/jquery.min.js"></script>
+    <script src="../public/js/bootstrap.min.js"></script>
+    <script src="../public/js/vue.js"></script>
+</head>
+<body>
+<div id="search_page" class="container-fluid" v-cloak>
+    <!--头部-->
+    <div class="bank_head_fixed">
+        <!--<div class="bank_banner row">-->
+        <!--</div>-->
+        <div id="foot_head" class="row ">
+            <div class="col-lg-2 col-sm-2 col-md-2 col-xs-2 foot_head-left" onclick="javascript:history.go(-1)">
+                <span class="iconfont icon-zuobian" @click="isBankShow=!isBankShow"></span>
+            </div>
+            <div class="col-lg-8 col-sm-8 col-md-8 col-xs-8 foot_head_content">
+                <input type="text" class="form-control" placeholder="输入商家、分类或商圈" v-model="search_result"
+                       @focus="input_focus()">
+            </div>
+            <div class="col-lg-2 col-sm-2 col-md-2 col-xs-2 foot_head-right">
+                <span class="btn btn-danger search_btn" @click="search_click()" v-if="btn_show">搜索</span>
+                <span class="iconfont icon-xiazai18" v-if="!btn_show"></span>
+            </div>
+        </div>
+        <!--导航-->
+        <div id="foot_nav" class="row ">
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">全部分类<span class="iconfont icon-xiala"></span></div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">附近<span class="iconfont icon-xiala"></span></div>
+            <div class="col-lg-4 col-sm-4 col-md-4 col-xs-4">智能排序<span class="iconfont icon-xiala"></span></div>
+        </div>
+    </div>
+
+
+    <div class="search_mark ">
+        <ol class="row">
+            <li v-for="(item,index) in show_list">{{item}}</li>
+        </ol>
+    </div>
+
+    <!--美食主内容-->
+    <!--一开始是看不到滴他是刷出来的-->
+    <div id="food_main" class="row" v-if="isShow">
+        <div class="food_list" v-for="(item,index) in food_list">
+            <div class="food_list_main col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="food_list_left">
+                    <img :src="item.img" alt="">
+                </div>
+                <div class="food_list_right">
+                    <h2 class="shop_title">
+                        {{item.title}}
+                    </h2>
+                    <div class="price_star">
+                        <p class="main_star">★★★★★ &nbsp;</p>
+                        <p>
+                            <span class="price">￥{{item.price}}/人 </span>
+                            |
+                            <span>客村/赤岗 <1km</span>
+                        </p>
+                    </div>
+                    <p class="food_tip">{{item.tip}}</p>
+                    <p class="hot_top">当前人气69</p>
+                    <p class="border_dashed"></p>
+                    <div class="food_end">
+                        <span class="quan"></span>
+                        <span>79代100元，89代100元</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+<script>
+    $(function () {
+        let search_vue = new Vue({
+            el: '#search_page',
+            data: {
+                search_list_type: [
+                    '麻辣烫', '猪脚', '水果', '安全套', '哇哈哈',
+                    '喜士多', '奶茶', '麻辣香锅', '海底捞', '酸辣粉',
+                    '臭豆腐', '小龙虾', '椰子鸡', '艇仔粥', '香炸福建人',
+                    '油炸福建人', '贡茶', '程序员', '银行', '纹身', '成人用品',
+                    '洗刷用品', '日常用品', '超市'
+                ],
+                food_list: [],
+                show_list: [],
+                search_result: '',
+                btn_show: false,
+                isShow: false,
+            },
+            beforeCreate: function () {
+                $.ajax({
+                    type: 'post',
+                    url: '/api/get_address',
+                    data: {},
+                    success: function (data) {
+                        console.log(1, data);
+                    }
+                });
+            },
+            beforeMount: function () {
+                console.log(this.search_list_type.sort(function () {
+                    return Math.random() * 0.5
+                }).splice(1, 7));
+
+            },
+
+            methods: {
+                input_focus: function () {
+                    this.show_list = [];
+                    this.btn_show = true;
+                    this.search_list_type.sort(function () {
+                        return Math.random() * 0.5
+                    });
+                    for (var i = 0; i < 7; i++) {
+                        this.show_list.push(this.search_list_type[i]);
+                    }
+                },
+                search_click: function () {
+                    let me = this;
+                    this.food_list = [];
+                    $.ajax({
+                        url: 'http://apis.juhe.cn/cook/query?key=dd81294b59781eeeb7b46ebdb8b0752b&menu=' + me.search_result + '&rn=10&pn=3',
+                        type: 'get',
+                        dataType: 'jsonp',
+                        success: function (data) {
+                            console.log(data.result.data);
+                            let result = data.result.data;
+                            for (var i = 0; i < result.length; i++) {
+                                me.food_list.push({img: result[i].albums[0],title:result[i].title,tip:result[i].tags.substr(0,12),price:result[i].id.substr(0,2)});
+                            }
+                            me.isShow = true;
+                            console.log(me.food_list);
+                        }
+                    })
+                }
+            },
+            computed: {
+                sort_search_list: function () {
+                }
+            }
+        })
+    })
+</script>
+</html>

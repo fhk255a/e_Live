@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <title>我的钱包</title>
+    <!--引入bootstrapCSS文件-->
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <!--页面主要CSS文件-->
+    <link rel="stylesheet" href="../../public/css/wallet.css">
+    <!--阿里图标库-->
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_661300_pe05ukb8k2jwz5mi.css">
+    <!--引入Jquery文件-->
+    <script type="text/javascript" src="../../public/js/jquery-3.2.1.min.js"></script>
+    <!--引入bootstrapJS文件-->
+    <script type="text/javascript" src="../../public/js/bootstrap.min.js"></script>
+    <!--引入VUE.JS文件-->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="../../public/js/wallet.js"></script>
+</head>
+<body>
+<div id="wellet" v-cloak>
+    <header>
+        <div class="h_top">
+            <ul>
+                <li><i class="iconfont icon-back" @click="deep_my"></i></li>
+                <li><span class="h_top_text">易生活钱包</span></li>
+                <li>
+                    <div>
+                        <i class="iconfont icon-remind tix"></i>
+                        <i class="iconfont icon-gengduo-2"></i>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <div class="h_wallet">
+            <div>
+                <i class="iconfont icon-yinhangqia"></i>
+                <p>添加银行卡</p>
+            </div>
+            <div @click="deep_rec">
+                <i class="iconfont icon-balance"></i>
+                <p>余额</p>
+                <p>￥{{user_info.balance}}.00</p>
+            </div>
+            <div>
+                <i class="iconfont icon-fukuanma"></i>
+                <p>付款码</p>
+            </div>
+        </div>
+    </header>
+    <div class="h_list">
+        <div class="tix2">
+            <img src="../../public/images/wallet/h_list_1.png"/>
+            <p>签到赢现金</p>
+        </div>
+        <div>
+            <img src="../../public/images/wallet/h_list_2.png"/>
+            <p>福利社</p>
+        </div>
+        <div>
+            <img src="../../public/images/wallet/h_list_3.png"/>
+            <p>现金卷</p>
+        </div>
+        <div>
+            <img src="../../public/images/wallet/h_list_4.png"/>
+            <p>易点卡</p>
+        </div>
+    </div>
+    <div class="wallet_service">
+        <h1 >钱包服务</h1>
+        <div class="service">
+            <ul>
+                <li>
+                    <img src="../../public/images/wallet/wallet_1.png"/>
+                    <p>借钱</p>
+                </li>
+                <li>
+                    <img src="../../public/images/wallet/wallet_2.png"/>
+                    <p>E信用卡</p>
+                </li>
+                <li>
+                    <img src="../../public/images/wallet/wallet_3.png"/>
+                    <p>赚流量</p>
+                </li>
+                <li>
+                    <img src="../../public/images/wallet/wallet_4.png"/>
+                    <p>手机充值</p>
+                </li>
+                <li>
+                    <img src="../../public/images/wallet/wallet_6.png"/>
+                    <p>保险商城</p>
+                </li>
+                <li>
+                    <img src="../../public/images/wallet/wallet_7.png"/>
+                    <p>生活缴费</p>
+                </li>
+                <li>
+                    <img src="../../public/images/wallet/wallet_8.png"/>
+                    <p>企业服务</p>
+                </li>
+                <li>
+                    <img src="../../public/images/wallet/wallet_9.png"/>
+                    <p>账单</p>
+                </li>
+                <li>
+                    <img src="../../public/images/wallet/wallet_5.png"/>
+                    <p>信用还款</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

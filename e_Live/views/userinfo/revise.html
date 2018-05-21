@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100px">
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta charset="UTF-8">
+    <title>修改用户名</title>
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../../public/css/revise.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_611794_n0plzg1109all3di.css">
+    <script src="../../public/js/vue.js"></script>
+    <script src="../../public/js/jquery-3.2.1.min.js"></script>
+    <script src="../../public/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="revise" id="revise">
+    <!--头部-->
+    <div class="reviseheader">
+        <i class="iconfont icon-dayuhao" @click="returnBtn()"></i>
+        <span class="revise_user">修改用户名</span>
+    </div>
+    <div class="container">
+        <form action="">
+            <label class="username" for="user">用户名：</label><br>
+            <input id="user" type="text" minlength="4" maxlength="16" v-model="user_info.name"    >
+            <p class="explanatory">以中文或英文字母开头,限4-16个字符,一个汉字为两个字符</p>
+            <input class="ok" type="button" value="确定" @click="reviseBtn()">
+        </form>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    $(function () {
+        new Vue({
+            el: '#revise',
+            data: {user_info:[],},
+            beforeCreate: function () {
+                let me = this;
+                $.ajax({
+                    url: '/api/my/get_userInfo',
+                    type: 'get',
+                    dataType: 'json',
+                    success: function (result) {
+                        me.user_info = result[0];
+                    }
+                })
+            },
+            methods: {
+                returnBtn: function () {
+                    window.location.href = '/user/PersonalInformation.html';
+                },
+                reviseBtn:function () {
+                    if(this.user_info.name=='')
+                    {
+                        alert('昵称不能为空~');
+                        return;
+                    }
+                    else{
+                        let str = "UPDATE `userinfo` SET `name`='"+this.user_info.name+"'  WHERE `id` = "+this.user_info.id;
+                        let me = this;
+                        $.ajax({
+                            url: '/api/my/set_userInfo',
+                            type: 'post',
+                            data: {
+                                str:str
+                            },
+                            dataType: 'json',
+                            success: function (result) {
+                                if(result.code==1)
+                                {
+                                    alert('修改成功~');
+                                }
+                            }
+                        })
+                    }
+                }
+            }
+        })
+    })
+</script>

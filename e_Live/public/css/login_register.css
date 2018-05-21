@@ -1,0 +1,110 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+#login,#register{
+    position: fixed;
+    background: #fff;
+    /*width: 100%;*/
+    /*height: 100%;*/
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+}
+
+.close_btn{
+    padding-top: .4rem;
+    padding-left: 1rem;
+    font-size: 1rem;
+    color: #3c3c3c;
+}
+.login_content{
+    width: 60%;
+    margin: .3rem auto 0;
+}
+.login_tit{
+    text-align: center;
+    font-size: .48rem;
+    color: #3c3c3c;
+}
+.login_user_name{
+    margin-top: 1.5rem;
+    font-size: .36rem;
+}
+.login_user_name input{
+    border: none;
+    border-bottom: 1px solid #e6e6e6;
+    outline: none;
+    margin-top: .3rem;
+    padding-left: .2rem;
+    width: 100%;
+    height: .95rem;
+}
+
+/*去登录*/
+.have_user{
+    font-size: 0.36rem;
+    text-align: center;
+    padding: 0.2rem 0;
+    color: #2e6da4;
+}
+/*vue动画*/
+.more_login-enter-active, .more_login-active {
+    transition: opacity 1s;
+}
+.more_login-enter, .more_login-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+}
+
+.login_user_name .login_btn ,.register_btn{
+    margin-top: .9rem;
+    background: #dc4242;
+    color: #f4f4f4;
+    border-radius: .12rem;
+}
+.verification_code{
+    margin-top: .3rem;
+    width: 100%;
+    height: .95rem;
+}
+.verification_code input:nth-child(1){
+    margin-top: 0;
+    width: 56%;
+}
+.verification_code input:nth-child(2){
+    margin-top: 0;
+    height: .8rem;
+    font-size: .3rem;
+    padding: 0;
+    width: 42%;
+    background: #f9f9f9;
+    border-radius: .1rem;
+    color: rgba(220,66,66,.7);
+}
+
+.lost_password,.not_user,.other_user{
+    margin-top: .6rem;
+    text-align: center;
+    font-size: .36rem;
+    color: #3c3c3c;
+}
+.not_user{
+    margin-top: 2.4rem;
+}
+.other_user_logo{
+    margin-top: .5rem;
+    display: flex;
+
+}
+.other_user_logo>div{
+    width: .8rem;
+    height: .7rem;
+    position: relative;
+    flex-grow: 1;
+}
+.other_user_logo>div>img{
+    height: 100%;
+}

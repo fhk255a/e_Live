@@ -1,0 +1,129 @@
+[v-cloak]{display:none}
+#navbar{
+    line-height: .45rem;
+    font-size: .16rem;
+    border-bottom: 1px solid #ccc;
+}
+.row{
+    background: #fff;
+}
+.img img{
+    width: 1rem;
+    height: 1rem;
+}
+.order{
+    padding-bottom: 0.10rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.order_top {
+    list-style: none;
+    padding: 0;
+
+}
+.img{
+    padding-right: 0;
+}
+.order_top li:nth-child(2) p:nth-child(1){
+    font-weight: bold;
+    font-size: .16rem;
+}
+.order_top li:nth-child(2) p:nth-child(2){
+    color: #666;
+}
+.order_top li:nth-child(2) p:nth-child(3) span i{
+    font-size: .14rem;
+    color: green;
+}
+.order_top li:nth-child(3){
+    color: #666;
+    text-align: right;
+}
+.order_algorithm{
+    border-bottom: 1px solid #cccccc;
+}
+.order_algorithm div{
+    margin-top: .10rem;
+    font-size: .16rem;
+    width: 74%;
+}
+.order_algorithm ul{
+    list-style: none;
+    padding: 0;
+    margin-top: .10rem;
+    width: 26%;
+}
+.order_algorithm ul li{
+    margin-left: .10rem;
+    float: left;
+    font-size: .18rem;
+}
+.order_algorithm ul li:nth-child(1){
+    color: #cccccc;
+}
+.order_algorithm ul li:nth-child(3){
+    color: #04c0a8;
+}
+.order_algorithm ul li:nth-child(1) i,.order_algorithm ul li:nth-child(3) i{
+    font-size: .20rem;
+}
+.order_plan{
+    list-style: none;
+    font-size: .16rem;
+}
+.order_plan span{
+    margin-top: .10rem;
+}
+.order_plan span:nth-child(2){
+    text-align: right;
+    margin-bottom: .10rem;
+    color: #dda417;
+}
+.order_plan2{
+    margin-top: .10rem;
+    list-style: none;
+    font-size: .16rem;
+    border-bottom: 1px solid #cccccc;
+}
+.order_plan2 span{
+    margin-top: .10rem;
+}
+.order_plan2 span:nth-child(2){
+    color: #666;
+    font-size: .12rem;
+    text-align: right;
+    margin-bottom: .10rem;
+}
+.order_plan3{
+    list-style: none;
+    font-size: .16rem;
+}
+.order_plan3 span{
+    margin-top: .10rem;
+}
+.order_plan3 span:nth-child(2){
+    color: #dda417;
+    text-align: right;
+    margin-bottom: .10rem;
+}
+.order_plan4{
+    margin-top: .10rem;
+    list-style: none;
+    font-size: .16rem;
+}
+.order_plan4 span{
+    margin-top: .10rem;
+}
+.order_plan4 span:nth-child(2){
+    color: #666;
+    font-size: .12rem;
+    text-align: right;
+    margin-bottom: .10rem;
+}
+.float{
+    font-size: .16rem;
+    padding: .10rem 0 .10rem 0;
+    background: #fd9800;
+    color: #fff;
+    text-align: center;
+}

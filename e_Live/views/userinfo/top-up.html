@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100px">
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta charset="UTF-8">
+    <title>余额充值</title>
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../../public/css/top-up.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_611794_10r831qa71hbbj4i.css">
+    <script src="../../public/js/vue.js"></script>
+    <script src="../../public/js/jquery-3.2.1.min.js"></script>
+    <script src="../../public/js/bootstrap.min.js"></script>
+    <!--<script src="../js/top-up.js"></script>-->
+</head>
+<body>
+<div class="top_up" id="myApp">
+    <!--头部-->
+    <div class="top_header">
+        <i class="iconfont icon-dayuhao"></i>
+        <span class="top_user">余额充值</span>
+    </div>
+    <form action="">
+        <div class="up">
+            <label class="top" for="top_up">充值余额</label>
+            <span>￥</span>
+            <input type="number" id="top_up" v-model="balance ">
+        </div>
+        <input class="but" type="button" value="确认充值" @click="change_balance()">
+        <div class="fooder">
+            <span>安全输入键盘</span>
+            <div class="col-xs-4 num number1">1</div>
+            <div class="col-xs-4 num number1">2</div>
+            <div class="col-xs-4 num number1">3</div>
+            <div class="col-xs-4 num number1">4</div>
+            <div class="col-xs-4 num number1">5</div>
+            <div class="col-xs-4 num number1">6</div>
+            <div class="col-xs-4 num number1">7</div>
+            <div class="col-xs-4 num number1">8</div>
+            <div class="col-xs-4 num number1">9</div>
+            <div class="col-xs-4 num number1">.</div>
+            <div class="col-xs-4 num number1">0</div>
+            <div class="col-xs-4 num numberDel">
+                <i class="iconfont icon-shanchu"></i>
+            </div>
+        </div>
+    </form>
+
+</div>
+</body>
+</html>
+<script>
+    new Vue({
+        el: '#myApp',
+        data: {
+            balance: 0,
+        },
+        methods: {
+            change_balance: function () {
+                let price = Math.abs(this.balance);
+                $.ajax({
+                    type: 'post',
+                    data: {
+                        price: price,
+                    },
+                    url: '/api/my/change_balance',
+                    success: function (data) {
+                        alert(data.msg);
+                        if(data.code==1)
+                        {
+                            window.location.href = '/user/Recharge.html';
+                        }
+                    }
+                })
+            }
+        }
+    });
+    $(function () {
+        let a = '';
+        $('.number1').click(function () {
+            a += $(this).text();
+            $('#top_up').val(a);
+        });
+        $('.numberDel').click(function () {
+            let str = $('#top_up').val();
+            str = str.substring(0, str.length - 1);
+            if (str == '') {
+                str = 0;
+            }
+            $('#top_up').val(str);
+            console.log(str);
+        })
+        $('.top_header i').click(function () {
+            window.location.href = '/user/Recharge.html'
+        })
+    })
+</script>

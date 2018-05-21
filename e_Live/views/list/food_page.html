@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100px">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <title>美食</title>
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/food_page.css">
+    <link rel="stylesheet" href="../../public/css/iconfont.css">
+    <script src="../../public/js/jquery.min.js"></script>
+    <script src="../../public/js/vue.js"></script>
+    <script src="../../public/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid" id="food_page">
+    <!--头部-->
+    <div id="foot_head" class="row">
+        <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1 foot_head-left">
+            <span class="iconfont icon-zuobian" onclick="window.history.go(-1)"></span>
+        </div>
+        <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10 foot_head_content">
+            <input type="text" class="form-control" placeholder="输入商家、分类或商圈">
+        </div>
+        <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1 foot_head-right">
+            <span class="iconfont icon-xiazai18"></span>
+        </div>
+    </div>
+    <!--导航-->
+    <div id="foot_nav" class="row " data="<%= type %>">
+        <div class="col-lg-3 col-sm-3 col-md-3 col-xs-3" ><%= address.add_m %><span class="iconfont icon-xiala"></span></div>
+        <div class="col-lg-3 col-sm-3 col-md-3 col-xs-3">附近<span class="iconfont icon-xiala"></span></div>
+        <div class="col-lg-3 col-sm-3 col-md-3 col-xs-3">智能排序<span class="iconfont icon-xiala"></span></div>
+        <div class="col-lg-3 col-sm-3 col-md-3 col-xs-3">筛选<span class="iconfont icon-xiala"></span></div>
+    </div>
+    <!--美食主内容-->
+    <div id="food_main" class="row">
+        <div class="food_list" v-for="(item,index) in food_list">
+            <div class="food_list_main col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="food_list_left">
+                    <img :src="img_list[index].img" alt="" width="90%" height="220">
+                </div>
+                <div class="food_list_right">
+                    <h2 class="shop_title">
+                        {{item.name}}
+                    </h2>
+                    <div class="price_star">
+                        <p class="main_star">★★★★★{{item.detail_info.overall_rating}} &nbsp;  | <span class="price">￥{{item.detail_info.price}}/人 </span></p>
+                        <p >
+                            {{item.address}}
+                        </p>
+                    </div>
+                    <p class="food_tip">{{item.detail_info.tag}}</p>
+                    <p class="hot_top">当前人气{{item.detail_info.__ob__.value.comment_num}}</p>
+                    <p class="border_dashed"></p>
+                    <div class="food_end">
+                        <span class="quan"></span>
+                        <span>79代100元，89代100元</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    let food = new Vue({
+        el:'#food_page',
+        data:{
+            food_list:[],
+            food_id_list:[],
+            address:{},
+            img_list:[],
+            food_type:$('#foot_nav').attr('data'),
+        },
+        beforeCreate:function(){
+            let me = this;
+            me.address = {};
+            me.img_list=[];
+            $.ajax({
+                type: 'post',
+                url: '/api/get_address',
+                dataType: 'json',
+                data: {
+                    img_type:'2',
+                    food_type:$('#foot_nav').attr('data')
+                },
+                success: function (address) {
+                    let food_type = address.food_type;
+                    console.log(food_type);
+                    $.ajax({
+                        url: 'http://apis.juhe.cn/cook/query?key=dd81294b59781eeeb7b46ebdb8b0752b&menu=' + food_type + '&rn=20&pn=3',
+                        type: 'get',
+                        dataType: 'jsonp',
+                        success: function (data) {
+                            let result = data.result.data;
+                            for (var i = 0; i < result.length; i++) {
+                                me.img_list.push({img: result[i].albums[0],title:result[i].title,tip:result[i].tags.substr(0,12),price:result[i].id.substr(0,2)});
+                            }
+                            console.log(me.img_list);
+                            me.address = address.data;
+
+                            $.ajax({
+                                type: 'post',
+                                url: 'http://route.showapi.com/52-26',
+                                dataType: 'json',
+                                data: {
+                                    "showapi_appid": '64744', //这里需要改成自己的appid
+                                    "showapi_sign": '4814b85c344848408044c6bf81ef221a',  //这里需要改成自己的应用的密钥secret
+                                    "q": food_type,
+                                    "region":address.data.add_m,
+                                    "scope": "2",
+                                    "page_size": "20",
+                                    "page_num": '0',
+                                },
+                                success: function (result) {
+                                    me.food_list = result['showapi_res_body'].results;
+                                    me.food_list.splice(me.img_list.length);
+                                    console.log(me.food_list);
+                                }
+                            })
+                        }
+                    })
+                }
+            })
+        },
+        methods:{}
+    })
+</script>
+</html>

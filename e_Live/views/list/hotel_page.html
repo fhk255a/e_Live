@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <title>住宿</title>
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/iconfont.css">
+    <link rel="stylesheet" href="../../public/css/hotel.css">
+    <script src="../../public/js/jquery.min.js"></script>
+    <script src="../../public/js/vue.js"></script>
+    <script src="../../public/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--酒店banner-->
+<div class="hotel_banner" v-cloak>
+    <div id="myCarousel" class="carousel slide">
+        <!-- 轮播（Carousel）指标 -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="../../public/images/hotel/hotel_banner.webp" alt="First slide">
+            </div>
+            <div class="item">
+                <img src="../../public/images/hotel/hotel_banner2.webp" alt="Second slide">
+            </div>
+            <div class="item">
+                <img src="../../public/images/hotel/hotel_banner3.webp" alt="Third slide">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="hotel_page" class="container-fluid">
+    <!--酒店主内容-->
+    <div class="hotel_main">
+        <!--酒店头部条件-->
+        <div class="hotel_head row">
+            <ul class="hotel_head_nav col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <li class="nav-active-li">国内</li>
+                <li>国际/港澳台</li>
+                <li>民宿</li>
+                <li>租房</li>
+            </ul>
+            <div class="hotel_head_main">
+                <div class="hotel_head_address col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="hotel_head_left">
+                        <span>目的地</span>
+                    </div>
+                    <div class="hotel_head_right">
+                        <h3>广州</h3>
+                        <span class="iconfont icon-youbian"></span>
+                    </div>
+                </div>
+                <div class="hotel_head_time col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="hotel_head_left">
+                        <span>目的地</span>
+                    </div>
+                    <div class="hotel_head_right">
+                        <h3 style="line-height: 1rem;height: 0.9rem">05月10日 <span>今日入住</span></h3>
+                        <h3 style="line-height: 0.7rem;height: 0.9rem">05月11日 <span>明天离店 共1晚</span></h3>
+                        <span class="iconfont icon-youbian" style="line-height: 1.8rem"></span>
+                    </div>
+                </div>
+                <div class="hotel_head_address col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="hotel_head_left">
+                        <span>搜索</span>
+                    </div>
+                    <div class="hotel_head_right">
+                        <h3>我的附近 <span style="color: #cacaca"> 酒店名/地名/关键词</span></h3>
+                        <span class="iconfont icon-youbian"></span>
+                    </div>
+                </div>
+                <div class="hotel_head_address col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="hotel_head_left">
+                        <span>星级价格</span>
+                    </div>
+                    <div class="hotel_head_right">
+                        <span style="color: #cacaca">不限价格，不限星级</span>
+                        <span class="iconfont icon-youbian"></span>
+                    </div>
+                </div>
+                <a href="list/hotel_info.html">
+                    <div class="hotel_head_btn btn col-lg-12 col-md-12 col-sm-12 col-xs-12">查询酒店</div>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <ul class="hotel_head_type col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <li>
+                    <img src="../../public/images/hotel/hotel_head_type1.png" alt="">
+                    <p>高端酒店</p>
+                </li>
+                <li>
+                    <img src="../../public/images/hotel/hotel_head_type2.png" alt="">
+                    <p>经济连锁</p>
+                </li>
+                <li>
+                    <img src="../../public/images/hotel/hotel_head_type3.png" alt="">
+                    <p>精品酒店</p>
+                </li>
+                <li>
+                    <img src="../../public/images/hotel/hotel_head_type4.png" alt="">
+                    <p>钟点房</p>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <ul class="hotel_head_userlist col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <li>
+                    <span class="iconfont icon-shoucang1"><span>住过/收藏</span></span>
+                </li>
+                <li>
+                    <span class="iconfont icon-dingdan1"><span>我的订单</span></span>
+                </li>
+                <li>
+                    <span class="iconfont icon-huiyuan"><span>会员中心</span></span>
+                </li>
+            </ul>
+        </div>
+        <!--酒店为你推荐-->
+        <div class="hotel_recommend row">
+            <div class="hotel_rm_title col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                为你推荐
+            </div>
+            <div class="hotel_rm_type col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="hotel_re_type_list" style="background: #f4faff;">
+                    <div class="hotel_re_type_title mszq">
+                        <p>民宿专区</p>
+                    </div>
+                    <img src="../../public/images/hotel/mszq.png" alt="" align="center">
+                </div>
+                <div class="hotel_re_type_list" style="background: #fff3f1;">
+                    <div class="hotel_re_type_title zdxq">
+                        <p>钟点小憩</p>
+                    </div>
+                    <img src="../../public/images/hotel/zdxq.png" alt="" align="center">
+                </div>
+                <div class="hotel_re_type_list" style="background: #fff3f1;">
+                    <div class="hotel_re_type_title qlzx">
+                        <p>情侣专享</p>
+                    </div>
+                    <img src="../../public/images/hotel/qlzx.png" alt="" align="center">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $(function () {
+        $("#myCarousel").carousel('cycle');
+    })
+</script>
+</html>

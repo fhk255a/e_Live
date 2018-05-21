@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <title>film_details</title>
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/movie_details.css">
+    <script src="../../public/js/jquery.min.js"></script>
+    <script src="../../public/js/bootstrap.min.js"></script>
+    <script src="../../public/js/vue.js"></script>
+</head>
+<body>
+<div id="movie_details" v-cloak>
+    <!--顶部-->
+    <div class="film_details_top">
+        <div class="film_details_top_back" onclick="window.history.go(-1)"><</div>
+        <div class="film_details_top_list">
+            <span><%= result.data.name%></span>
+        </div>
+        <div class="film_details_top_search">
+            O1
+        </div>
+    </div>
+
+    <div class="film_details_introduce">
+        <!--背景图-->
+        <div class="film_details_introduce_backPic"></div>
+        <div class="film_details_introduce_pic">
+            <div class="film_details_introduce_pic_box">
+                <div class="film_details_introduce_pic_box_img">
+                    <img src="<%= result.data.img%>" width="100%" alt="">
+                </div>
+                <div class="details_introduce_jieshao">
+                    <p class="details_introduce_jieshao_tit1"><%= result.data.name%></p>
+                    <p class="details_introduce_jieshao_tit2"><%= result.data.nameEn%></p>
+                    <p class="details_introduce_jieshao_pingfen">
+                        <span>*****</span>
+                        <span><%=result.data.overallRating%></span>
+                    </p>
+                    <p class="details_introduce_jieshao_pingfennum">
+                        (<%= result.live.playNumTag %>)
+                    </p>
+                    <p class="details_introduce_jieshao_type">
+                        <span><% for(var i = 0;i< result.data.type.length;i++) {%><a><%= result.data.type[i]%>,</a><%}%></span>
+                        <span>2D</span>
+                    </p>
+                    <p class="details_introduce_jieshao_type">
+                        <%=result.data.releaseArea%> / <%= result.data.mins %>
+                    </p>
+                    <p class="details_introduce_jieshao_type">
+                        <%= result.data.releaseDate.substr(0,4)
+                        %>-<%=result.data.releaseDate.substr(4,2)%>-<%=result.data.releaseDate.substr(6,2)%>大陆上映
+                    </p>
+                </div>
+            </div>
+            <div class="details_introduce_want">
+                <div class="details_introduce_want_see">
+                    <span class="icon iconaixing"></span> 想看
+                </div>
+                <div class="details_introduce_want_score">
+                    <span class="icon iconxingxing"></span> 评分
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--影片说明-->
+    <div class="details_buy_introduce">
+        <div class="details_buy_introduce_youhui">特惠购票</div>
+        <div class="details_buy_introduce_jieshao">
+            <%= result.data.story%>
+        </div>
+        <div class="details_buy_introduce_xialai_btn">
+            <span class="icon iconxialai">|\/|</span>
+        </div>
+    </div>
+
+    <!--演员列表-->
+    <div class="details_performer">
+        <div class="details_performer_list">
+            <ul>
+                <li>
+                    <div class="details_performer_list_img">
+                        <img src="<%=result.data.director.img%>" width="100%" height="100%" alt="">
+                    </div>
+                    <p class="details_performer_list_name" style="margin: 0"><%= result.data.director.name%></p>
+                    <p style="margin: 0;font-size: 0.2rem"><%= result.data.director.nameEn%></p>
+                    <p class="details_performer_list_job">导演</p>
+                </li>
+                <% for(var i = 0;i< result.data.actors.length;i++){%>
+                <li>
+                    <div class="details_performer_list_img">
+                        <img src="<%=result.data.actors[i].img%>" width="100%" height="100%"
+                             alt="<%=result.data.actors[i].name%>">
+                    </div>
+                    <p class="details_performer_list_name" style="margin: 0"><%=result.data.actors[i].name%></p>
+                    <p style="margin: 0;font-size: 0.2rem"><%=result.data.actors[i].nameEn%></p>
+                    <p class="details_performer_list_job">演员</p>
+                </li>
+                <%}%>
+            </ul>
+        </div>
+        <div class="details_performer_checkAll">
+            <div>全体演职人员</div>
+            <div>></div>
+        </div>
+    </div>
+
+    <!--媒体库-->
+    <div class="details_performer_media">
+        <div class="details_performer_media_tit">媒体库</div>
+        <div class="details_performer_media_list">
+            <ul>
+                <% for(var i = 0;i< result.data.stageImg.list.length;i++ ){%>
+                <li>
+                    <div>
+                        <img src="<%=result.data.stageImg.list[i].imgUrl%>" width="100%" height="100%"
+                             alt="<%=result.data.stageImg.list[i].imgId%>">
+                    </div>
+                </li>
+                <%}%>
+            </ul>
+        </div>
+        <div class="details_performer_media_more">
+            <div>
+                <div>视频</div>
+                <div> 10 ></div>
+            </div>
+            <div>
+                <div>剧照</div>
+                <div> 84 ></div>
+            </div>
+        </div>
+    </div>
+
+    <!--咨询-->
+    <div class="details_performer_consultation">
+        <div class="details_performer_consultation_tit">媒体库</div>
+        <div class="details_performer_consultation_con">
+            <div class="details_performer_consultation_con_img">
+                <img src="<%=result.data.video.img%>" width="100%" height="100%">
+            </div>
+            <div class="details_performer_consultation_con_tit">
+                《巴霍巴利王2：终结》 幕后特辑，良心巨制印度最卖座影片
+            </div>
+            <div class="details_performer_consultation_con_more"> ></div>
+        </div>
+    </div>
+
+    <!--票房-->
+    <div class="details_performer_office">
+        <div class="">
+            <div class="details_performer_office_num"><%= result.office.ranking%></div>
+            <div class="details_performer_box_office">昨日排名</div>
+        </div>
+        <div class="">
+            <div class="details_performer_office_num"><%= result.office.todayBoxDes%></div>
+            <div class="details_performer_box_office">首周票房(万)</div>
+        </div>
+        <div class="">
+            <div class="details_performer_office_num"><%= result.office.totalBoxDes%></div>
+            <div class="details_performer_box_office"><%= result.office.totalBoxUnit%></div>
+        </div>
+        <div class="details_performer_office_more"> ></div>
+    </div>
+
+    <!--短评-->
+    <div class="details_performer_comment">
+        <div class="details_performer_comment_tit">
+            <div>短评</div>
+            <div>发短评</div>
+        </div>
+
+
+        <!--评论组件、、、、、、、、、-->
+        <div class="movie_comment">
+            <ul>
+                <% for(var i =0;i < result.msg.mini.list.length ;i++){ %>
+                <li>
+                    <div>
+                        <span class="scroe_star"><%=result.msg.mini.list[i].rating%> </span><span
+                            style="color:#333;background: #f0ad4e;border-radius: 50%;width: 0.5rem;height: 0.5rem;line-height: 0.5rem">分</span>
+                    </div>
+                    <div>
+                        <p><%=result.msg.mini.list[i].content%></p>
+                    </div>
+                    <div class="user_comment_info">
+                        <div class="user_img">
+                            <img src="<%=result.msg.mini.list[i].headImg%>" width="100%" height="100%" alt="">
+                        </div>
+                        <div style="text-indent: 1em;color: #bbb;font-size: 0.25rem">
+                            <%=result.msg.mini.list[i].nickname%>
+                        </div>
+                        <div style="float: right">
+                            时间<%=result.msg.mini.list[i].commentDate%>
+                        </div>
+                    </div>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+        <div class="details_performer_comment_check_more">
+            查看全部<%= result.msg.mini.total%>条评论
+        </div>
+    </div>
+
+    <div class="movie_film_relevant">
+        <div>
+            <div class="movie_film_relevant_img">
+                <img src="../../public/images/movie_details/huaxu.png" alt="">
+            </div>
+            <div class="movie_film_relevant_explain">
+                <div>幕后花絮</div>
+                <div>该片是第一部以4K高清格式发布的印度电影</div>
+            </div>
+            <div class="movie_film_relevant_more"> ></div>
+        </div>
+        <div>
+            <div class="movie_film_relevant_img">
+                <img src="../../public/images/movie_details/taici.png" alt="">
+            </div>
+            <div class="movie_film_relevant_explain">
+                <div>经典台词</div>
+                <div>该片是第一部以4K高清格式发布的印度电影</div>
+            </div>
+            <div class="movie_film_relevant_more"> ></div>
+        </div>
+        <div>
+            <div class="movie_film_relevant_img">
+                <img src="../../public/images/movie_details/yuansheng.png" alt="">
+            </div>
+            <div class="movie_film_relevant_explain">
+                <div>电影原声</div>
+                <div>Saahore Baahubali</div>
+            </div>
+            <div class="movie_film_relevant_more"> ></div>
+        </div>
+        <div>
+            <div class="movie_film_relevant_img">
+                <img src="../../public/images/movie_details/jiazhang.png" alt="">
+            </div>
+            <div class="movie_film_relevant_explain">
+                <div>家长引导</div>
+                <div>本片在英国的评级为【15】，未满15岁的儿童不宜观看</div>
+            </div>
+            <div class="movie_film_relevant_more"> ></div>
+        </div>
+    </div>
+    <div class="movie_relevant_film">
+        <div class="movie_relevant_film_tit">相关电影</div>
+        <div class="movie_relevant_film_list">
+            <ul>
+                <% for(var i = 0;i< result.more.length;i++) { %>
+                <li>
+                    <div>
+                        <img src="<%=result.more[i].img %>" alt="">
+                    </div>
+                    <span><%= result.more[i].titleCn%></span>
+                </li>
+                <%}%>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    let json = {
+        "code": "1",
+        "data": {
+            "advertisement": {
+                "advList": [{
+                    "advTag": "",
+                    "endDate": 1548172799,
+                    "isHorizontalScreen": false,
+                    "isOpenH5": false,
+                    "startDate": 1514736000,
+                    "tag": "商城复联3活动",
+                    "type": "203",
+                    "typeName": "影片详情页banner2",
+                    "url": "https://static1.mtime.cn/feature/mobile/banner/2018/0510/fl3hd_750210.html"
+                }], "count": 1, "error": "", "success": true
+            },
+            "basic": {
+                "actors": [{
+                    "actorId": 912602,
+                    "img": "http://img31.mtime.cn/ph/2014/03/15/134919.70417685_1280X720X2.jpg",
+                    "name": "小罗伯特·唐尼",
+                    "nameEn": "Robert Downey Jr.",
+                    "roleImg": "http://img5.mtime.cn/mg/2018/04/25/150454.84946575.jpg",
+                    "roleName": "托尼·斯塔克 / 钢铁侠"
+                }, {
+                    "actorId": 911885,
+                    "img": "http://img5.mtime.cn/ph/2018/03/09/102541.67004197_1280X720X2.jpg",
+                    "name": "克里斯·埃文斯",
+                    "nameEn": "Chris Evans",
+                    "roleImg": "http://img5.mtime.cn/mg/2018/04/25/150508.27229849.jpg",
+                    "roleName": "史蒂夫·罗杰斯 / 美国队长"
+                }, {
+                    "actorId": 1425372,
+                    "img": "http://img31.mtime.cn/ph/2014/03/16/155735.64569449_1280X720X2.jpg",
+                    "name": "克里斯·海姆斯沃斯",
+                    "nameEn": "Chris Hemsworth",
+                    "roleImg": "http://img5.mtime.cn/mg/2018/04/25/150500.31878570.jpg",
+                    "roleName": "雷神"
+                }, {
+                    "actorId": 914053,
+                    "img": "http://img31.mtime.cn/ph/2014/06/03/103206.78345019_1280X720X2.jpg",
+                    "name": "乔什·布洛林",
+                    "nameEn": "Josh Brolin",
+                    "roleImg": "http://img5.mtime.cn/mg/2018/04/25/151341.61632275.jpg",
+                    "roleName": "灭霸"
+                }, {
+                    "actorId": 913614,
+                    "img": "http://img31.mtime.cn/ph/2014/10/23/142321.50900766_1280X720X2.jpg",
+                    "name": "马克·鲁法洛",
+                    "nameEn": "Mark Ruffalo",
+                    "roleImg": "http://img5.mtime.cn/mg/2018/04/25/150921.74264893.jpg",
+                    "roleName": "绿巨人"
+                }, {
+                    "actorId": 938777,
+                    "img": "http://img31.mtime.cn/ph/2014/03/16/200855.52534638_1280X720X2.jpg",
+                    "name": "本尼迪克特·康伯巴奇",
+                    "nameEn": "Benedict Cumberbatch",
+                    "roleImg": "http://img5.mtime.cn/mg/2018/04/25/150539.86438700.jpg",
+                    "roleName": "奇异博士"
+                }, {
+                    "actorId": 1796400,
+                    "img": "http://img5.mtime.cn/ph/2018/01/16/191727.80274844_1280X720X2.jpg",
+                    "name": "汤姆·赫兰德",
+                    "nameEn": "Tom Holland",
+                    "roleImg": "http://img5.mtime.cn/mg/2018/04/25/150526.36446354.jpg",
+                    "roleName": "彼得·帕克 / 蜘蛛侠"
+                }, {
+                    "actorId": 911751,
+                    "img": "http://img31.mtime.cn/ph/2014/03/14/152327.29309922_1280X720X2.jpg",
+                    "name": "斯嘉丽·约翰逊",
+                    "nameEn": "Scarlett Johansson",
+                    "roleImg": "http://img5.mtime.cn/mg/2018/04/25/150533.37295113.jpg",
+                    "roleName": "娜塔莎·罗曼诺夫 / 黑寡妇"
+                }, {
+                    "actorId": 1413341,
+                    "img": "http://img5.mtime.cn/ph/2018/04/09/112404.64882388_1280X720X2.jpg",
+                    "name": "查德维克·博斯曼",
+                    "nameEn": "Chadwick Boseman",
+                    "roleImg": "http://img5.mtime.cn/mg/2018/04/25/150520.67643585.jpg",
+                    "roleName": "黑豹"
+                }, {
+                    "actorId": 1251123,
+                    "img": "http://img31.mtime.cn/ph/2014/04/21/185902.66806292_1280X720X2.jpg",
+                    "name": "塞巴斯蒂安·斯坦",
+                    "nameEn": "Sebastian Stan",
+                    "roleImg": "http://img5.mtime.cn/mg/2018/04/25/150555.60651414.jpg",
+                    "roleName": "巴基·巴恩斯 / 冬兵"
+                }, {
+                    "actorId": 1806378,
+                    "img": "http://img31.mtime.cn/ph/2014/04/15/103438.77476209_1280X720X2.jpg",
+                    "name": "伊丽莎白·奥尔森",
+                    "nameEn": "Elizabeth Olsen",
+                    "roleImg": "http://img5.mtime.cn/mg/2018/04/25/150602.63526177.jpg",
+                    "roleName": "旺达·马克西莫夫 / 红女巫"
+                }, {
+                    "actorId": 915338,
+                    "img": "http://img31.mtime.cn/ph/2014/03/14/152959.70456804_1280X720X2.jpg",
+                    "name": "保罗·贝坦尼",
+                    "nameEn": "Paul Bettany",
+                    "roleImg": "http://img5.mtime.cn/mg/2018/04/25/151138.58503857.jpg",
+                    "roleName": "幻视"
+                }, {
+                    "actorId": 1098276,
+                    "img": "http://img31.mtime.cn/ph/2014/10/17/170007.63597396_1280X720X2.jpg",
+                    "name": "克里斯·帕拉特",
+                    "nameEn": "Chris Pratt",
+                    "roleImg": "http://img5.mtime.cn/mg/2018/04/25/150545.17604567.jpg",
+                    "roleName": "星爵"
+                }, {
+                    "actorId": 913516,
+                    "img": "http://img31.mtime.cn/ph/2014/03/14/153218.69564396_1280X720X2.jpg",
+                    "name": "佐伊·索尔达娜",
+                    "nameEn": "Zoe Saldana",
+                    "roleImg": "http://img5.mtime.cn/mg/2018/04/25/150931.52994899.jpg",
+                    "roleName": "卡魔拉"
+                }, {
+                    "actorId": 913695,
+                    "img": "http://img31.mtime.cn/ph/2014/03/16/161323.55642433_1280X720X2.jpg",
+                    "name": "布莱德利·库珀",
+                    "nameEn": "Bradley Cooper",
+                    "roleImg": "http://img5.mtime.cn/mg/2018/04/25/152312.94802038.jpg",
+                    "roleName": "火箭"
+                }, {
+                    "actorId": 913378,
+                    "img": "http://img31.mtime.cn/ph/2014/09/01/170748.64755972_1280X720X2.jpg",
+                    "name": "范·迪塞尔",
+                    "nameEn": "Vin Diesel",
+                    "roleImg": "http://img5.mtime.cn/mg/2018/04/25/152319.88821957.jpg",
+                    "roleName": "格鲁特"
+                }, {
+                    "actorId": 917063,
+                    "img": "http://img31.mtime.cn/ph/2014/03/19/170357.43056139_1280X720X2.jpg",
+                    "name": "戴夫·巴蒂斯塔",
+                    "nameEn": "Dave Bautista",
+                    "roleImg": "http://img5.mtime.cn/mg/2018/04/25/152103.43017704.jpg",
+                    "roleName": "德拉克斯"
+                }, {
+                    "actorId": 1426693,
+                    "img": "http://img31.mtime.cn/ph/2014/04/29/151443.48684426_1280X720X2.jpg",
+                    "name": "凯伦·吉兰",
+                    "nameEn": "Karen Gillan",
+                    "roleImg": "http://img5.mtime.cn/mg/2018/04/25/152042.77919312.jpg",
+                    "roleName": "星云"
+                }, {
+                    "actorId": 1494016,
+                    "img": "http://img31.mtime.cn/ph/2015/10/29/105909.62492592_1280X720X2.jpg",
+                    "name": "庞·克莱门捷夫",
+                    "nameEn": "Pom Klementieff",
+                    "roleImg": "http://img5.mtime.cn/mg/2018/04/25/151833.60707900.jpg",
+                    "roleName": "螳螂女"
+                }, {
+                    "actorId": 1117773,
+                    "img": "http://img31.mtime.cn/ph/2014/03/14/095058.62924168_1280X720X2.jpg",
+                    "name": "汤姆·希德勒斯顿",
+                    "nameEn": "Tom Hiddleston",
+                    "roleImg": "http://img5.mtime.cn/mg/2018/04/25/151656.31832920.jpg",
+                    "roleName": "洛基"
+                }],
+                "award": {"awardList": [], "totalNominateAward": 0, "totalWinAward": 0},
+                "bigImage": "",
+                "commentSpecial": "复联全员与灭霸巅峰一役引人注目",
+                "community": {},
+                "director": {
+                    "directorId": 903229,
+                    "img": "http://img31.mtime.cn/ph/2014/03/14/152324.64956342_1280X720X2.jpg",
+                    "name": "安东尼·罗素",
+                    "nameEn": "Anthony Russo"
+                },
+                "festivals": [],
+                "hotRanking": -1,
+                "img": "http://img5.mtime.cn/mt/2018/03/30/101316.99752366_1280X720X2.jpg",
+                "is3D": true,
+                "isDMAX": true,
+                "isEggHunt": true,
+                "isFilter": false,
+                "isIMAX": false,
+                "isIMAX3D": true,
+                "isTicket": true,
+                "message": "该操作将清除您对该片的评分！是否确认？",
+                "mins": "150分钟",
+                "movieId": 217497,
+                "movieStatus": 1,
+                "name": "复仇者联盟3：无限战争",
+                "nameEn": "Avengers: Infinity War",
+                "overallRating": 8.2,
+                "personCount": 309,
+                "quizGame": {},
+                "releaseArea": "中国",
+                "releaseDate": "20180511",
+                "sensitiveStatus": false,
+                "showCinemaCount": 152,
+                "showDay": 1526284800,
+                "showtimeCount": 3401,
+                "stageImg": {
+                    "count": 645,
+                    "list": [{
+                        "imgId": 7444778,
+                        "imgUrl": "http://img5.mtime.cn/pi/2018/03/24/094846.14825368_1280X720X2.jpg"
+                    }, {
+                        "imgId": 7444779,
+                        "imgUrl": "http://img5.mtime.cn/pi/2018/03/24/094847.18696819_1280X720X2.jpg"
+                    }, {
+                        "imgId": 7444780,
+                        "imgUrl": "http://img5.mtime.cn/pi/2018/03/24/094847.73289147_1280X720X2.jpg"
+                    }, {
+                        "imgId": 7444781,
+                        "imgUrl": "http://img5.mtime.cn/pi/2018/03/24/094847.14189178_1280X720X2.jpg"
+                    }]
+                },
+                "story": "复仇者联盟的一众超级英雄，必须抱着牺牲一切的信念，与史上最强大反派灭霸殊死一搏，阻止其摧毁宇宙的邪恶计划。",
+                "style": {"isLeadPage": 0, "leadImg": "https://img2.mtime.cn/mg/.jpg", "leadUrl": ""},
+                "totalNominateAward": 0,
+                "totalWinAward": 0,
+                "type": ["动作", "冒险", "奇幻", "科幻"],
+                "url": "https://movie.mtime.com/217497/",
+                "video": {
+                    "count": 51,
+                    "hightUrl": "https://vfx.mtime.cn/Video/2018/03/18/mp4/180318171100381006.mp4",
+                    "img": "http://img5.mtime.cn/mg/2018/03/17/000641.66590457_235X132X4.jpg",
+                    "title": "复仇者联盟3 中文版剧场预告片",
+                    "url": "https://vfx.mtime.cn/Video/2018/03/18/mp4/180318171100381006_480.mp4",
+                    "videoId": 69941,
+                    "videoSourceType": 1
+                }
+            },
+            "boxOffice": {
+                "movieId": 217497,
+                "ranking": 1,
+                "todayBox": 3120360017,
+                "todayBoxDes": "3120.36",
+                "todayBoxDesUnit": "今日实时(万)",
+                "totalBox": 149473334518,
+                "totalBoxDes": "14.95",
+                "totalBoxUnit": "累计票房(亿)"
+            },
+            "live": {
+                "count": 2,
+                "img": "http://img5.mtime.cn/mg/2018/05/09/140603.49661942.jpg",
+                "liveId": 762,
+                "playNumTag": "71.1万次播放",
+                "playTag": "",
+                "status": 4,
+                "title": "时光猜电影复仇者联盟专场全国争霸赛决赛"
+            },
+            "related": {
+                "goodsCount": 68,
+                "goodsList": [{
+                    "background": "#25ACBD",
+                    "goodsId": 107047,
+                    "goodsUrl": "https://mall-wv.mtime.cn/#!/commerce/item/107047/",
+                    "iconText": "新品",
+                    "image": "http://img5.mtime.cn/mg/2018/04/19/114246.30597683_294X294X4.jpg",
+                    "longName": "复仇者联盟3 英雄形象USB数据线-安卓",
+                    "marketPrice": 0,
+                    "marketPriceFormat": "0.00",
+                    "minSalePrice": 2900,
+                    "minSalePriceFormat": "29.00",
+                    "name": "复联3 USB数据线-安卓"
+                }, {
+                    "background": "#25ACBD",
+                    "goodsId": 107113,
+                    "goodsUrl": "https://mall-wv.mtime.cn/#!/commerce/item/107113/?pvkey=1812_4400",
+                    "iconText": "新品",
+                    "image": "http://img5.mtime.cn/mg/2018/04/10/113850.94729136_294X294X4.jpg",
+                    "longName": "复仇者联盟3 毛绒玩偶",
+                    "marketPrice": 0,
+                    "marketPriceFormat": "0.00",
+                    "minSalePrice": 4500,
+                    "minSalePriceFormat": "45.00",
+                    "name": "复仇者联盟3 毛绒玩偶 美国队长"
+                }, {
+                    "background": "#25ACBD",
+                    "goodsId": 106984,
+                    "goodsUrl": "https://mall-wv.mtime.cn/#!/commerce/item/106984/?pvkey=1812_4408",
+                    "iconText": "新品",
+                    "image": "http://img5.mtime.cn/mg/2018/04/17/184900.34715954_294X294X4.jpg",
+                    "longName": "复仇者联盟3 漫威英雄4寸小公仔",
+                    "marketPrice": 12900,
+                    "marketPriceFormat": "129.00",
+                    "minSalePrice": 12900,
+                    "minSalePriceFormat": "129.00",
+                    "name": "复联3 漫威英雄4寸公仔 奇异博士"
+                }],
+                "relateId": 0,
+                "relatedUrl": "https://mall-wv.mtime.cn/?mid=217497&relatedNativeType=1&utm_source=app_movie_btn_more#!/commerce/list/",
+                "type": 0
+            }
+        },
+        "msg": "成功",
+        "showMsg": ""
+    };
+    console.log(json.data);
+    let msg = {
+        "code": "1",
+        "data": {
+            "mini": {
+                "list": [{
+                    "commentDate": 1526457288,
+                    "commentId": 46125594,
+                    "content": "红女巫和雷神确实厉害，抖了个大包袱，期待下一部。",
+                    "headImg": "http://img32.mtime.cn/up/2013/09/13/092312.96256355_128X128.jpg",
+                    "img": "",
+                    "isHot": false,
+                    "isPraise": false,
+                    "locationName": "九江",
+                    "nickname": "小草人七",
+                    "praiseCount": 1,
+                    "rating": 8.1,
+                    "replyCount": 0
+                }, {
+                    "commentDate": 1526455506,
+                    "commentId": 46125482,
+                    "content": "十年铺垫，不容有失，漫威做到了。说实话还是希望能比现在拍的更超出预期一些。坐看妇联4吐便当吧。",
+                    "headImg": "http://img32.mtime.cn/up/2015/06/26/200841.49378738_128X128.jpg",
+                    "img": "",
+                    "isHot": false,
+                    "isPraise": false,
+                    "locationName": "天津",
+                    "nickname": "最终流放",
+                    "praiseCount": 0,
+                    "rating": 7.3,
+                    "replyCount": 0
+                }, {
+                    "commentDate": 1526455219,
+                    "commentId": 46125460,
+                    "content": "有史以来最差的一次观影体验，我说的不是电影，而是同场那个打了10分钟电话又不间断发微信语音的傻逼。手机没有静音功能还是没学过拼音？\n\n在场的其他观众可能都是自带人肉降噪功能的，那孙子说的每一句话都我都听得清清楚楚（丫打了十分钟的电话发了十几条微信，终于成功收款50元），好奇你们是怎么过滤掉的？\n\n跟傻逼说公共场合素质确实是浪费时间，居然还反问我“你包场了么？”，这次我是真想看电影，下次碰到这种傻逼还是直接揍他一顿吧。",
+                    "headImg": "http://img32.mtime.cn/up/2013/04/19/095300.66457105_128X128.jpg",
+                    "img": "",
+                    "isHot": false,
+                    "isPraise": false,
+                    "locationName": "昆明",
+                    "nickname": "冷鹿",
+                    "praiseCount": 0,
+                    "rating": 7,
+                    "replyCount": 1
+                }], "total": 2894
+            },
+            "plus": {
+                "list": [{
+                    "commentDate": 1524537660,
+                    "commentId": 8037411,
+                    "content": "作为超级英雄电影的扛鼎之作，它应该做到锦上添花，也完全值得锦上添花。",
+                    "headImg": "http://img32.mtime.cn/up/2013/01/08/081313.64016596_128X128.jpg",
+                    "isWantSee": false,
+                    "locationName": "",
+                    "nickname": "Cydeny",
+                    "rating": 7.5,
+                    "replyCount": 29,
+                    "title": "复仇者联盟3：大而不能倒？"
+                }], "total": 82
+            }
+        },
+        "msg": "成功",
+        "showMsg": ""
+    }
+    console.log(msg);
+</script>
+</html>

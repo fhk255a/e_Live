@@ -1,0 +1,189 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: #f0f0f0;
+}
+[v-cloak]{display:none}
+#bank_index{
+    margin-top: 6rem;
+}
+
+/*bank_head_fixed*/
+.bank_head_fixed{
+    position: fixed;
+    z-index: 8888;
+    top: 0;
+    right: 0;
+    left: 0;
+    border-bottom: 1px solid #bbb;
+    box-shadow: 0 0 2px #3c3c3c;
+}
+/*foot_head顶部*/
+#foot_head {
+    height: 1.3rem;
+    background: #fff;
+    line-height: 1.3rem;
+    text-align: center;
+    border-bottom: 2px solid #e1e1e1;
+}
+
+.border-bottom-shadow {
+    border-bottom: 1px solid #dedede;
+    box-shadow: 0px 1px 0px #b3b3b3;
+}
+.foot_head_content > input {
+    background: #e6e7e8;
+    border-radius: 50px;
+    height: 0.8rem;
+    font-size: 0.3rem;
+    text-align: center;
+    border: none;
+    margin-top: 0.25rem;
+}
+
+/*foot_nav*/
+#foot_nav{
+    background: #fff;
+    height: 1.24rem;
+    font-size: 0.36rem;
+    color: #666;
+    text-align: center;
+    padding: 0.22rem 0;
+}
+#foot_nav>div{
+    /*border-right: #e5e5e5 1px solid;*/
+    line-height: 0.8rem;
+}
+#foot_nav .iconfont{
+    color: #afaca6;
+    font-size: 0.2rem;
+}
+
+/*银行banner*/
+.bank_banner{
+    height: 2rem;
+    background: #f2dede;
+}
+.bank_search{
+    padding: 0.5rem 0.3rem 0.5rem;
+    border-radius: 30px 30px 0 0;
+    /* height: 13rem; */
+    /*margin-bottom: 0.27rem;*/
+    margin: 0;
+    background: #fff;
+}
+.bank_search input{
+    background: #f1f1f1;
+    line-height: 1.2rem;
+    font-size: 0.4rem;
+    color: #666;
+    width: 100%;
+    border-radius: 10px;
+    margin: 0.1rem 0;
+    text-indent: 2em;
+    border: none;
+    /*padding: 0.5rem 0.3rem;*/
+}
+.bank_select{
+    width: 100%;
+}
+.bank_search>div{
+    padding: 0;
+}
+.bank_search .bank_search_btn{
+    background: #c4e3f3;
+    line-height: 1.2rem;
+    height: 1.2rem;
+    width: 100%;
+    padding: 0 0.2rem;
+    font-size: 0.5rem;
+    text-indent: 0px;
+    color: #fff;
+    text-align: center;
+    border-radius: 1rem;
+    margin-top: 0.2rem;
+}
+
+.bank_list{
+    /*margin-top: 2.8rem;*/
+    margin: 2.8rem 0 0;
+}
+/*bank_list_main*/
+.bank_list_main{
+    /*height: 3rem;*/
+    margin: 0.15rem 0;
+
+}
+.bank_list_content{
+    padding: 0.3rem;
+    /*height: 3rem;*/
+    border-radius: 20px;
+    background: #fff;
+    display: flex;
+    justify-content: space-around;
+}
+.bank_list_left{
+    width: 30%;
+}
+.bank_list_right
+{
+    width: 70%;
+}
+
+
+/*bank_list_right 银行具体内容*/
+.bank_list_right,.bank_list_right .iconfont{
+    font-size: 0.3rem;
+    color: #999;
+}
+.bank_list_right>p{
+    margin: 0.15rem;
+}
+.bank_list_title{
+    font-weight: 600;
+    padding-left: 0.2rem;
+    color: #666;
+    font-size: 0.36rem;
+}
+.bank_list_phone{
+    color: #fb4e44;
+    padding-left: 0.2rem;
+}
+.bank_list_addpro{
+    color: #bbb;
+    padding-left: 0.2rem;
+}
+.bank_list_address{
+    color: #666;
+    padding-left: 0.2rem;
+}
+
+
+/*省份选择框*/
+.add_pro{
+
+}
+.add_pro select{
+    border: none;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    font-size: 0.36rem;
+}
+.add_pro option{
+    font-size: 0.18rem;
+}
+#bank_type_value{
+    height: 1.2rem;
+    font-size: 0.4rem;
+    border: none;
+    width: 100%;
+    background: transparent;
+    padding:0 1rem;
+}
+#bank_type_value option{
+    font-size: 0.2rem;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100px">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=0,maximum-scale=0.4"/>
+    <title>注册登录</title>
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/login_register.css">
+    <script src="../public/js/jquery.min.js"></script>
+    <script src="../public/js/bootstrap.min.js"></script>
+    <script src="../public/js/vue.js"></script>
+    <script src="../public/js/login_register.js"></script>
+</head>
+<body>
+<!--登录页-->
+<div id="login_register">
+    <div id="login" v-if="isShow">
+        <div class="close_btn">
+            <span>×</span>
+        </div>
+        <div class="login_content" >
+            <div class="login_tit">登录</div>
+
+            <div class="login_user_name">
+                <input type="text" id="username" v-model="login_data.username" placeholder="手机号/邮箱">
+
+                <input type="password" id="password" v-model="login_data.password" placeholder="密码">
+
+                <input type="button" class="login_btn" @click="login_click()" value="登录">
+            </div>
+
+            <div class="lost_password">忘记密码</div>
+
+            <div class="not_user" @click="toggle_click">注册</div>
+
+            <div class="other_user">
+                <div class="other_user_login" @click="show_more">社交账号登录</div>
+                <transition  name="more_login">
+                    <div class="other_user_logo" v-if="isLogin_more">
+                        <div>
+                            <img src="../public/images/login/vx_logo.png" alt="">
+                            <div class="other_logo_mask"></div>
+                        </div>
+                        <div>
+                            <img src="../public/images/login/qq_logo.png" alt="">
+                            <div class="other_logo_mask"></div>
+                        </div>
+                        <div>
+                            <img src="../public/images/login/sina_logo.png" alt="">
+                            <div class="other_logo_mask"></div>
+                        </div>
+                    </div>
+                    </transistion>
+            </div>
+        </div>
+    </div>
+    <!--注册页-->
+    <div id="register" v-else >
+        <div class="close_btn">
+            <span class="close_btn_span">×</span>
+        </div>
+        <div class="login_content">
+            <div class="login_tit" ></div>
+            <div class="login_user_name">
+                <input type="text" v-model="register_data.username" placeholder="手机号/邮箱">
+                <input type="password" v-model="register_data.password" placeholder="密码">
+                <div class="verification_code">
+                    <input type="text" placeholder="验证码">
+                    <input type="button" value="获取短信验证码">
+                </div>
+                <input type="button" class="register_btn" @click="register_click()" value="注册">
+            </div>
+            <div class="lost_password">邮箱注册</div>
+            <div class="have_user" @click="toggle_click">有账号？去登录</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,235 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 100px;
+}
+body{
+    background: #f0f0f0;
+}
+[v-cloak]{display:none}
+.film_top{
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 1.4rem;
+    line-height: .9rem;
+    position: fixed;
+    padding: .3rem .4rem 0;
+    box-shadow: 0 1px 0 rgba(0,0,0,.3);
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+.film_top>div{
+    font-size: .4rem;
+    display: inline-block;
+}
+.film_top_back{
+    /*width: 1.3rem;*/
+}
+.film_top_list{
+    border: 2px solid #06c1ae;
+    border-radius: 10px;
+    width: 7rem;
+    height: .9rem;
+    overflow: hidden;
+    color: #06c1ae;
+}
+.film_top_list>div{
+    height: .9rem;
+    width: 50%;
+    text-align: center;
+    border-right: 1px solid #06c1ae;
+    float: left;
+}
+.film_top_list .film_top_list_change{
+    background: #06c1ae;
+    color: #fff;
+}
+.film_top_list>div:last-child{
+    border: none;
+}
+
+.film_top_search{
+    width: .8rem;
+    float: right;
+}
+
+
+
+.broadcast_carousel{
+    margin-top: 1.42rem;
+    height: 2.5rem;
+    background: gainsboro;
+    line-height: 2.5rem;
+    font-size: .4rem;
+    text-align: center;
+ }
+
+.hot_film{
+    background: #fff;
+}
+.hot_film_tit{
+    padding: 0 45px 0;
+    line-height: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+}
+.hot_film_tit>div:first-child{
+    font-size: .45rem;
+    color: #333;
+    text-align: left;
+}
+.hot_film_tit>div:last-child{
+    font-size: .36rem;
+    color: #999;
+    text-align: right;
+}
+.hot_film_recommend{
+    padding-top: 1rem;
+    width: 100%;
+    height: 4.8rem;
+    position: relative;
+    box-sizing:border-box;
+    border-bottom: 1px solid #d8d8d8;
+    overflow-x: auto;
+}
+.hot_film_recommend::-webkit-scrollbar{
+    display: none;
+}
+.hot_film_recommend>ul{
+    width: 1800rem;
+    /*height: 100%;*/
+}
+
+.hot_film_recommend>ul>li{
+    width: 3rem;
+    padding: 0 .2rem 0 .15rem;
+    list-style: none;
+    float: left;
+}
+.hot_film_recommend>ul>li:first-child{
+    padding-left: .3rem;
+}
+.hot_film_recommend>ul>li:last-child{
+    padding-right: .3rem;
+}
+.hot_film_recommend>ul>li>div{
+    overflow: hidden;
+
+    width: 100%;
+    height: 3.7rem;
+    background: gainsboro;
+}
+/*.hot_film_recommend>ul>li>divimg{*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+
+/*}*/
+.hot_film_recommend img{
+    height: 3.7rem;
+    width: 2.65rem;
+    /*width: 100%;*/
+}
+.hot_film_recommend>ul>li>p{
+    font-size: .4rem;
+    text-align: center;
+    line-height: 1rem;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.cat_eye_movie{
+    display: flex;
+    height: 1.32rem;
+    padding: .35rem 0;
+    line-height: .6rem;
+    border-bottom: 1px solid #d8d8d8;
+}
+.cat_eye_movie_logo{
+    /*width: 2.4rem;*/
+    text-align: center;
+    font-size: .44rem;
+    font-weight: bold;
+    color: #ff5252;
+    padding: 0 .4rem;
+    border-right: 1px solid #e5e5e5;
+}
+.cat_eye_movie_tit{
+    color: #666;
+    font-size: .38rem;
+    padding: 0 .25rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+
+
+/*电影列表*/
+.bank_list{
+    /*margin-top: 2.8rem;*/
+    margin: 0.2rem 0 0;
+}
+/*bank_list_main*/
+.bank_list_main{
+    /*height: 3rem;*/
+    margin: 0.15rem 0;
+
+}
+.bank_list_content{
+    padding: 0.3rem;
+    /*height: 3rem;*/
+    border-radius: 20px;
+    background: #fff;
+    display: flex;
+    justify-content: space-around;
+}
+.bank_list_left{
+    width: 30%;
+}
+.bank_list_right
+{
+    width: 70%;
+    padding-left: 40px;
+}
+
+/*bank_list_right 银行具体内容*/
+.bank_list_right,.bank_list_right .iconfont{
+    font-size: 0.3rem;
+    color: #999;
+}
+.bank_list_right>p{
+    margin: 0.15rem;
+}
+.bank_list_title{
+    font-weight: 600;
+    /*padding-left: 0.2rem;*/
+    color: #666;
+    font-size: 0.4rem;
+}
+.bank_list_phone{
+    color: #fb4e44;
+    padding-left: 0.2rem;
+}
+.bank_list_addpro{
+    color: #bbb;
+    padding-left: 0.2rem;
+}
+.bank_list_address{
+    color: #666;
+    padding-left: 0.2rem;
+}
+
+/*查看详情按钮*/
+.watch_btn{
+    font-size: 0.36rem;
+    padding: 0.1rem 0.2rem;
+}

@@ -1,0 +1,245 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 微软雅黑;
+}
+a:link,a:visited,a:hover,a:active{
+    text-decoration:none;
+}
+ul li{
+    list-style: none;
+}
+html{
+    font-size:100px;
+}
+[v-cloak]{display:none}
+@media screen and (min-width:768px) {
+    html {
+        font-size: 200px;
+    }
+}
+@media screen and (min-width:992px) {
+    html {
+        font-size: 300px;
+    }
+    .float2{
+        height: 0.4rem;
+    }
+    #myDetails .float2>div{
+        height: 0.4rem;
+        line-height: 0.4rem;
+    }
+
+}
+/*搜索栏*/
+.header{
+    width: 100%;
+    background: #fff;
+    position: fixed;
+    top: 0;
+}
+.header div{
+    float: left;
+}
+.header_left{
+    width: 32%;
+}
+.header_left a{
+    display: block;
+    font-size: 0.15rem;
+    color: #333;
+    margin: 0.1rem 0.1rem;
+}
+.header_right{
+    width: 60%;
+    /*width: 2.33rem;*/
+    background: rgba(9,9,9,.1);
+    margin: 0.08rem 0;
+    border-radius: 0.03rem;
+}
+.header_right a{
+    display: block;
+    font-size: 0.12rem;
+    text-align: center;
+    color: #333;
+    margin: 0.05rem 0;
+}
+.header_right a i{
+    color: rgba(9,9,9,.8);
+}
+.header_right a span{
+    color: rgba(9,9,9,.5);
+}
+.banner{
+    margin-top: 0.43rem;
+}
+.banner img{
+    width: 100%;
+    height: 1.2rem;
+}
+/*导航栏*/
+#myApp{
+    background: #f6f2f3;
+}
+.navdao a{
+    display: block;
+    width:20%;
+    float: left;
+    color: rgba(9,9,9,.8);
+    text-align: center;
+    background: #fff;
+    line-height: 0.36rem;
+}
+.navdao .redborder{
+    color: rgba(253,64,104,1);
+    border-bottom: 0.018rem solid rgba(253,64,104,1);
+}
+.choice{
+    width: 100%;
+    height: 0.88rem;
+    border-top: 0.01rem solid #ccc;
+}
+.choice a{
+    width: 21%;
+    color: rgba(9,9,9,.5);
+    font-size: 0.12rem;
+    line-height: 0.25rem;
+    margin-left: 0.10rem;
+    margin-top: 0.10rem;
+    text-align: center;
+    display: inline-block;
+    border: 0.01rem solid #ccc;
+    border-radius: 0.2rem;
+}
+.choice .redbackground{
+    color: #fff;
+    background: rgba(253,64,104,1);
+    border: 0.01rem solid #ff305c;
+}
+/*大内容*/
+.Myorder_main{
+    width: 100%;
+    overflow: hidden;
+}
+.Myorder_main>ul{
+    display: flex;
+    height: 400px;
+    width: 500%;
+    position: relative;
+    left: 0px;
+    top: 0;
+}
+.order_main{
+    height: 100%;
+    width: 20%;
+    background: #fff;
+}
+
+/*商品列表*/
+.poi-item-wrapper{
+    width: 100%;
+    height: 100%;
+    padding: .13rem 0 0 .13rem;
+    background: #fff;
+    border-top: 0.01rem solid #ccc;
+    border-bottom: 0.01rem solid #ccc;
+    position: relative;
+}
+.imgbox{
+    height: 1.0rem;
+    width: 1.1rem;
+}
+.imgbox img{
+    width: 100%;
+    height: 100%;
+}
+.stars{
+    width: 0.24rem;
+    height: 0.24rem;
+}
+.poi-info{
+    width: 60%;
+    height: 1.12rem;
+    border-bottom: 0.01rem solid #ccc;
+    position: absolute;
+    top: .13rem;
+    left:1.33rem;
+}
+.poi-name{
+    font-size: .15rem;
+    line-height: .25rem;
+    color: rgba(9,9,9,1);
+}
+.deal-info-wrapper{
+    width: 96%;
+    margin-top: 0.12rem;
+    padding-left: 1.23rem;
+}
+.preferential img{
+    height: .18rem;
+    width: .18rem;
+}
+.price,.classifications,.qg,.area,.catename{
+    font-size: .12rem;
+    line-height: .25rem;
+    color: rgba(9,9,9,.6);
+}
+.stars{
+    font-size: .12rem;
+    line-height: .25rem;
+    color: rgba(226,224,51,1);
+}
+.distance{
+    font-size: .12rem;
+    line-height: .20rem;
+    color: rgba(9,9,9,.6);
+    padding: 0 0.03rem;
+    background: rgba(9,9,9,.1);
+    border-radius: 0.03rem;
+    float: right;
+}
+.catename{
+    border: 0.01rem solid rgba(9,9,9,.6);
+    border-radius: 0.03rem;
+    padding: 0 0.05rem;
+}
+.content{
+    font-size: .12rem;
+    line-height: .30rem;
+    color: rgba(9,9,9,.6);
+}
+a:link,a:hover{
+    text-decoration: none;
+}
+a:active,a:visited{
+    text-decoration: none;
+    color: #ccc;
+}
+/*底部五个按钮部*/
+.fooder{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+.fooder a{
+    display: block;
+    width:20%;
+    float: left;
+    color: rgba(9,9,9,.8);
+    text-align: center;
+    background: #fff;
+    border-top: 0.01rem solid rgba(222,222,222,.9);
+}
+.fooder a i{
+    display: block;
+    font-size: .20rem;
+    text-align: center;
+}
+.fooder a span{
+    display: block;
+    font-size: .02rem;
+    text-align: center;
+}
+.fooder .foodercolor{
+    color: #3fe0cf;
+}

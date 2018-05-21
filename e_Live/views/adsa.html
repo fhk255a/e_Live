@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../public/js/jquery.min.js"></script>
+    <script src="../public/js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <aa :data_list="data_list"></aa>
+    <aa :data_list="data_list2"></aa>
+</div>
+</body>
+<!--<script>-->
+    <!--$(function(){-->
+      <!--$.ajax({-->
+          <!--url:'http://apis.juhe.cn/cook/query?key=af4b70630a8ade2bb9bda2af85f32988&menu=%E7%89%9B%E8%82%89&rn=1',-->
+          <!--data:'',-->
+          <!--type:'post',-->
+          <!--dataType:'jsonp',-->
+          <!--success:function(data){-->
+              <!--console.log(data);-->
+          <!--}-->
+      <!--})-->
+    <!--})-->
+<!--</script>-->
+</html>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            data_list:[
+                {text:'11'},
+                {text:'11'},
+                {text:'11'},
+                {text:'11'}
+            ],
+            data_list2:[
+                {text:'11'},
+                {text:'11'},
+                {text:'11'},
+                {text:'11'},
+                {text:'11'},
+                {text:'11'},
+                {text:'11'},
+                {text:'11'}
+            ],
+        }
+    })
+</script>

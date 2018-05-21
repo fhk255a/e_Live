@@ -1,0 +1,271 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+/*[v-cloak]{display:none}*/
+body {
+    background: #999;
+}
+
+#ticket_page {
+    right: 0;
+    left: 0;
+    width: 100%;
+}
+
+#tk_train {
+    top: 1rem;
+}
+
+#tk_chinese {
+    top: 2.5rem;
+}
+
+#tk_inter {
+    top: 4rem;
+}
+
+#tk_bus {
+    top: 5.5rem;
+}
+
+#tk_ship {
+    top: 7rem;
+}
+
+#tk_total {
+    width: 100%;
+    height: 10rem;
+    right: 0;
+    left: 0;
+    position: relative;
+}
+
+.tk_address input{
+    width: 120%;
+    border: none;
+    border-radius: 20px;
+    /*background: transparent;*/
+    text-align: center;
+    color: #2e6da4;
+    background: #f1f1f1;
+}
+
+#tk_total > div {
+    position: absolute;
+    right: 0;
+    left: 0;
+}
+
+/*火车票
+train ticket
+*/
+.tk_train_bg {
+    background: -webkit-linear-gradient(90deg, #ff6464, #d74d5f); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #ff6464, #d74d5f); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #ff6464, #d74d5f); /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #ff6464, #d74d5f); /* 标准的语法 */
+}
+
+/*国内机票
+chinese ticket -> chinese
+*/
+.tk_chinese_bg {
+    background: -webkit-linear-gradient(90deg, #6249fa, #653acc); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #6249fa, #653acc); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #6249fa, #653acc); /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #6249fa, #653acc); /* 标准的语法 */
+}
+
+/*国际机票
+International ticket -> inter
+*/
+.tk_inter_bg {
+    background: -webkit-linear-gradient(90deg, #328ef9, #3465cf); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #328ef9, #3465cf); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #328ef9, #3465cf); /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #328ef9, #3465cf); /* 标准的语法 */
+}
+
+/*汽车票
+bus ticket
+*/
+.tk_bus_bg {
+    background: -webkit-linear-gradient(90deg, #00d0ab, #0a99aa); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #00d0ab, #0a99aa); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #00d0ab, #0a99aa); /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #00d0ab, #0a99aa); /* 标准的语法 */
+}
+
+/*船票
+ship ticket
+*/
+.tk_ship_bg {
+    background: -webkit-linear-gradient(90deg, #ffa62a, #f98247); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #ffa62a, #f98247); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #ffa62a, #f98247); /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #ffa62a, #f98247); /* 标准的语法 */
+}
+
+.tk_common {
+    background: #fff;
+    border-radius: .5rem;
+    padding: 0;
+}
+
+.tk_head {
+    margin-bottom: 0.28rem;
+    overflow: hidden;
+    height: 1.8rem;
+    border-radius: 50px 50px 0 0;
+    padding: 0 0.35rem;
+}
+
+.tk_head_icon .iconfont {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.2), #e5e5e5, #fff);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 0.8rem;
+    line-height: 1.8rem;
+}
+
+.tk_head_title > h1 {
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.5rem;
+}
+
+.tk_head_icon {
+    padding-right: 0.2rem;
+    float: left;
+    width: 18%;
+    text-align: center;
+}
+
+.tk_head_title {
+    padding: 0.2rem 0;
+    position: relative;
+    width: 82%;
+    float: left;
+}
+
+.tk_head > p {
+    float: right;
+}
+
+.tk_head_title > p {
+    font-size: 0.3rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.tk_toggle_btn {
+    position: absolute;
+    right: 0;
+    color: #666;
+    top: 25%;
+}
+
+.tk_main {
+    height: 7rem;
+    background: #fff;
+    border-radius: 0 0 50px 50px;
+    padding: 0 0.35rem;
+}
+
+.tk_main > div {
+    /*margin-top: 0.28rem;*/
+    margin-bottom: 0.28rem;
+    padding: 0 0.4rem;
+    background: #f5f5f5;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    font-size: 0.5rem;
+    color: #333;
+}
+
+.tk_address > div {
+    float: left;
+    width: 33%;
+}
+
+.tk_address {
+
+}
+
+.tk_time span {
+    color: #999;
+    font-size: 0.3rem;
+    line-height: 1.2rem;
+}
+
+.tk_radio > div {
+    width: 20%;
+    float: left;
+    padding: 0.36rem 0;
+    line-height: 1.2rem;
+}
+
+.tk_radio > div:nth-child(2) {
+    float: right;
+}
+
+.tk_address .iconfont {
+    padding: 0;
+    text-align: center;
+    color: #66afe9;
+    font-size: 0.6rem;
+}
+
+.tk_radio input {
+    position: relative;
+    height: 0.4rem;
+    border: none;
+    width: 20%;
+}
+
+.tk_radio div:nth-child(1) input[type = "radio"]:after {
+    height: 40px;
+    width: 2rem;
+    content: '只看高铁动车';
+    position: absolute;
+    left: 0.8rem;
+    font-size: 0.3rem;
+}
+
+.tk_radio div:nth-child(2) input[type = "radio"]:after {
+    height: 40px;
+    width: 2rem;
+    content: '学生票';
+    position: absolute;
+    left: 0.8rem;
+    font-size: 0.3rem;
+}
+
+.tk_main .tk_btn {
+    background: -webkit-linear-gradient(90deg, #ff9933, #f76c1a); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #ff9933, #f76c1a); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #ff9933, #f76c1a); /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #ff9933, #f76c1a); /* 标准的语法 */
+    border-radius: 1rem;
+    color: #fff;
+    font-size: 0.4rem;
+    margin: 0;
+}
+.tk_main .tk_btn>a{
+    text-decoration: none;
+    color:#fff;
+}
+.tk_main .tk_select_end {
+    padding: 0;
+    background: transparent;
+}
+
+.tk_select_end > div {
+    padding: 0;
+    font-size: 0.3rem;
+    color: #666;
+    float: left;
+    width: 33.3%;
+    line-height: 1.5rem;
+    text-align: center;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100px">
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta charset="UTF-8">
+    <title>附近</title>
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../../public/css/near.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_611794_aw74psf271cbx1or.css">
+    <script src="../../public/js/vue.js"></script>
+    <script src="../../public/js/jquery-3.2.1.min.js"></script>
+    <script src="../../public/js/bootstrap.min.js"></script>
+    <script src="../../public/js/near.js"></script>
+</head>
+<body>
+<!--搜索栏-->
+<div id="myApp" v-cloak>
+    <header class="header">
+        <div class="header_left">
+            <a href="">
+                <span>广州海珠</span>
+                <i class="glyphicon glyphicon-menu-down"></i>
+            </a>
+        </div>
+        <div class="header_right">
+            <a href="search_page.html">
+                <i class="glyphicon glyphicon-search"></i>
+                <span>找附近的吃喝玩乐</span>
+            </a>
+        </div>
+    </header>
+    <div class="banner">
+        <img src="../../public/images/near/1.png" alt="">
+    </div>
+    <!--正文-->
+    <!--导航栏-->
+    <navdao></navdao>
+    <div style="clear: both"></div>
+    <my_main></my_main>
+    <!--尾部-->
+    <fooderqianbaonei></fooderqianbaonei>
+    <!--<nav class="fooder">-->
+        <!--<qianbaonei v-for="(x, index) in fooder_list" :x="x" :index="index" :class="{foodercolor:index==1}"></qianbaonei>-->
+    <!--</nav>-->
+</div>
+</body>
+</html>

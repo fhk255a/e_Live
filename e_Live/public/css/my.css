@@ -1,0 +1,206 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 微软雅黑;
+}
+[v-cloak]{display: none;}
+a:link,a:visited,a:hover,a:active{
+    text-decoration:none;
+}
+html{
+    font-size:100px;
+}
+@media screen and (min-width:768px) {
+    html {
+        font-size: 200px;
+    }
+}
+@media screen and (min-width:992px) {
+    html {
+        font-size: 300px;
+    }
+    .float2{
+        height: 0.4rem;
+    }
+    #myDetails .float2>div{
+        height: 0.4rem;
+        line-height: 0.4rem;
+    }
+
+}
+/*头部*/
+.header{
+    width: 100%;
+    height: 1.68rem;
+    background: #3fe0cf;
+}
+.minheader{
+    width: 100%;
+    height: 0.52rem;
+    background: rgba(63,224,207,0);
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+}
+.minheader div{
+    float: left;
+}
+.header_left{
+    padding: 0.10rem 0.12rem;
+}
+.header_left i{
+    font-size: 0.22rem;
+    color: #fff;
+}
+.header_right{
+    padding: 0.10rem 0.12rem;
+
+}
+.header_right .tt{
+    font-size: 0.19rem;
+    color: #fff;
+}
+.header_right i{
+    font-size: 0.22rem;
+    color: #fff;
+    margin-left: .20rem;
+}
+.minheader .header_right{
+    float: right;
+}
+/*中部*/
+.main{
+    width: 100%;
+    background: #fff;
+    position: relative;
+}
+.mainhead{
+    width: 100%;
+    height: 0.88rem;
+    background: url("../../public/images/my/bei.png") no-repeat;
+    background-size: 100%;
+    position: absolute;
+    top: -.680rem;
+    /*border: 0.01rem solid #ccc;*/
+}
+.mainhead a img{
+    width: 0.66rem;
+    height: 0.66rem;
+    display: block;
+    margin: -.33rem auto;
+    border-radius: 50%;
+    border: 0.032rem solid #fff;
+}
+.username{
+    display: block;
+    font-size: .15rem;
+    margin: .43rem auto;
+    text-align: center;
+    color: rgba(9,9,9,.5);
+}
+
+/*用户类型*/
+.admin_btn{
+    position: absolute;
+    left: 10px;
+    width: 0.25rem;
+    background: rgba(255,255,255,0.5);
+    padding: 0.05rem;
+    border-radius: 5px;
+    font-size: 0.12rem;
+}
+
+
+/*内容*/
+.personal{
+    height: 0.82rem;
+    border-bottom: 0.01rem solid rgba(222,222,222,.5);
+}
+.personal a,.fuwunei a,.qianbaonei a{
+    display: block;
+    float: left;
+    color: rgba(9,9,9,.8);
+    text-align: center;
+    /*background: #fff;*/
+}
+.fuwunei a,.qianbaonei a{
+    width: 25%;
+}
+.personal a i,.fuwunei a i,.qianbaonei a i{
+    display: block;
+    font-size: .23rem;
+    text-align: center;
+    margin-top: 0.15rem;
+}
+.personal a span,.fuwunei a span,.qianbaonei a span{
+    display: block;
+    font-size: .020rem;
+    text-align: center;
+    margin-bottom: 0.15rem;
+}
+.shoucan{
+    color: #fa7792;
+}
+.pingjia{
+    color: #4dd6fe;
+}
+.zuji{
+    color: #3fe0cf;
+}
+.orange{
+
+    color: orange;
+}
+.cyan{
+    color: #3fe0cf;
+}
+
+.qianbao{
+    margin-top: 0.15rem;
+    height: 1.82rem;
+    border-bottom: 0.01rem solid rgba(222,222,222,.5);
+}
+.minqianbao,.minfuwu{
+    display: block;
+    margin-top: 0.15rem;
+    font-size: .13rem;
+    font-weight: bolder;
+}
+.fuwu{
+    margin-bottom: 2.15rem;
+}
+a:link,a:hover{
+    text-decoration: none;
+}
+a:active,a:visited{
+    text-decoration: none;
+    color: #ccc;
+}
+/*底部五个按钮部*/
+.fooder{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+.fooder a{
+    display: block;
+    width:20%;
+    float: left;
+    color: rgba(9,9,9,.8);
+    text-align: center;
+    background: #fff;
+    border-top: 0.01rem solid rgba(222,222,222,.9);
+}
+.fooder a i{
+    display: block;
+    font-size: .20rem;
+    text-align: center;
+}
+.fooder a span{
+    display: block;
+    font-size: .02rem;
+    text-align: center;
+}
+.fooder .foodercolor{
+    color: #3fe0cf;
+}

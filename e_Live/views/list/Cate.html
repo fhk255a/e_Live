@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+        <!--<meta name="viewport" content="width=device-width, initial-scale=0.45, maximum-scale=1, user-scalable=no">-->
+        <!--<meta content="telephone=no" name="format-detection">-->
+    <title>美食</title>
+    <!--引入bootstrapCSS文件-->
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <!--页面主要CSS文件-->
+    <link rel="stylesheet" href="../../public/css/cate.css">
+    <!--阿里图标库-->
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_661300_sb3lfaq7bbo3whfr.css">
+    <link rel="stylesheet" href="../../public/css/iconfont.css">
+    <!--引入Jquery文件-->
+    <script type="text/javascript" src="../../public/js/jquery-3.2.1.min.js"></script>
+    <!--引入bootstrapJS文件-->
+    <script type="text/javascript" src="../../public/js/bootstrap.min.js"></script>
+    <!--引入VUE.JS文件-->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!--页面主要js文件-->
+    <script type="text/javascript" src="../../public/js/cate.js"></script>
+</head>
+<body>
+<div id="cate_page" v-cloak>
+    <heard></heard>
+    <!--轮播-->
+    <div id="panner_lunbo">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="../../public/images/cate_img/panner1.jpg" alt="...">
+                </div>
+                <div class="item">
+                    <img src="../../public/images/cate_img/panner2.jpg" alt="...">
+                </div>
+                <div class="item">
+                    <img src="../../public/images/cate_img/panner3.jpg" alt="...">
+                </div>
+                <div class="item">
+                    <img src="../../public/images/cate_img/panner4.jpg" alt="...">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--列表-->
+    <div id="cate_list">
+        <ul class="c_list_ul">
+            <li v-for="(list1,index) in cate_list1">
+                <a :href="'/food_page/'+index">
+                    <img :src="list1.img"/>
+                    <p>{{list1.text}}</p>
+                </a>
+            </li>
+        </ul>
+        <ul class="c_list_ul">
+            <li v-for="(list2,index) in cate_list2">
+                <a :href="'/food_page/'+(index+4)">
+                    <img :src="list2.img"/>
+                    <p>{{list2.text}}</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--推荐-->
+    <div id="recommend">
+        <ul class="recommend_ul">
+            <li>
+                <img src="../../public/images/cate_img/img1.jpg"/>
+                <div>
+                    <h2 class="color_1">名店抢购</h2>
+                    <p>创辉·海鲜城</p>
+                    <div class="sale">
+                        <!--<span class="sale_1">4.8折</span>-->
+                        <span class="sale_1">58元双人套餐</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img src="../../public/images/cate_img/img2.jpg"/>
+                <div>
+                    <h2 class="color_2">特价快餐</h2>
+                    <p>超级堡</p>
+                    <div class="sale">
+                        <span>14.8元单人A美味套餐1321321321</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <img src="../../public/images/cate_img/img3.jpg"/>
+                <div>
+                    <h2 class="color_3">折上折</h2>
+                    <p>觅茶缘</p>
+                    <div class="sale">
+                        <span>7.6元饮品6选1</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="recommend_panner">
+            <div class="r_p_left">
+                <img src="../../public/images/cate_img/img4.jpg"/>
+            </div>
+            <div class="r_p_right">
+                <h2>
+                    <img src="../../public/images/cate_img/icon1.png">
+                    限时秒杀
+                </h2>
+                <p>80元抢双人套餐</p>
+                <div>
+                    <div class="sale">
+                        <span>7.6元饮品6选1</span>
+                    </div>
+                    <p>
+                        <span class="dizhi">海珠区大塘</span>
+                        <span>3.8KM</span>
+                    </p>
+                </div>
+                <div class="t_time">
+                    <span class="hour">00</span>:<span class="min">00</span>:<span class="sec">00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    let cate_page = new Vue({
+        el:'#cate_page',
+        data:{
+            cate_list1:[
+                {img:'../../public/images/cate_img/list1.jpg',text:'优惠团购'},
+                {img:'../../public/images/cate_img/list2.jpg',text:'附近好卷'},
+                {img:'../../public/images/cate_img/list3.jpg',text:'预约订座'},
+                {img:'../../public/images/cate_img/list4.jpg',text:'外卖'},
+            ],
+            cate_list2:[
+                {img:'../../public/images/cate_img/list5.jpg',text:'新店特惠'},
+                {img:'../../public/images/cate_img/list6.jpg',text:'火锅'},
+                {img:'../../public/images/cate_img/list7.jpg',text:'粤港菜'},
+                {img:'../../public/images/cate_img/list8.jpg',text:'西餐'},
+            ]
+        }
+    });
+    $('#cate_list').find('li').click(function(){
+        ajax_type($(this));
+    });
+    function ajax_type(_this){
+        let tag = _this.find('p').text();
+        $.ajax({
+            type:'get',
+            data:tag,
+            url:'/get_food_type',
+            success:function(data){
+                console.log(data);
+            }
+        })
+    }
+</script>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100px">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <title>ktv页</title>
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/ktvPage.css">
+    <link rel="stylesheet" href="../../public/css/iconfont.css">
+    <script src="../../public/js/jquery.min.js"></script>
+    <script src="../../public/js/vue.js"></script>
+    <script src="../../public/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid" v-cloak>
+    <div id="ktvPage">
+        <!--ktv顶部-->
+        <div id="ktv_head" class="row border-bottom-shadow">
+            <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1 ktv_head-left">
+                <span class="iconfont icon-zuobian" onclick="window.history.go(-1)"></span>
+            </div>
+            <div class="col-lg-10 col-sm-10 col-md-10 col-xs-10 ktv_head_content">
+                <input type="text" class="form-control" placeholder="输入商家、分类或商圈">
+            </div>
+            <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1 ktv_head-right">
+                <span class="iconfont icon-xiazai18"></span>
+            </div>
+        </div>
+        <!--ktv头部主题-->
+        <div id="ktv_top" class="row border-bottom-shadow">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ktv_top_hot">
+                <div class="text-center">
+                    <img src="../../public/images/ktv1.png" alt="">
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ktv_top_hot">
+                <div class="text-center">
+                    <img src="../../public/images/ktv2.png" alt="">
+                    <img src="../../public/images/ktv2_2.png" alt="">
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ktv_top_hot">
+                <div class="text-center">
+                    <img src="../../public/images/ktv3.png" alt="">
+                    <img src="../../public/images/ktv3_2.png" alt="">
+                </div>
+            </div>
+        </div>
+        <!--ktv主题下菜单-->
+        <div id="ktv_top_nav" class="row border-bottom-shadow">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div>量贩式KTV</div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div>附近</div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div>智能排行</div>
+            </div>
+        </div>
+        <!--ktv主要内容-->
+        <div id="ktv_main" class="row">
+            <div class="ktv_main" v-for="(item,index) in ktv_list">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border-bottom-shadow">
+                    <div class="ktv_main_title">
+                        <div class="ktv_main_title_left">
+                            <img :src="img_list[index]" alt="" width="100%" height="100%">
+                        </div>
+                        <div class="ktv_main_title_right">
+                            <h1>
+                                {{item.name}}
+                            </h1>
+                            <p class="ktv_main_star">★★★★★<span>&nbsp;{{item.detail_info.overall_rating}}分</span></p>
+                            <div>
+                                <p class="price">
+                                    {{parseInt(item.detail_info.price/2)}}元
+                                    <a>{{item.city}}/{{item.area}} </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ktv_main_list">
+                        <div class="ktv_main_list_left">
+                            <div class="price_div">
+                                <p class="ding"></p>
+                                <p class="price price_span">{{parseInt(item.detail_info.price)}}元起</p>
+                            </div>
+                        </div>
+                        <div class="ktv_main_list_right">
+                            <p>豪华小房3小时49元/人，豪华中房3小时</p>
+                            <h6 class="text-right">已订{{parseInt(item.detail_info.price*14)}}</h6>
+                        </div>
+                    </div>
+                    <div class="ktv_main_list">
+                        <div class="ktv_main_list_left">
+                            <div class="price_div">
+                                <p class="tuan"></p>
+                                <p class="price price_span">{{parseInt(item.detail_info.price/1.5)}}元起</p>
+                            </div>
+                        </div>
+                        <div class="ktv_main_list_right">
+                            <p>豪华小房3小时49元/人，豪华中房3小时</p>
+                            <h6 class="text-right">月售{{parseInt(item.detail_info.price*22)}}</h6>
+                        </div>
+                    </div>
+                    <div class="ktv_main_end text-center">
+                        <p>查看其他团购 <span class="iconfont icon-xiala1"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--ktv底部菜单-->
+        <div id="ktv_footer">
+            <div class="ktv_footer_content">
+                <p class="iconfont icon-ego-menu"></p>
+                <p class="iconfont icon-fangkuang"></p>
+                <p class="iconfont icon-zuobian"></p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    let ktv_page = new Vue({
+        el:'#ktvPage',
+        data:{
+            ktv_list:[],
+            address:{},
+            img_list:[]
+        },
+        beforeCreate:function(){
+            let me = this;
+            me.address={};
+            me.ktv_list=[];
+            $.ajax({
+                type: 'post',
+                url: '/api/get_address',
+                dataType: 'json',
+                data: {
+                    img_type:'1',
+                    type:'1'
+                },
+                success: function (address) {
+                    console.log(address);
+                    me.address = address.data;
+                    me.img_list = address.img;
+                    me.img_list = me.img_list.sort(function(){
+                        return Math.random()*0.5;
+                    });
+                    $.ajax({
+                        type: 'post',
+                        url: 'http://route.showapi.com/52-26',
+                        dataType: 'json',
+                        data: {
+                            "showapi_appid": '64744', //这里需要改成自己的appid
+                            "showapi_sign": '4814b85c344848408044c6bf81ef221a',  //这里需要改成自己的应用的密钥secret
+                            "q": 'ktv',
+                            "region":me.address.add_m,
+                            "scope": "2",
+                            "page_size": "20",
+                            "page_num": '0',
+                        },
+                        success: function (result) {
+                            me.ktv_list = result['showapi_res_body'].results;
+                            console.log(me.ktv_list);
+                        }
+                    })
+                }
+            })
+
+        },
+    })
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100px">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <title>订单页面</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--加载bootstrap-->
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <!--加载css样式-->
+    <link rel="stylesheet" href="../../public/css/order.css">
+    <!--加载图标-->
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_508930_q8i5knw39mabrzfr.css">
+    <!--加载vuejs-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <!--加载当前页面的vue-->
+    <script src="../../public/js/jquery-3.2.1.min.js"></script>
+    <script src="../../public/js/order.js"></script>
+</head>
+<body style="background: #f8f8f8;">
+
+<div class="container" >
+    <div class="row">
+        <nav id="navbar" class="navbar ">
+            <div class="col-xs-1 col-md-1 nav_left1">
+                <i class="iconfont icon-zuojiantou" onclick="window.history.go(-1)"></i>
+            </div>
+            <div class="col-xs-10 col-md-10">易生活</div>
+        </nav>
+
+    </div>
+</div>
+    <div class="container"  id="myApp" v-cloak>
+        <order v-for="x in commodity_list " :imgurl="x.imgurl" :name="x.name" :title1="x.title1"
+               :title2="x.title2" :title3="x.title3" :money="x.money" :number="x.number" :title4="x.title4" :title5="x.title5"
+               :title6="x.title6" :title7="x.title7" :title8="x.title8" :number2="x.number2" :number3="x.number3">
+        </order>
+    </div>
+</body>
+</html>

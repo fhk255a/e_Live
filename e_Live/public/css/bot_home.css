@@ -1,0 +1,465 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background: #f4f4f4;
+}
+/*坐标定位*/
+.set_address_fixed{
+    background: rgba(25,155,72,0.1);
+    /*padding: 0.3rem;*/
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    
+}
+.add_logo_bg{
+    background: url("../../public/images/add_logo.png") no-repeat center ;
+    height: 8rem;
+    top: 2rem;
+    position: relative;
+}
+.address_box{
+    border-radius: 20px;
+    padding: 0.2rem 0.4rem;
+    background:  #fff;
+    position: absolute;
+    width: 50%;
+
+    left: 25%;
+    top: 65%;
+    /*margin:  50% auto;*/
+}
+.set_address_fixed select{
+    background: transparent;
+    width: 100%;
+    border: none;
+    color: #333;
+    /*float: left;*/
+    padding: 0.2rem;
+    /*width: 100%;*/
+    font-size: 0.36rem;
+    /*padding: 0.1rem;*/
+    line-height: 0.36rem;
+    border-radius: 10px;
+
+}
+.set_address_fixed option{
+    font-size: 0.2rem;
+}
+.set_address_fixed .btn{
+    border-top: 2px dashed #bbb;
+    line-height: 0.6rem;
+    padding:0 0.3rem;
+    text-align: center;
+    border-radius: 10px;
+    height: 0.7rem;
+    font-size: 0.3rem;
+}
+
+
+/*顶部搜索*/
+.up_search{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 1rem;
+    line-height: 1rem;
+    display: flex;
+    z-index: 999;
+    background: #fff;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
+}
+.top_weather_seat{
+    text-indent: 30px;
+    width: 27%;
+    display: flex;
+    text-decoration: none;
+    color: #666;
+}
+.top_weather{
+    width: 42%;
+    height: 100%;
+    font-size: .32rem;
+    position: relative;
+}
+.top_seat{
+    font-size: .42rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.top_search{
+    width: 60%;
+}
+.top_search .input_box{
+    margin-top: .1rem;
+    width: 100%;
+    height: 80%;
+    border-radius: .75rem;
+    background: #f6f6f6;
+    position: relative;
+    padding: 0 .12rem;
+    line-height: .8rem;
+    display: inline-block;
+}
+.top_search .input_box span{
+    padding: 0 .12rem;
+    display: inline-block;
+    font-size: .5rem;
+}
+.top_search .input_box input{
+    position: absolute;
+    width: 78%;
+    height: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: .4rem;
+}
+.top_more{
+    width: 10%;
+    text-align: center;
+    font-size: .75rem;
+    color: #666;
+}
+.top_more a{
+    text-decoration: none;
+    color: #666;
+}
+
+
+
+
+
+/*中间内容*/
+.home_main{
+    margin-top: 1rem;
+    font-size: .4rem;
+}
+/*轮播*/
+.carousel{
+    height: 300px;
+    width: 100%;
+}
+#carousel-example-generic img{
+    display: inline-block;
+    width: 100%;
+    height: 300px;
+}
+/*菜单选择栏*/
+.main_menu{
+    text-align: center;
+}
+.main_menu ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+.main_menu ul li{
+    width: 20%;
+    list-style: none;
+    height: 2rem;
+}
+.main_menu ul li>a{
+    display: block;
+    padding: .2rem 0;
+    background: #fff;
+}
+.main_menu ul li>a:link{
+    text-decoration: none;
+}
+.main_menu ul li>a:hover{
+    text-decoration: none;
+}
+.main_menu ul li>a:active{
+    text-decoration: none;
+}
+.main_menu ul li>a:visited{
+    text-decoration: none;
+}
+.main_menu_img{
+    margin: 0 auto;
+    display: block;
+    width: 60%;
+    height: 1.2rem;
+    border-radius: 50%;
+}
+.main_menu_img img{
+    margin-top: .1rem;
+}
+.main_menu ul li .main_menu_tit{
+    font-size: .28rem;
+    color: #666;
+}
+/*优惠推荐*/
+.main_recommend{
+    background: #fff;
+    padding: .1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+.main_recommend>div{
+    width: 48%;
+    height: 3.3rem;
+    margin: 1%;
+    position: relative;
+    overflow: hidden;
+}
+.left_mark{
+    font-size: .32rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: .12rem .24rem;
+    color: #fff;
+}
+.main_recommend_tit{
+    margin-top: .85rem;
+    padding: 0 .24rem;
+    font-size: .36rem;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.main_recommend_type{
+    font-size: .27rem;
+    margin-top: .2rem;
+    color: #999;
+    padding: 0 .24rem;
+}
+.main_recommend_img{
+    border-radius: 50%;
+    width: 2.8rem;
+    height: 2.8rem;
+    background: #fff;
+    position: absolute;
+    top: 1.35rem;
+    left: 2.45rem;
+    overflow: hidden;
+}
+.main_recommend_img img{
+    width: 100%;
+    height: 100%;
+}
+/*广告位*/
+.advertisement{
+    margin: .27rem 0;
+    height: 1.5rem;
+    width: 100%;
+    background: #9ebdff;
+}
+
+/*猜你喜欢*/
+.main_like{
+    background: #fff;
+    padding-bottom: .1rem;
+}
+.guess_like{
+    color: #999;
+    text-align: center;
+    padding-top: .3rem;
+}
+
+
+/*推荐列表*/
+.mgl_bar{
+    display: flex;
+    padding: .3rem;
+    border-bottom: 1px solid #ccc;
+}
+.mgl_bar_img{
+    position: relative;
+    width: 2.4rem;
+    height: 1.8rem;
+    margin-right: .4rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.mgl_bar_img_mark{
+    top: .16rem;
+    position: absolute;
+    padding: 0 .1rem;
+    height: 0.5rem;
+    line-height: 0.55rem;
+    background: #5cb2fd;
+    color: #e7ffff;
+    font-size: .3rem;
+}
+.mgl_bar_content{
+    width: 70%;
+}
+.mgl_bar_content_tit{
+    width: 100%;
+    display: flex;
+    margin-bottom: .16rem;
+}
+.mgl_bar_content_tit_b{
+    width: 80%;
+    font-weight: bold;
+    font-size: .5rem;
+}
+.mgl_bar_content_tit_ran{
+    width: 20%;
+    line-height: .7rem;
+    font-size: .3rem;
+    text-align: right;
+}
+.mgl_bar_content_type{
+    margin-bottom: .16rem;
+    font-size: .36rem;
+    color: #6b6b6b;
+}
+.mgl_bar_content_price{
+    display: flex;
+}
+.mgl_bar_content_pay{
+    width: 40%;
+    margin-bottom: .16rem;
+    font-size: .27rem;
+    font-weight: bold;
+    color: #ff6600;
+}
+.mgl_bar_content_money{
+    font-size: .45rem;
+    line-height: .45rem;
+}
+.discount_mark{
+    display: inline-block;
+    padding: .05rem .15rem;
+    font-size: .34rem;
+    border-radius: .05rem;
+    border: 1px solid #fecfcc;
+    color: #fb4e44;
+    background: #fff5f4;
+}
+.mgl_bar_content_payNum{
+    text-align: right;
+    width: 60%;
+    color: #6b6b6b;
+    font-size: .32rem;
+}
+.del_button{
+    margin-top: .1rem;
+    line-height: .32rem;
+    height: .32rem;
+    display: inline-block;
+    padding: 0 .1rem;
+    border: 1px solid #ccc;
+    border-radius: .15rem;
+    color: #d8d8d8;
+    margin-left: .1rem;
+}
+
+.mgl_bar_recommend{
+    padding: .3rem .15rem;
+    border-bottom: 1px solid #ccc;
+}
+.mgl_bar_recommend_tit{
+    padding-left: .15rem;
+    font-size: .45rem;
+    font-weight: bold;
+    color: #333;
+}
+.mgl_bar_recommend_img{
+    display: flex;
+}
+.mgl_bar_recommend_img>div{
+    width: 100%;
+    /*height: 2.5rem;*/
+    border: 1px solid #ccc;
+    margin: .15rem;
+    background: gainsboro;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.mgl_bar_recommend_img>div img{
+    width: 100%;
+}
+.mgl_bar_recommend_rep{
+    padding-left: .15rem;
+    font-size: .36rem;
+    color: #6b6b6b;
+    /*position: relative;*/
+}
+.mgl_bar_recommend_rep>.del_button{
+    position: absolute;
+    right: .36rem;
+}
+
+
+.check_all{
+    padding: .25rem 0;
+    text-align: center;
+    color: #0ab3b8;
+    font-size: .34rem;
+    background: #fff;
+    margin-bottom: 1.8rem;
+}
+.m-back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 2.2rem;
+    right: .7rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    font-size: 1rem;
+    line-height: 1rem;
+    background-image: url(../../public/images/Top-0.png);
+    background-size: 1rem 1rem;
+    z-index: 666;
+    cursor: pointer;
+}
+
+/*底部按钮组*/
+.bot_check{
+    z-index: 999;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 1.4rem;
+    background: #fff;
+}
+.bot_check ul li{
+    list-style: none;
+    font-size: .32rem;
+    text-align: center;
+    float: left;
+    width: 20%;
+    height: 100%;
+}
+.bot_check ul li a{
+    padding-top: 10px;
+    display: block;
+    color: #666;
+}
+.bot_check ul li a .bot_btn{
+    height: .8rem;
+    display: block;
+    font-size: .5rem;
+}
+.bot_check ul li a .bot_btn i{
+
+}
+.bot_check ul li:nth-child(1)>a{
+    color: #0ab3b8;
+}
+.bot_check ul li>a:active{
+    text-decoration: none;
+}
+.bot_check ul li>a:visited{
+    text-decoration: none;
+}
+.bot_check ul li>a:hover{
+    text-decoration: none;
+}
+.bot_check ul li>a:link{
+    text-decoration: none;
+}

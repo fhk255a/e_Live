@@ -1,0 +1,524 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 100px;
+}
+body{
+    background: #f4f4f4;
+}
+/*[v-cloak]{display:none}*/
+/*顶部*/
+.film_details_top{
+    top: 0;
+    width: 100%;
+    height: 1.4rem;
+    line-height: .9rem;
+    position: fixed;
+    padding: .3rem .4rem 0;
+    box-shadow: 0 1px 0 rgba(0,0,0,.3);
+    background: #fff;
+    display: flex;
+    z-index: 999;
+    justify-content: space-between;
+}
+.film_details_top>div{
+    display: inline-block;
+}
+.film_details_top_back{
+    font-size: .6rem;
+}
+.film_details_top_list{
+    font-size: .48rem;
+    color: #333;
+    text-align: center;
+    border-radius: 10px;
+    width: 7rem;
+    height: .9rem;
+    overflow: hidden;
+}
+.film_details_top_search{
+    font-size: .6rem;
+    width: .8rem;
+    float: right;
+}
+
+.film_details_introduce{
+    margin-top: 1.4rem;
+    /*background: #fff;*/
+    position: relative;
+}
+.film_details_introduce_backPic{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -3;
+    background: #a2b4ee;
+    /*background-image: url("../images/hone_page/zhujiang.png");*/
+    /*background-size: 100%;*/
+}
+.film_details_introduce_pic{
+    background: rgba(180,180,180,.8);
+    padding: .4rem .4rem 0 ;
+    height: 6rem;
+    border-bottom: 1px solid #e5e5e5;
+}
+.film_details_introduce_pic_box{
+    width: 100%;
+    height: 4.10rem;
+    display: flex;
+}
+.film_details_introduce_pic_box_img{
+    width: 2.96rem;
+    height: 100%;
+    border: 2px solid #fff;
+}
+.details_introduce_jieshao{
+    margin-left: .3rem;
+}
+.details_introduce_jieshao_tit1{
+    font-size: .42rem;
+    color: #fff;
+}
+.details_introduce_jieshao_tit2{
+    font-size: .32rem;
+    color: #e2e1e0;
+}
+.details_introduce_jieshao_pingfen{
+    font-size: .5rem;
+    color: #ffc600;
+}
+.details_introduce_jieshao_pingfennum{
+    font-size: .25rem;
+    color: #d2d0cc;
+}
+.details_introduce_jieshao_type{
+    font-size: .32rem;
+    color: #d2d0cc;
+}
+.details_introduce_want{
+    margin-top: .3rem;
+    height: .84rem;
+    line-height: .84rem;
+    display: flex;
+    justify-content: space-between;
+}
+.details_introduce_want>div{
+    width: 4.2rem;
+    text-align: center;
+    font-size: .32rem;
+    color: #f3f3f3;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: rgba(240,240,240,.6);
+}
+.details_introduce_want>div>span{
+    color: #ccc;
+}
+
+.details_buy_introduce{
+    padding: .45rem .45rem 0;
+    background: #fff;
+    position: relative;
+    border-bottom: 1px solid #e5e5e5;
+}
+.details_buy_introduce_youhui{
+    width: 100%;
+    height: 1rem;
+    line-height: 1rem;
+    font-size: .46rem;
+    color: #fff;
+    text-align: center;
+    background: #ff9900;
+    border-radius: 10px;
+}
+.details_buy_introduce_jieshao{
+    font-size: .4rem;
+    margin-top: .28rem;
+    line-height: .55rem;
+    height: 1.7rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*display: -webkit-box;*/
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.details_buy_introduce_xialai_btn{
+    /*position: relative;*/
+    width: 2rem;
+    text-align: center;
+    margin: 0 auto;
+    font-size: .4rem;
+}
+
+.details_performer{
+    margin-top: .3rem;
+    background: #fff;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+.details_performer_list{
+    padding: .45rem .3rem .3rem;
+    border-bottom: 1px solid #e5e5e5;
+    overflow-x: auto;
+}
+.details_performer_list::-webkit-scrollbar {
+    display: none;
+}
+.details_performer_list>ul{
+    list-style: none;
+    width: 1000rem;
+}
+.details_performer_list>ul>li{
+    width: 2rem;
+    height: 3.6rem;
+    padding: 0 .1rem;
+    float: left;
+    text-align: center;
+}
+.details_performer_list_img{
+    width: 100%;
+    height: 2.4rem;
+    background: gainsboro;
+}
+.details_performer_list_name{
+    margin-top: .2rem;
+    font-size: .3rem;
+    color: #000;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.details_performer_list_job{
+    font-size: .27rem;
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+
+.details_performer_checkAll{
+    height: 1.1rem;
+    line-height: 1.1rem;
+    padding: 0 .4rem;
+    font-size: .38rem;
+    display: flex;
+    justify-content: space-between;
+}
+.details_performer_checkAll>div:first-child{
+    color: #666;
+}
+.details_performer_checkAll>div:last-child{
+    color: #aaa;
+}
+
+/*<!--媒体库-->*/
+.details_performer_media{
+    height: 4.4rem;
+    background: #fff;
+    margin-top: .3rem;
+    padding: .4rem;
+    border-top: 2px solid #e5e5e5;
+    border-bottom: 2px solid #e5e5e5;
+}
+.details_performer_media_tit{
+    font-size: .42rem;
+    line-height: .42rem;
+    color: #666;
+    font-weight: bold;
+}
+.details_performer_media_list{
+    width: 100%;
+    margin-top: .4rem;
+    overflow-x: auto;
+}
+.details_performer_media_list::-webkit-scrollbar{
+    display: none;
+}
+.details_performer_media_list>ul{
+    width: 1200rem;
+    list-style: none;
+}
+.details_performer_media_list>ul>li{
+    width: 2.6rem;
+    height: 1.9rem;
+    padding: 0 .1rem;
+    float: left;
+}
+.details_performer_media_list>ul>li>div{
+    width: 100%;
+    height: 100%;
+    background: gainsboro;
+}
+.details_performer_media_more{
+    margin-top: .4rem;
+    display: flex;
+    font-size: .42rem;
+    line-height: .42rem;
+}
+.details_performer_media_more>div{
+    display: flex;
+    justify-content: space-between;
+}
+.details_performer_media_more>div:first-child{
+    width: 32%;
+}
+.details_performer_media_more>div:last-child{
+    margin-left: .4rem;
+    width: 60%;
+}
+.details_performer_media_more>div>div{
+
+}
+
+
+/*<!--咨询-->*/
+.details_performer_consultation{
+    margin-top: .3rem;
+    padding: .4rem;
+    background: #fff;
+    border-bottom: 2px solid #e5e5e5;
+    border-top: 2px solid #e5e5e5;
+}
+.details_performer_consultation_tit{
+    font-size: .42rem;
+    line-height: .42rem;
+}
+.details_performer_consultation_con{
+    margin-top: .3rem;
+    display: flex;
+}
+.details_performer_consultation_con_img{
+    width: 2.7rem;
+    height: 2rem;
+    background: gainsboro;
+}
+.details_performer_consultation_con_tit{
+    margin-top: .4rem;
+    width: 6rem;
+    margin-left: .3rem;
+    font-size: .4rem;
+    line-height: .5rem;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.details_performer_consultation_con_more{
+    font-size: .4rem;
+    line-height: 2rem;
+}
+
+/*<!--票房-->*/
+.details_performer_office{
+    margin-top: .3rem;
+    background: #fff;
+    display: flex;
+    padding: .4rem;
+    justify-content: space-between;
+}
+.details_performer_office>div{
+    padding: 0 .2rem;
+}
+.details_performer_office_num{
+    font-size: .52rem;
+    color: #ff9900;
+    text-align: center;
+}
+.details_performer_box_office{
+    font-size: .27rem;
+    color: #a0a0a0;
+    text-align: center;
+}
+.details_performer_office_more{
+    font-size: .4rem;
+    line-height: 1.2rem;
+}
+
+/*<!--短评-->*/
+.details_performer_comment{
+    margin-top: .3rem;
+    background: #fff;
+    border-bottom: 2px solid #e5e5e5;
+    border-top: 2px solid #e5e5e5;
+}
+.details_performer_comment_tit{
+    padding: 0 .4rem;
+    display: flex;
+    justify-content: space-between;
+    line-height: 1.28rem;
+    border-bottom: 2px solid #e5e5e5;
+}
+.details_performer_comment_tit>div:first-child{
+    font-size: .4rem;
+    color: #666;
+    /*border-bottom: 1px solid #e1e1e1;*/
+    font-weight: bold;
+}
+.details_performer_comment_tit>div:last-child{
+    font-size: .36rem;
+    color: #06c1ae;
+    margin-top: .25rem;
+    width: 2rem;
+    height: .8rem;
+    line-height: .8rem;
+    text-align: center;
+    border-radius: .5rem;
+    border: 1px solid #06c1ae;
+}
+
+/*评价*/
+.movie_comment{
+    padding: 0.3rem;
+}
+.movie_comment>ul>li{
+    font-size: 0.2rem;
+    list-style: none;
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid #e1e1e1;
+}
+.movie_comment>ul>li p{
+    margin: 0.1rem;
+    font-size: 0.34rem;
+    color: #666;
+    text-indent: 3em;
+}
+/*评分*/
+.scroe_star{
+    font-size: 0.4rem;
+    text-indent: 0.5em;
+    color: #ff9900;
+}
+/*头像*/
+.user_comment_info{
+    height: 0.5rem;
+    /*display: flex;*/
+    /*justify-content: start;*/
+}
+.user_comment_info img{
+    border-radius: 50%;
+    width: 100%;
+}
+.user_comment_info .user_img{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+.user_comment_info>div{
+    line-height: 0.5rem;
+    float: left;
+}
+
+.details_performer_comment_check_more{
+    border-top: 2px solid #e5e5e5;
+    font-size: .38rem;
+    color: #06c1ae;
+    text-align: center;
+    line-height: 1rem;
+}
+.movie_film_relevant{
+    margin-top: .3rem;
+    background: #fff;
+    border-bottom: 2px solid #e5e5e5;
+    border-top: 2px solid #e5e5e5;
+    padding: 0 .15rem;
+}
+.movie_film_relevant>div{
+    display: flex;
+    height: 1.5rem;
+    padding: .2rem;
+    justify-content: space-between;
+    border-bottom: 2px solid #e5e5e5;
+}
+.movie_film_relevant>div:last-child{
+    border: none;
+}
+.movie_film_relevant_img{
+    width: 1rem;
+    height: 1rem;
+}
+.movie_film_relevant_img>img{
+    width: 100%;
+    height: 100%;
+}
+.movie_film_relevant_explain{
+    margin-left: .4rem;
+    width: 80%;
+}
+.movie_film_relevant_explain>div:first-child{
+    font-size: .42rem;
+}
+.movie_film_relevant_explain>div:last-child{
+    font-size: .32rem;
+    color: #6f6f6f;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.movie_film_relevant_more{
+    font-size: .4rem;
+    line-height: 1rem;
+}
+
+
+.movie_relevant_film{
+    margin-top: .3rem;
+    background: #fff;
+    border-bottom: 2px solid #e5e5e5;
+    border-top: 2px solid #e5e5e5;
+    margin-bottom: .3rem;
+}
+.movie_relevant_film_tit{
+    padding-left: .2rem;
+    font-size: .42rem;
+    line-height: 1.2rem;
+    border-bottom: 2px solid #e5e5e5;
+}
+.movie_relevant_film_list{
+    padding: .4rem .2rem;
+    overflow-x: auto;
+}
+.movie_relevant_film_list::-webkit-scrollbar{
+    display: none;
+}
+.movie_relevant_film_list>ul{
+    list-style: none;
+    width: 1800rem;
+}
+.movie_relevant_film_list>ul>li{
+    width: 2rem;
+    float: left;
+    padding: 0 .1rem;
+}
+.movie_relevant_film_list>ul>li>div{
+    width: 100%;
+    height: 2.4rem;
+    background: gainsboro;
+}
+.movie_relevant_film_list>ul>li>div>img{
+    width: 100%;
+    height: 100%;
+}
+.movie_relevant_film_list>ul>li>span{
+    display: block;
+    text-align: center;
+    margin-top: .3rem;
+    font-size: .27rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+

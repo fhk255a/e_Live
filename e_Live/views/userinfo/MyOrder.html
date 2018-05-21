@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <title>我的订单</title>
+    <!--引入bootstrapCSS文件-->
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <!--页面主要CSS文件-->
+    <link rel="stylesheet" href="../../public/css/MyOrder.css">
+    <!--阿里图标库-->
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_661300_yqsmr6lh1is02j4i.css">
+    <!--引入Jquery文件-->
+    <script type="text/javascript" src="../../public/js/jquery-3.2.1.min.js"></script>
+    <!--&lt;!&ndash;引入bootstrapJS文件&ndash;&gt;-->
+    <!--<script type="text/javascript" src="../js/bootstrap.min.js"></script>-->
+    <!--引入VUE.JS文件-->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="../../public/js/myorder.js"></script>
+
+</head>
+<body>
+<div id="app2" v-cloak  >
+    <my-header :h_title="h_title" :r_xiabiao="right_xiabiao" :h_title_right="h_right"></my-header>
+    <my_main></my_main>
+</div>
+
+
+
+
+</body>
+</html>

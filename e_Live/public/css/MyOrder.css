@@ -1,0 +1,196 @@
+@charset "UTF-8";
+@font-face {
+    font-family: SketchRockwell; /*这里是说明调用来的字体名字*/
+    src: url('../fonts/glyphicons-halflings-regular.svg'); /*这里是字体文件路径*/
+}
+html{
+    font-size: 100px;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #f0f0f0;
+    color: #666;
+}
+header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+.order{
+    width: 100%;
+    height: 1.45rem;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #b3b3b3;
+}
+.Return{
+    float: left;
+    width: 1.4rem;
+    height: 100%;
+    text-align: center;
+}
+.Return>i{
+    font-size: 1rem;
+    line-height: 1.44rem;
+}
+.order_cen{
+    float: left;
+    height: 100%;
+}
+.order_cen span,.order_right span{
+    font-size: 0.5rem;
+    line-height: 1.44rem;
+}
+.right_xiabiao:after{
+    content: "◢";
+    position: relative;
+    top: 0.15rem;
+}
+.order_right{
+    float: right;
+    padding-right: 0.3rem;
+    color: #32b9aa;
+}
+
+/*顶部导航*/
+.h_nav{
+    width: 100%;
+    height: 1.35rem;
+    background: #fff;
+}
+.h_nav ul{
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid #d8d8d8;
+    display: flex;
+    justify-content: space-between;
+}
+.h_nav ul li{
+    list-style: none;
+    height: 100%;
+    line-height: 1.35rem;
+    flex-grow:1;
+    text-align: center;
+}
+.h_nav ul li span{
+    font-size: .42rem;
+}
+
+.active{
+    color: #32b9aa;
+    border-bottom: 9px solid #32b9aa;
+}
+
+
+/*主体*/
+.Myorder_main{
+    width: 100%;
+    overflow: hidden;
+    padding-top: 3rem;
+}
+.Myorder_main>ul{
+    display: flex;
+    width: 500%;
+    position: relative;
+    left: 0px;
+    top: 0;
+}
+.order_main{
+    height: 100%;
+    width: 20%;
+    background: #fff;
+}
+.o_main_box{
+    width: 100%;
+    height: 3.55rem;
+    padding: .5rem .35rem 0;
+    border-bottom: 1px solid #d8d8d8;
+    display: flex;
+    justify-content: space-between;
+}
+.o_main_box_img{
+    width: 1.14rem;
+    height: 1.14rem;
+}
+.o_main_box_img>img{
+    display: block;
+    width: 1.14rem;
+    height: 1.14rem;
+}
+.o_main_box_text{
+    width: 7.7rem;
+    height: 100%;
+    position: relative;
+}
+.o_main_box_text_1{
+    margin-bottom: .2rem;
+    display: flex;
+    justify-content: space-between;
+}
+.o_main_box_text_1>h1{
+    margin: 0;
+    font-size: .5rem;
+    color: #444;
+    font-weight: bold;
+}
+.o_main_box_text_1>span{
+    font-size: .35rem;
+    color: #32b9aa;
+}
+.o_main_box_text>p{
+    font-size: .4rem;
+    color: #999;
+}
+/*按钮*/
+.o_main_box_btn{
+    height: .8rem;
+    position: absolute;
+    right: 0;
+    bottom: .3rem;
+    display: flex;
+    justify-content: space-between;
+}
+.o_main_box_btn1{
+    width: 1.9rem;
+    height: .75rem;
+    margin-left: 0.1rem;
+    color: #ffa011;
+    border: 2px solid #ffa011;
+    border-radius: 10px;
+}
+.o_main_box_btn1 span{
+    font-size: .38rem;
+
+    line-height: .75rem;
+}
+
+/*页面为空的组件的CSS样式*/
+.null{
+    /*height: 800px;*/
+    width: 4rem;
+    margin: 4.2rem auto;
+    text-align: center;
+}
+.null>p{
+    font-size: .35rem;
+    color:#000;
+    margin: .2rem;
+}
+.null>span{
+    font-size: .3rem;
+    color:#888;
+}
+.null_btn{
+    width: 100%;
+    height: 1rem;
+    margin-top: .5rem;
+    border: 2px solid #32b9aa;
+    font-size: .5rem;
+    color: #32b9aa;
+    line-height: 1rem;
+}
+
+[v-cloak]{display:none}

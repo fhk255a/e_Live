@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <title>index</title>
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/bot_home.css">
+    <script src="../public/js/jquery.min.js"></script>
+    <script src="../public/js/bootstrap.min.js"></script>
+    <script src="../public/js/vue.js"></script>
+</head>
+<body>
+<!--定位坐标-->
+<div class="set_address_fixed" v-cloak>
+    <div class="add_logo_bg">
+        <div class="address_box">
+            <div class="row">
+                <select name="add_p" id="add_pro" @change="select_p_click()">
+                    <option :value="item.pro_id" v-for="(item,index) in address_p_list">{{item.p}}</option>
+                </select>
+                <select name="add_m" v-if="ishow_m" id="add_m" @change="select_m_click()">
+                    <option :value="index" v-for="(item,index) in address_m_list">{{item}}</option>
+                </select>
+                <select name="add_d" id="add_d" v-if="ishow_d" @change="select_d_click()">
+                    <option :value="index" v-for="(item,index) in address_d_list">{{item}}</option>
+                </select>
+            </div>
+            <div class="row">
+                <div class="btn btn-info form-control" id="address_btn">确认</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $(function () {
+        let home_page = new Vue({
+            el: '.set_address_fixed',
+            data: {
+                address_p_list: [],
+                address_m_list: [],
+                address_d_list: [],
+                address: {
+                    p_id: 0,
+                    add_p: '广东',
+                    m_id: 0,
+                    add_m: '广州市',
+                    d_id: 0,
+                    add_d: '海珠区'
+                },
+                ishow_m: false,
+                ishow_d: false,
+            },
+            methods: {
+                select_p_click: function () {
+
+
+                    let me = this;
+                    this.address.p_id = $('#add_pro').val();
+                    this.address.add_p = this.address_p_list[this.address.p_id];
+                    $.ajax({
+                        type: 'post',
+                        url: 'api/getadd_/m',
+                        data: {p_id: me.address.p_id},
+                        success: function (address) {
+                            me.address_m_list = address;
+                        }
+                    })
+                    this.ishow_m = true;
+                },
+                select_m_click: function () {
+                    let me = this;
+                    this.address.m_id = $('#add_m').val();
+                    this.address.add_m = this.address_p_list[this.address.m_id];
+                    $.ajax({
+                        type: 'post',
+                        url: 'api/getadd_/d',
+                        data: {
+                            p_id: me.address.p_id,
+                            m_id: me.address.m_id
+                        },
+                        success: function (address) {
+                            me.address_d_list = address;
+                        }
+                    })
+                    this.ishow_d = true;
+                },
+                select_d_click: function () {
+                    this.address.d_id = $('#add_d').val();
+                    this.address.add_d = this.address_p_list[this.address.d_id];
+                }
+
+            },
+            beforeCreate: function () {
+                let me = this;
+                $.ajax({
+                    type: 'post',
+                    url: '/api/getadd_/p',
+                    data: {},
+                    success: function (address) {
+                        me.address_p_list = address;
+                    }
+                })
+            },
+        });
+        $('#address_btn').click(function () {
+            $.ajax({
+                url: '/get_address',
+                type: 'post',
+                data: {
+                    list: [
+                        {add_p: $('#add_pro').val(),add_name:$('#add_pro').find("option:selected").text()},
+                        {add_m: $('#add_m').val(),add_name:$('#add_m').find("option:selected").text()},
+                        {add_d: $('#add_d').val(),add_name:$('#add_d').find("option:selected").text()},]
+                },
+                success: function (data) {
+                    $(location).attr('href', '/');
+                }
+            })
+
+        })
+
+    })
+</script>
+</html>

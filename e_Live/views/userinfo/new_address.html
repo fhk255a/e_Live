@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100px">
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta charset="UTF-8">
+    <title>新建收货地址</title>
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../../public/css/new_address.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_611794_n0plzg1109all3di.css">
+    <script src="../../public/js/vue.js"></script>
+    <script src="../../public/js/jquery-3.2.1.min.js"></script>
+    <script src="../../public/js/bootstrap.min.js"></script>
+    <script src="../../public/js/new_address.js"></script>
+</head>
+<body class="body">
+<div id="myApp" class="address" v-cloak>
+    <!--头部-->
+    <div class="addressheader">
+        <i class="iconfont icon-dayuhao"></i>
+        <span class="address_user">新建收货地址</span>
+        <span class="keep" @click="submit_click()">保存</span>
+    </div>
+    <div class="add">
+        <div class="form">
+            <span>姓名</span>
+            <input class="user" type="text" minlength="2" maxlength="15"placeholder="最少2个,最多15个字" v-model="item.name">
+        </div>
+        <div class="form">
+            <span>电话</span>
+            <input class="user" type="text" minlength="11" maxlength="11"placeholder="请输入手机号" v-model="item.phone">
+        </div>
+        <div class="form">
+            <span>地区</span>
+            <input class="user" type="text" minlength="6" maxlength="50"placeholder="省份 城市 县区" v-model="item.pmd">
+        </div>
+        <div class="form">
+            <span>地址</span>
+            <input class="user" type="text" minlength="5" maxlength="60"placeholder="请填写详细地址" v-model="item.address">
+        </div>
+    </div>
+    <div class="default">
+        <input class="checkbox" type="checkbox" @change="item.isDefault = !item.isDefault">
+        <span>设置成默认收货地址</span>
+    </div>
+</div>
+</body>
+</html>

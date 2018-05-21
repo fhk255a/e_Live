@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100px">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no">
+    <title>易生活头条</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--加载bootstrap-->
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <!--加载css样式-->
+    <link rel="stylesheet" href="../../public/css/headline.css">
+    <!--加载图标-->
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_508930_qm1fvpbee7vw8kt9.css">
+    <!--加载vuejs-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <!--加载当前页面的vue-->
+    <script src="../../public/js/headline.js"></script>
+</head>
+<body>
+<div id="heading" v-cloak>
+    <div class="container navbar-fixed-top head">
+        <div class="row">
+            <span class="col-xs-1 col-md-1" onclick="window.location.href='/bot_find.html'">
+                <i class="iconfont icon-zuojiantou"></i>
+            </span>
+            <span class="col-xs-11 col-md-11">易生活app头条</span>
+        </div>
+    </div>
+    <div class="container">
+        <ul class=" head2">
+            <li class="col-xs-12 col-md-12">72平简约风小户型二居室，电视背景墙简单又有创意</li>
+            <li class="col-xs-12 col-md-12">
+                <span class="col-xs-1 col-md-1">
+                    <a href="">环</a>
+                </span>
+                <span class="col-xs-7 col-md-7">环球设计家居</span>
+                <span class="col-xs-4 col-md-4">
+                    <a href="">+关注</a></span>
+            </li>
+        </ul>
+    </div>
+    <div class="container nav1">
+            <cont v-for="x in cont_list" :imgurl="x.imgurl" :title="x.title"></cont>
+    </div>
+    <div class="container">
+        <div class="nav2">
+            <ul class="nav2_1">
+                <li class="col-xs-3 col-md-3">作者简介</li>
+                <li class="col-xs-9 col-md-9"></li>
+            </ul>
+            <ul class="nav2_2 col-xs-12">
+                <li class="col-xs-12 col-md-12">
+                    <span class="col-xs-2 col-md-2">
+                        <a href="">环</a>
+                    </span>
+                    <span class="col-xs-10 col-md-10">环球设计家居</span>
+                </li>
+                <li class="col-xs-12 col-md-12">捕捉当下家居潮流动向，每天推荐最新的家居资讯</li>
+            </ul>
+            <ul class="nav2_3 col-xs-12 col-md-12">
+                <li class="col-xs-3 col-md-3">
+                    <i class="iconfont icon-liulanliang_icon"></i>1万
+                </li>
+                <li class="col-xs-9 col-md-9">举报</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container" style="padding: 0;border-bottom: 1px solid #cccccc" >
+        <ul class="more col-xs-12">
+            <li>|</li>
+            <li>阅读更多</li>
+        </ul>
+    </div>
+<!--更多-->
+    <moreread v-for="x in moreread_list" :title="x.title" :name="x.name" :imgurl2="x.imgurl2"></moreread>
+    <div class="more_buttom">
+        <img class="col-xs-12 col-md-12" src="../../public/images/头条/12.jpg" alt="">
+    </div>
+
+    <!--底部-->
+    <fort v-for="x in fort_list" :name1="x.name1" :name2="x.name2" :name3="x.name3"></fort>
+</div>
+
+</body>
+</html>
